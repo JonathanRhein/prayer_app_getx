@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_app_getx/widgets/app_bar_background.dart';
+import 'package:get/get.dart';
+import 'package:prayer_app_getx/shared_widgets/app_bar_background.dart';
 
 class AppBarView extends StatelessWidget {
   final bool hasBackButton;
@@ -23,18 +24,18 @@ class AppBarView extends StatelessWidget {
       ),
       padding: EdgeInsets.only(top: 70.0, left: 50),
       height: 370,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 30),
-            child: Row(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 this.hasBackButton
                     ? GestureDetector(
                         child: new Icon(Icons.arrow_back),
-                        onTap: () => Navigator.of(context).pop(),
+                        onTap: () => Get.back(),
                       )
                     : Container(),
                 GestureDetector(
@@ -42,15 +43,18 @@ class AppBarView extends StatelessWidget {
                     onTap: () => Scaffold.of(context).openEndDrawer()),
               ],
             ),
-          ),
-          SizedBox(
-            height: 70,
-          ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headline1,
-          ),
-        ],
+            SizedBox(
+              height: 70,
+            ),
+            FittedBox(
+              fit: BoxFit.fitWidth,
+                        child: Text(
+                title,
+                style: Theme.of(context).textTheme.headline1,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

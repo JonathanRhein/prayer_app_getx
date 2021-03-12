@@ -5,8 +5,8 @@ ThemeData lightTheme() {
 
   final ThemeData lightTheme = ThemeData.light();
 
-  // Use below to change color settings
-  final Color _mainTextColor = Color(0xFF3A3A3A);
+  // Use below color definitions to change colors that apply to more than one property of ThemeData
+  final Color _mainTextColor = Color(0xFF1F1F1F);
   final Color _mainAccentColor = Color(0xFF917f26);
 
 
@@ -26,6 +26,8 @@ ThemeData lightTheme() {
   }
 
   return lightTheme.copyWith(
+
+      // The text theme for fonts
       textTheme: _textTheme(lightTheme.textTheme),
 
       // The foreground color for widgets (knobs, text, overscroll edge effect, etc).

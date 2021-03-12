@@ -5,13 +5,14 @@ ThemeData darkTheme() {
 
   final ThemeData darkTheme = ThemeData.dark();
 
-  // Use below to change color settings
+  // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFFFFFFFF);
   final Color _mainAccentColor = Color(0xFF917f26);
 
 
   // Define everything text related here
   TextTheme _textTheme(TextTheme base) {
+
     return base.copyWith(
         headline1: base.headline1.copyWith(
           fontFamily: SharedStyles.fontFamilyHeadline1,
@@ -26,6 +27,8 @@ ThemeData darkTheme() {
   }
 
   return darkTheme.copyWith(
+
+      // The text theme for fonts
       textTheme: _textTheme(darkTheme.textTheme),
 
       // The foreground color for widgets (knobs, text, overscroll edge effect, etc).
@@ -33,6 +36,7 @@ ThemeData darkTheme() {
 
       // The background color for major parts of the app (toolbars, tab bars, etc)
       primaryColor: Color(0xFF0B0B0B),
+
 
       // A color that contrasts with the primaryColor, e.g. used as the remaining part of a progress bar.
       backgroundColor: Color(0xFFFFFFFF),
