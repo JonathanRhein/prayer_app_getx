@@ -12,11 +12,11 @@ class AppBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        color: Theme.of(context).primaryColor,
+        color: context.theme.primaryColor,
         shape: AppBarBackground(),
         shadows: [
           BoxShadow(
-            color: Theme.of(context).shadowColor,
+            color: context.theme.shadowColor,
             blurRadius: 4.0,
             spreadRadius: 2.0,
           ),
@@ -50,7 +50,7 @@ class AppBarView extends StatelessWidget {
               fit: BoxFit.fitWidth,
                         child: Text(
                 title,
-                style: Theme.of(context).textTheme.headline1,
+                style: context.textTheme.headline1,
               ),
             ),
           ],

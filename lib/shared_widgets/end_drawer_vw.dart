@@ -9,7 +9,7 @@ class EndDrawerView extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            decoration: BoxDecoration(color: Theme.of(context).accentColor),
+            decoration: BoxDecoration(color: context.theme.accentColor),
             child: Container()
           ),
           ListTile(

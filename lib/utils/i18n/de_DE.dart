@@ -3,8 +3,7 @@ class DeDETranslations {
     'title': 'Gebete', 
     'agpeya': 'Agpeya',
     'settings': 'Einstellungen',
-    'color_scheme': 'Farbschema',
-    'light': 'Hell',
-    'dark': 'Dunkel'
+    'dark_mode': 'Dunkelmodus',
+    'language': 'Sprache'
     };
 }

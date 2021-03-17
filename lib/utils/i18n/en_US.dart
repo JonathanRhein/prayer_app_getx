@@ -3,8 +3,7 @@ class EnUSTranslations {
     'title': 'Prayers', 
     'agpeya': 'Agpeya',
     'settings': 'Settings',
-    'color_scheme': 'Color Scheme',
-    'light': 'Light',
-    'dark': 'Dark'
+    'dark_mode': 'Dark Mode',
+    'language': 'Language'
     };
 }
