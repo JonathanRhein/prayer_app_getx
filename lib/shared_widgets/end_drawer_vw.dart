@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:prayer_app_getx/localizations.dart';
 
 class EndDrawerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final labels = AppLocalizations.of(context);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -14,7 +16,7 @@ class EndDrawerView extends StatelessWidget {
           ),
           ListTile(
               title: Text(
-                'settings'.tr,
+                labels.settings.title,
                 textAlign: TextAlign.end,
               ),
               onTap: () => {

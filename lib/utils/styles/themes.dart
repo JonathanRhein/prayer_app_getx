@@ -12,6 +12,8 @@ ThemeData lightTheme() {
   // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFF1F1F1F);
   final Color _mainAccentColor = Color(0xFF917f26);
+  final Color _mainAccentColorHue = Color(0xFFE1E0D6);
+
 
   // Define everything text related here
   TextTheme _textTheme(TextTheme base) {
@@ -54,6 +56,8 @@ ThemeData lightTheme() {
       switchTheme: SwitchThemeData(
         thumbColor:
             MaterialStateProperty.resolveWith((states) => _mainAccentColor),
+        trackColor: 
+            MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
       ),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
@@ -69,7 +73,7 @@ ThemeData darkTheme() {
   // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFFFFFFFF);
   final Color _mainAccentColor = Color(0xFF917f26);
-  final Color _mainAccentColorHue = Color(0xFF83806D);
+  final Color _mainAccentColorHue = Color(0xFF484848);
 
   // Define everything text related here
   TextTheme _textTheme(TextTheme base) {
