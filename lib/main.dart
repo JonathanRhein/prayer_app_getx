@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -21,25 +22,33 @@ class PrayerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LanguageController>(
-      builder: (languageController) => GetMaterialApp(
-        locale: languageController.getLocale,
-        localizationsDelegates: [
-          const AppLocalizationsDelegate(), 
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalizations.languages.keys.toList(),
-        theme: Themes.light,
-        darkTheme: Themes.dark,
-        themeMode: ThemeService().theme,
-        debugShowCheckedModeBanner: false,
-        getPages: [
-          GetPage(name: '/', page: () => HomeView()),
-          GetPage(name: '/agpeya_hours', page: () => AgpeyaHoursView()),
-          GetPage(name: '/settings', page: () => SettingsView()),
-        ],
-        initialRoute: '/',
-      )
-    );
+        builder: (languageController) => GetMaterialApp(
+              locale: languageController.getLocale,
+              localizationsDelegates: [
+                const AppLocalizationsDelegate(),
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              supportedLocales: AppLocalizations.languages.keys.toList(),
+              theme: Themes.light,
+              darkTheme: Themes.dark,
+              themeMode: ThemeService().theme,
+              debugShowCheckedModeBanner: false,
+              getPages: [
+                GetPage(name: '/', page: () => HomeView()),
+                GetPage(name: '/agpeya_hours', page: () => AgpeyaHoursView()),
+                GetPage(name: '/settings', page: () => SettingsView()),
+              ],
+              initialRoute: '/',
+              // builder inserts the AnnotatedRegion above all subsequent routes (i.e. widgets)
+              // and handles the switch of font color of the status bar (time, signal, battery etc.)
+              // when switching modes
+              builder: (context, child) => AnnotatedRegion(
+                child: child,
+                value: ThemeService().isLightMode
+                    ? SystemUiOverlayStyle.light
+                    : SystemUiOverlayStyle.dark,
+              ),
+            ));
   }
 }
