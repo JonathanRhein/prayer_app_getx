@@ -57,9 +57,14 @@ class SettingsView extends StatelessWidget {
 
 myLanguageListTile(BuildContext context) {
   final labels = AppLocalizations.of(context);
-  return ListTile(
+  return GetBuilder<LanguageController>(builder: 
+    (controller) => ListTile(
       leading: Text(
         labels.settings.language,
+        style: context.textTheme.bodyText1,
+      ),
+      trailing: Text(
+        controller.getLanguageForToken(controller.currentLanguage),
         style: context.textTheme.bodyText1,
       ),
       onTap: () {
@@ -112,5 +117,6 @@ myLanguageListTile(BuildContext context) {
                     ),
                   ],
                 )));
-      });
+      })
+  );
 }

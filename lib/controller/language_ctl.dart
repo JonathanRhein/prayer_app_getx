@@ -69,6 +69,8 @@ class LanguageController extends GetxController {
     update();
   }
 
+  /* Below code is for handling the language switcher dialog in settings */
+
   // retrieves the index of current language within list of languages in Globals
   _getLanguageIndex() {
     Globals.languageOptions
@@ -84,5 +86,9 @@ class LanguageController extends GetxController {
     selectedLanguage = _languageList[value];
     currentLanguageIndex = value;
     update();
+  }
+
+  String getLanguageForToken(token) {
+    return Globals.languageOptions.firstWhere((language) => language.token == token).language;
   }
 }
