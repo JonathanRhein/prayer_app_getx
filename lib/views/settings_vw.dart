@@ -10,8 +10,6 @@ import 'package:get/get.dart';
 import 'package:prayer_app_getx/utils/constants/globals.dart';
 
 class SettingsView extends StatelessWidget {
-  final SettingsController _settingsController = Get.put(SettingsController());
-
   @override
   Widget build(context) {
     final labels = AppLocalizations.of(context);
@@ -30,7 +28,8 @@ class SettingsView extends StatelessWidget {
                       labels.settings.darkMode,
                       style: context.textTheme.bodyText1,
                     )),
-                languageListTile(context)
+                // languageListTile(context),
+                myLanguageListTile(context),
               ],
             ),
             AppBarView(title: labels.settings.title, hasBackButton: true),
@@ -39,19 +38,79 @@ class SettingsView extends StatelessWidget {
   }
 }
 
-languageListTile(BuildContext context) {
-    final labels = AppLocalizations.of(context);
-    return GetBuilder<LanguageController>(
-      builder: (controller) => ListTile(
-        title: Text(labels.settings.language),
-        trailing: DropdownPicker(
-          menuOptions: Globals.languageOptions,
-          selectedOption: controller.currentLanguage,
-          onChanged: (value) async {
-            await controller.updateLanguage(value);
-            Get.forceAppUpdate();
-          },
-        ),
+/* languageListTile(BuildContext context) {
+  final labels = AppLocalizations.of(context);
+  return GetBuilder<LanguageController>(
+    builder: (controller) => ListTile(
+      title: Text(labels.settings.language),
+      trailing: DropdownPicker(
+        menuOptions: Globals.languageOptions,
+        selectedOption: controller.currentLanguage,
+        onChanged: (value) async {
+          await controller.updateLanguage(value);
+          Get.forceAppUpdate();
+        },
       ),
-    );
-  }
+    ),
+  );
+} */
+
+myLanguageListTile(BuildContext context) {
+  final labels = AppLocalizations.of(context);
+  return ListTile(
+      leading: Text(
+        labels.settings.language,
+        style: context.textTheme.bodyText1,
+      ),
+      onTap: () {
+        Get.dialog(GetBuilder<LanguageController>(
+            builder: (controller) => AlertDialog(
+                  title: Text(
+                    labels.settings.chooseLanguage,
+                    style: context.textTheme.bodyText1,
+                  ),
+                  content: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
+                      children: Globals.languageOptions
+                          .asMap()
+                          .entries
+                          .map((item) => RadioListTile(
+                                activeColor: context.theme.accentColor,
+                                title: Text(item.value.language,
+                                    style: context.textTheme.bodyText1),
+                                groupValue: controller.currentLanguageIndex,
+                                value: item.key,
+                                onChanged: (value) {
+                                  controller.selectLanguage(value);
+                                },
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text(
+                        labels.general.save,
+                        style: context.textTheme.bodyText2,
+                      ),
+                      onPressed: () async {
+                        await controller
+                            .updateLanguage(controller.selectedLanguage);
+                        Get.back();
+                      },
+                    ),
+                    TextButton(
+                      child: Text(
+                        labels.general.close,
+                        style: context.textTheme.bodyText2,
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
+                  ],
+                )));
+      });
+}

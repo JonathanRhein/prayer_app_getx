@@ -9,18 +9,23 @@ import 'package:prayer_app_getx/utils/constants/globals.dart';
 class LanguageController extends GetxController {
   static LanguageController get to => Get.find();
   final language = "".obs;
-  final store = GetStorage();
+  final _box = GetStorage();
+  final _key = 'language';
+  List<String> _languageList = [];
+  int currentLanguageIndex;
+  String selectedLanguage = "";
 
   String get currentLanguage => language.value;
 
   @override
   void onReady() async {
-    setInitialLocalLanguage();
+    _setInitialLocalLanguage();
+    _getLanguageIndex();
     super.onInit();
   }
 
   // Retrieves and Sets language based on device settings
-  setInitialLocalLanguage() {
+  _setInitialLocalLanguage() {
     if ((currentLanguageStore.value == '') ||
         (currentLanguageStore.value == null)) {
       String _deviceLanguage = ui.window.locale.toString();
@@ -33,7 +38,7 @@ class LanguageController extends GetxController {
 
 // Gets current language stored
   RxString get currentLanguageStore {
-    language.value = store.read('language');
+    language.value = _box.read(_key);
     return language;
   }
 
@@ -59,8 +64,25 @@ class LanguageController extends GetxController {
 // updates the language stored
   Future<void> updateLanguage(String value) async {
     language.value = value;
-    await store.write('language', value);
+    await _box.write(_key, value);
     Get.updateLocale(getLocale);
+    update();
+  }
+
+  // retrieves the index of current language within list of languages in Globals
+  _getLanguageIndex() {
+    Globals.languageOptions
+        .asMap()
+        .entries
+        .forEach((element) => _languageList.add(element.value.token));
+    currentLanguageIndex =
+        _languageList.indexWhere((element) => currentLanguage == element);
+  }
+
+  // updates the language choose dialog when clicking
+  selectLanguage(value) {
+    selectedLanguage = _languageList[value];
+    currentLanguageIndex = value;
     update();
   }
 }

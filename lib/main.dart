@@ -39,7 +39,7 @@ class PrayerApp extends StatelessWidget {
                 GetPage(name: '/agpeya_hours', page: () => AgpeyaHoursView()),
                 GetPage(name: '/settings', page: () => SettingsView()),
               ],
-              initialRoute: '/',
+              initialRoute: '/settings',
               // builder inserts the AnnotatedRegion above all subsequent routes (i.e. widgets)
               // and handles the switch of font color of the status bar (time, signal, battery etc.)
               // when switching modes

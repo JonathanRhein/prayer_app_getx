@@ -23,10 +23,17 @@ ThemeData lightTheme() {
           fontSize: SharedStyles.fontSizeHeadline1,
           color: _mainTextColor,
         ),
+        // used for general text
         bodyText1: base.bodyText1.copyWith(
           fontFamily: SharedStyles.fontFamilyBodyText1,
           fontSize: SharedStyles.fontSizeBodyText1,
           color: _mainTextColor,
+        ),
+        // used for all links
+        bodyText2: base.bodyText1.copyWith(
+          fontFamily: SharedStyles.fontFamilyBodyText1,
+          fontSize: SharedStyles.fontSizeBodyText1,
+          color: _mainAccentColor,
         ));
   }
 
@@ -83,10 +90,17 @@ ThemeData darkTheme() {
           fontSize: SharedStyles.fontSizeHeadline1,
           color: _mainTextColor,
         ),
+        // used for general text
         bodyText1: base.bodyText1.copyWith(
           fontFamily: SharedStyles.fontFamilyBodyText1,
           fontSize: SharedStyles.fontSizeBodyText1,
           color: _mainTextColor,
+        ),
+        // used for all links
+        bodyText2: base.bodyText1.copyWith(
+          fontFamily: SharedStyles.fontFamilyBodyText1,
+          fontSize: SharedStyles.fontSizeBodyText1,
+          color: _mainAccentColor,
         ));
   }
 
@@ -106,6 +120,12 @@ ThemeData darkTheme() {
 
       // The color that the Material widget uses to draw elevation shadows.
       shadowColor: Color(0xFF000000),
+
+      // Background Color of drawer menu 
+      canvasColor: Color(0xFF000000),
+
+      // Dialog background color
+      dialogBackgroundColor: Color(0xFF0B0B0B),
 
       // The default color of the Material that underlies the Scaffold. The background color for a typical material app or a page within the app.
       scaffoldBackgroundColor: Color(0xFF060606),
