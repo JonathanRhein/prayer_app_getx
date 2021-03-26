@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/controller/language_ctl.dart';
-import 'package:prayer_app_getx/controller/settings_ctl.dart';
 import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
-import 'package:prayer_app_getx/shared_widgets/dropdown_picker.dart';
-import 'package:prayer_app_getx/shared_widgets/end_drawer_vw.dart';
-import 'package:prayer_app_getx/shared_widgets/app_bar_vw.dart';
+import 'package:prayer_app_getx/shared_widgets/app_bar_g.dart';
+import 'package:prayer_app_getx/shared_widgets/body_text.dart';
+import 'package:prayer_app_getx/shared_widgets/end_drawer_g.dart';
 import 'package:get/get.dart';
+import 'package:prayer_app_getx/shared_widgets/link_text.dart';
+import 'package:prayer_app_getx/shared_widgets/switch_list_tile_g.dart';
 import 'package:prayer_app_getx/utils/constants/globals.dart';
 
 class SettingsView extends StatelessWidget {
@@ -14,109 +15,84 @@ class SettingsView extends StatelessWidget {
   Widget build(context) {
     final labels = AppLocalizations.of(context);
     return Scaffold(
-        endDrawer: EndDrawerView(),
+        endDrawer: EndDrawerG(),
         body: Stack(
           children: [
             ListView(
               itemExtent: 60,
-              padding: EdgeInsets.only(top: 320, left: 30, right: 10),
+              padding: EdgeInsets.only(top: 320),
               children: <Widget>[
-                SwitchListTile(
-                    value: ThemeService().isLightMode,
-                    onChanged: (_) => ThemeService().switchTheme(),
-                    title: Text(
-                      labels.settings.darkMode,
-                      style: context.textTheme.bodyText1,
-                    )),
-                // languageListTile(context),
-                myLanguageListTile(context),
+                switchThemeListTile(context),
+                switchLanguageListTile(context)
               ],
             ),
-            AppBarView(title: labels.settings.title, hasBackButton: true),
+            AppBarG(title: labels.settings.title, hasBackButton: true),
           ],
         ));
   }
 }
 
-/* languageListTile(BuildContext context) {
+switchThemeListTile(BuildContext context) {
+  final labels = AppLocalizations.of(context);
+  return SwitchListTileG(
+      value: ThemeService().isLightMode,
+      onChanged: (_) => ThemeService().switchTheme(),
+      title: labels.settings.darkMode);
+}
+
+switchLanguageListTile(BuildContext context) {
   final labels = AppLocalizations.of(context);
   return GetBuilder<LanguageController>(
-    builder: (controller) => ListTile(
-      title: Text(labels.settings.language),
-      trailing: DropdownPicker(
-        menuOptions: Globals.languageOptions,
-        selectedOption: controller.currentLanguage,
-        onChanged: (value) async {
-          await controller.updateLanguage(value);
-          Get.forceAppUpdate();
-        },
-      ),
-    ),
-  );
-} */
-
-myLanguageListTile(BuildContext context) {
-  final labels = AppLocalizations.of(context);
-  return GetBuilder<LanguageController>(builder: 
-    (controller) => ListTile(
-      leading: Text(
-        labels.settings.language,
-        style: context.textTheme.bodyText1,
-      ),
-      trailing: Text(
-        controller.getLanguageForToken(controller.currentLanguage),
-        style: context.textTheme.bodyText1,
-      ),
-      onTap: () {
-        Get.dialog(GetBuilder<LanguageController>(
-            builder: (controller) => AlertDialog(
-                  title: Text(
-                    labels.settings.chooseLanguage,
-                    style: context.textTheme.bodyText1,
-                  ),
-                  content: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisSize: MainAxisSize.min,
-                      children: Globals.languageOptions
-                          .asMap()
-                          .entries
-                          .map((item) => RadioListTile(
-                                activeColor: context.theme.accentColor,
-                                title: Text(item.value.language,
-                                    style: context.textTheme.bodyText1),
-                                groupValue: controller.currentLanguageIndex,
-                                value: item.key,
-                                onChanged: (value) {
-                                  controller.selectLanguage(value);
-                                },
-                              ))
-                          .toList(),
-                    ),
-                  ),
-                  actions: <Widget>[
-                    TextButton(
-                      child: Text(
-                        labels.general.save,
-                        style: context.textTheme.bodyText2,
+      builder: (controller) => ListTile(
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 34.0),
+            child: BodyText(labels.settings.language),
+          ),
+          trailing: Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: BodyText(
+              controller.getLanguageForToken(controller.currentLanguage),
+            ),
+          ),
+          onTap: () {
+            Get.dialog(GetBuilder<LanguageController>(
+                builder: (controller) => AlertDialog(
+                      title: BodyText(labels.settings.chooseLanguage),
+                      content: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisSize: MainAxisSize.min,
+                          children: Globals.languageOptions
+                              .asMap()
+                              .entries
+                              .map((item) => RadioListTile(
+                                    activeColor: context.theme.accentColor,
+                                    title: BodyText(item.value.language),
+                                    groupValue: controller.currentLanguageIndex,
+                                    value: item.key,
+                                    onChanged: (value) {
+                                      controller.selectLanguage(value);
+                                    },
+                                  ))
+                              .toList(),
+                        ),
                       ),
-                      onPressed: () async {
-                        await controller
-                            .updateLanguage(controller.selectedLanguage);
-                        Get.back();
-                      },
-                    ),
-                    TextButton(
-                      child: Text(
-                        labels.general.close,
-                        style: context.textTheme.bodyText2,
-                      ),
-                      onPressed: () {
-                        Get.back();
-                      },
-                    ),
-                  ],
-                )));
-      })
-  );
+                      actions: <Widget>[
+                        TextButton(
+                          child: LinkText(labels.general.save),
+                          onPressed: () async {
+                            await controller
+                                .updateLanguage(controller.selectedLanguage);
+                            Get.back();
+                          },
+                        ),
+                        TextButton(
+                          child: LinkText(labels.general.close),
+                          onPressed: () {
+                            Get.back();
+                          },
+                        ),
+                      ],
+                    )));
+          }));
 }
