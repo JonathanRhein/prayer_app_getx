@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/localizations.dart';
 
-class EndDrawerG extends StatelessWidget {
+class EndDrawerCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final labels = AppLocalizations.of(context);

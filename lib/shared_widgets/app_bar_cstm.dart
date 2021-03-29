@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/shared_widgets/app_bar_background.dart';
 
-class AppBarG extends StatelessWidget {
+class AppBarCustom extends StatelessWidget {
   final bool hasBackButton;
   final String title;
 
-  AppBarG({this.title, this.hasBackButton: true});
+  AppBarCustom({this.title, this.hasBackButton: true});
 
   @override
   Widget build(BuildContext context) {

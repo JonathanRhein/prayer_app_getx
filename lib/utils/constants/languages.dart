@@ -1,6 +1,6 @@
 import 'package:prayer_app_getx/model/language_options_mdl.dart';
 
-class Globals {
+class Languages {
   static final String defaultLanguage = 'en';
   //List of languages that are supported.  Used in dialog. Please extend when adding
   //new languages

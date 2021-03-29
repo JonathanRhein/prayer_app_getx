@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/controller/language_ctl.dart';
 import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
-import 'package:prayer_app_getx/shared_widgets/app_bar_g.dart';
+import 'package:prayer_app_getx/shared_widgets/app_bar_cstm.dart';
 import 'package:prayer_app_getx/shared_widgets/body_text.dart';
-import 'package:prayer_app_getx/shared_widgets/end_drawer_g.dart';
+import 'package:prayer_app_getx/shared_widgets/end_drawer_cstm.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/shared_widgets/link_text.dart';
-import 'package:prayer_app_getx/shared_widgets/switch_list_tile_g.dart';
-import 'package:prayer_app_getx/utils/constants/globals.dart';
+import 'package:prayer_app_getx/shared_widgets/switch_list_tile_cstm.dart';
+import 'package:prayer_app_getx/utils/constants/languages.dart';
+
 
 class SettingsView extends StatelessWidget {
   @override
   Widget build(context) {
     final labels = AppLocalizations.of(context);
     return Scaffold(
-        endDrawer: EndDrawerG(),
+        endDrawer: EndDrawerCustom(),
         body: Stack(
           children: [
             ListView(
@@ -26,7 +27,7 @@ class SettingsView extends StatelessWidget {
                 switchLanguageListTile(context)
               ],
             ),
-            AppBarG(title: labels.settings.title, hasBackButton: true),
+            AppBarCustom(title: labels.settings.title, hasBackButton: true),
           ],
         ));
   }
@@ -34,7 +35,7 @@ class SettingsView extends StatelessWidget {
 
 switchThemeListTile(BuildContext context) {
   final labels = AppLocalizations.of(context);
-  return SwitchListTileG(
+  return SwitchListTileCustom(
       value: ThemeService().isLightMode,
       onChanged: (_) => ThemeService().switchTheme(),
       title: labels.settings.darkMode);
@@ -62,7 +63,7 @@ switchLanguageListTile(BuildContext context) {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisSize: MainAxisSize.min,
-                          children: Globals.languageOptions
+                          children: Languages.languageOptions
                               .asMap()
                               .entries
                               .map((item) => RadioListTile(

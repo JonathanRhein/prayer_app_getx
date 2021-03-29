@@ -1,5 +1,5 @@
 
-class SharedStyles {
+class Styles {
 
   // Headline1
   static final String fontFamilyHeadline1 = 'Vidaloka';

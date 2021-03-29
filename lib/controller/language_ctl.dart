@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:prayer_app_getx/localizations.dart';
 import 'dart:ui' as ui;
 
-import 'package:prayer_app_getx/utils/constants/globals.dart';
+import 'package:prayer_app_getx/utils/constants/languages.dart';
 
 class LanguageController extends GetxController {
   static LanguageController get to => Get.find();
@@ -46,8 +46,8 @@ class LanguageController extends GetxController {
   Locale get getLocale {
     if ((currentLanguageStore.value == '') ||
         (currentLanguageStore.value == null)) {
-      language.value = Globals.defaultLanguage;
-      updateLanguage(Globals.defaultLanguage);
+      language.value = Languages.defaultLanguage;
+      updateLanguage(Languages.defaultLanguage);
     }
     // gets the default language key (from the translation language system)
     Locale _updatedLocal = AppLocalizations.languages.keys.first;
@@ -73,7 +73,7 @@ class LanguageController extends GetxController {
 
   // retrieves the index of current language within list of languages in Globals
   _getLanguageIndex() {
-    Globals.languageOptions
+    Languages.languageOptions
         .asMap()
         .entries
         .forEach((element) => _languageList.add(element.value.token));
@@ -89,6 +89,6 @@ class LanguageController extends GetxController {
   }
 
   String getLanguageForToken(token) {
-    return Globals.languageOptions.firstWhere((language) => language.token == token).language;
+    return Languages.languageOptions.firstWhere((language) => language.token == token).language;
   }
 }

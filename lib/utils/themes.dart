@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_app_getx/utils/styles/shared_styles.dart';
+import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class Themes {
   static final light = lightTheme();
@@ -19,20 +19,20 @@ ThemeData lightTheme() {
   TextTheme _textTheme(TextTheme base) {
     return base.copyWith(
         headline1: base.headline1.copyWith(
-          fontFamily: SharedStyles.fontFamilyHeadline1,
-          fontSize: SharedStyles.fontSizeHeadline1,
+          fontFamily: Styles.fontFamilyHeadline1,
+          fontSize: Styles.fontSizeHeadline1,
           color: _mainTextColor,
         ),
         // used for general text
         bodyText1: base.bodyText1.copyWith(
-          fontFamily: SharedStyles.fontFamilyBodyText1,
-          fontSize: SharedStyles.fontSizeBodyText1,
+          fontFamily: Styles.fontFamilyBodyText1,
+          fontSize: Styles.fontSizeBodyText1,
           color: _mainTextColor,
         ),
         // used for all links
         bodyText2: base.bodyText1.copyWith(
-          fontFamily: SharedStyles.fontFamilyBodyText1,
-          fontSize: SharedStyles.fontSizeBodyText1,
+          fontFamily: Styles.fontFamilyBodyText1,
+          fontSize: Styles.fontSizeBodyText1,
           color: _mainAccentColor,
         ));
   }
@@ -86,20 +86,20 @@ ThemeData darkTheme() {
   TextTheme _textTheme(TextTheme base) {
     return base.copyWith(
         headline1: base.headline1.copyWith(
-          fontFamily: SharedStyles.fontFamilyHeadline1,
-          fontSize: SharedStyles.fontSizeHeadline1,
+          fontFamily: Styles.fontFamilyHeadline1,
+          fontSize: Styles.fontSizeHeadline1,
           color: _mainTextColor,
         ),
         // used for general text
         bodyText1: base.bodyText1.copyWith(
-          fontFamily: SharedStyles.fontFamilyBodyText1,
-          fontSize: SharedStyles.fontSizeBodyText1,
+          fontFamily: Styles.fontFamilyBodyText1,
+          fontSize: Styles.fontSizeBodyText1,
           color: _mainTextColor,
         ),
         // used for all links
         bodyText2: base.bodyText1.copyWith(
-          fontFamily: SharedStyles.fontFamilyBodyText1,
-          fontSize: SharedStyles.fontSizeBodyText1,
+          fontFamily: Styles.fontFamilyBodyText1,
+          fontSize: Styles.fontSizeBodyText1,
           color: _mainAccentColor,
         ));
   }

@@ -6,8 +6,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:prayer_app_getx/controller/language_ctl.dart';
 import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
-import 'package:prayer_app_getx/utils/styles/themes.dart';
-import 'package:prayer_app_getx/views/agpeya_hours_vw.dart';
+import 'package:prayer_app_getx/utils/themes.dart';
+import 'package:prayer_app_getx/views/agpeya_vw.dart';
 import 'package:prayer_app_getx/views/home_vw.dart';
 import 'package:prayer_app_getx/views/settings_vw.dart';
 
@@ -36,10 +36,10 @@ class PrayerApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               getPages: [
                 GetPage(name: '/', page: () => HomeView()),
-                GetPage(name: '/agpeya_hours', page: () => AgpeyaHoursView()),
+                GetPage(name: '/agpeya', page: () => AgpeyaView()),
                 GetPage(name: '/settings', page: () => SettingsView()),
               ],
-              initialRoute: '/settings',
+              initialRoute: '/agpeya',
               // builder inserts the AnnotatedRegion above all subsequent routes (i.e. widgets)
               // and handles the switch of font color of the status bar (time, signal, battery etc.)
               // when switching modes

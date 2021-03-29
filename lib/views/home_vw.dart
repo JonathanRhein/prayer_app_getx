@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/localizations.dart';
-import 'package:prayer_app_getx/shared_widgets/end_drawer_g.dart';
-import 'package:prayer_app_getx/shared_widgets/app_bar_g.dart';
+import 'package:prayer_app_getx/shared_widgets/app_bar_cstm.dart';
+import 'package:prayer_app_getx/shared_widgets/end_drawer_cstm.dart';
 
 class HomeView extends StatelessWidget {
   @override
   Widget build(context) {
     final labels = AppLocalizations.of(context);
     return Scaffold(
-        endDrawer: EndDrawerG(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        endDrawer: EndDrawerCustom(),
+        body: Stack(
           children: [
-            AppBarG(title: labels.app.title, hasBackButton: false),
+            ListView(
+              itemExtent: 60,
+              padding: EdgeInsets.only(top: 320),
+              children: <Widget>[],
+            ),
+            AppBarCustom(title: labels.app.title, hasBackButton: true),
           ],
         ));
   }
