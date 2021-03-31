@@ -1,4 +1,4 @@
-import 'package:prayer_app_getx/model/language_options_mdl.dart';
+import 'package:prayer_app_getx/models/presentation/language_options_mdl.dart';
 
 class Languages {
   static final String defaultLanguage = 'en';

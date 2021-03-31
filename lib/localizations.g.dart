@@ -68,6 +68,9 @@ class AppLocalizations {
         prayNow: 'Pray now',
         activateThisPrayerAgain: 'Activate this prayer again?',
       ),
+      psalm1472: AppLocalizations_Labels_Psalm1472(
+        islitany: '',
+      ),
     ),
     Locale.fromSubtags(languageCode: 'de'): AppLocalizations_Labels(
       general: AppLocalizations_Labels_General(
@@ -123,16 +126,19 @@ class AppLocalizations {
         prayNow: 'Jetzt beten',
         activateThisPrayerAgain: 'Dieses Gebet wieder aktivieren?',
       ),
+      psalm1472: AppLocalizations_Labels_Psalm1472(
+        islitany: '',
+      ),
     ),
     Locale.fromSubtags(languageCode: 'ar'): AppLocalizations_Labels(
       general: AppLocalizations_Labels_General(
         yes: 'نعم',
         no: 'لا',
-        close: 'قريب',
+        close: 'يغلق',
         cancel: 'يلغي',
         save: 'يحفظ',
         saveChanges: 'حفظ التغييرات؟',
-        disable: 'تعطيل',
+        disable: 'إبطال',
         enable: 'يمكن',
         activate: 'تفعيل',
         reset: 'إعادة ضبط',
@@ -142,14 +148,14 @@ class AppLocalizations {
         pleaseEnableNotificationsInTheGeneralSettingsOfYourDevice:
             'يرجى تمكين إخطارات في الإعدادات العامة لجهازك',
         whenWouldYouLikeToBeNotified: 'عندما تريد أن يتم إخطار؟',
-        daily: 'يوميا',
-        monday: 'الاثنين',
+        daily: 'اليومي',
+        monday: 'يوم الاثنين',
         tuesday: 'يوم الثلاثاء',
         wednesday: 'الأربعاء',
         thursday: 'يوم الخميس',
-        friday: 'جمعة',
-        saturday: 'السبت',
-        sunday: 'الأحد',
+        friday: 'يوم الجمعة',
+        saturday: 'يوم السبت',
+        sunday: 'يوم الأحد',
       ),
       app: AppLocalizations_Labels_App(
         title: 'صلاة',
@@ -177,6 +183,9 @@ class AppLocalizations {
         introduction: 'مقدمة',
         prayNow: 'نصلي الآن',
         activateThisPrayerAgain: 'تفعيل هذه الصلاة مرة أخرى؟',
+      ),
+      psalm1472: AppLocalizations_Labels_Psalm1472(
+        islitany: '',
       ),
     ),
     Locale.fromSubtags(languageCode: 'ko'): AppLocalizations_Labels(
@@ -232,6 +241,9 @@ class AppLocalizations {
         introduction: '소개',
         prayNow: '기도 해주기',
         activateThisPrayerAgain: '다시기도를 활성화?',
+      ),
+      psalm1472: AppLocalizations_Labels_Psalm1472(
+        islitany: '',
       ),
     ),
   };
@@ -502,9 +514,24 @@ class AppLocalizations_Labels_Agpeya {
   }
 }
 
+class AppLocalizations_Labels_Psalm1472 {
+  const AppLocalizations_Labels_Psalm1472({this.islitany});
+
+  final String islitany;
+
+  String getByKey(String key) {
+    switch (key) {
+      case 'islitany':
+        return islitany;
+      default:
+        return '';
+    }
+  }
+}
+
 class AppLocalizations_Labels {
   const AppLocalizations_Labels(
-      {this.general, this.app, this.settings, this.agpeya});
+      {this.general, this.app, this.settings, this.agpeya, this.psalm1472});
 
   final AppLocalizations_Labels_General general;
 
@@ -513,6 +540,8 @@ class AppLocalizations_Labels {
   final AppLocalizations_Labels_Settings settings;
 
   final AppLocalizations_Labels_Agpeya agpeya;
+
+  final AppLocalizations_Labels_Psalm1472 psalm1472;
 
   String getByKey(String key) {
     switch (key) {
