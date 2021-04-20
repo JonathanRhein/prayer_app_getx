@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:prayer_app_getx/controller/agpeya_ctl.dart';
 import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/shared_widgets/app_bar_cstm.dart';
@@ -18,7 +19,7 @@ class AgpeyaView extends StatelessWidget {
           children: [
             Obx(() => ListView.builder(
                 padding: EdgeInsets.only(top: 320),
-                itemCount: _agpeyaController.list.length,
+                itemCount: _agpeyaController.dbList.length,
                 itemBuilder: (context, index) =>
                     _listItemBuilder(context, index, _agpeyaController))),
             AppBarCustom(title: labels.agpeya.title, hasBackButton: true),
@@ -28,7 +29,9 @@ class AgpeyaView extends StatelessWidget {
 }
 
 _listItemBuilder(BuildContext context, int index, AgpeyaController controller) {
+  final labels = AppLocalizations.of(context);
+  final hour = controller.dbList[index].name;
   return ListTile(
-    leading: BodyText(controller.list[index].name),
+    leading: BodyText(labels.agpeya.getByKey(hour + 'Title')),
   );
 }

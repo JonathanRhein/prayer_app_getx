@@ -162,4 +162,7 @@ class DatabaseService {
     var dbClient = await db;
     return dbClient.close();
   }
+
+  String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
+
 }

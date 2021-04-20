@@ -67,104 +67,90 @@ class AppLocalizations {
         introduction: 'Introduction',
         prayNow: 'Pray now',
         activateThisPrayerAgain: 'Activate this prayer again?',
-      ),
-      firstHour: AppLocalizations_Labels_FirstHour(
-        title: 'First Hour',
-        titleLatin: 'Prime',
-        subtitle:
+        firstHourTitle: 'First Hour',
+        firstHourTitleLatin: 'Prime',
+        firstHourSubtitle:
             'In commemoration of the resurrection of Jesus Christ and to give thanks for a new day.',
-        description:
+        firstHourDescription:
             'Instituted to commemorate the hour at which our Lord Jesus Christ rose from the dead. To be read in the morning, to give thanks to God for the beginnign of a new day, and to glorify Him for His resurrection.',
-        latinNumber: 'I',
-        icon: 'assets/images/first_hour.png',
-        colorVibrant1: '95383D',
-        colorVibrant2: '84529D',
-        colorDark: '442218',
-        colorLight: '442218',
-      ),
-      thirdHour: AppLocalizations_Labels_ThirdHour(
-        title: 'Third Hour',
-        titleLatin: 'Terce',
-        subtitle:
+        firstHourLatinNumber: 'I',
+        firstHourIcon: 'assets/images/first_hour.png',
+        firstHourColorVibrant1: '95383D',
+        firstHourColorVibrant2: '84529D',
+        firstHourColorDark: '442218',
+        firstHourColorLight: '442218',
+        thirdHourTitle: 'Third Hour',
+        thirdHourTitleLatin: 'Terce',
+        thirdHourSubtitle:
             'In commemoration of the outpouring of the Spirit and the hour in which Jesus Christ was condemned.',
-        description:
+        thirdHourDescription:
             'Instituted to commemorate the hour at which our Lord Jesus Christ was condemned. Also, at this hour the Holy Spririt came down on the disciples.',
-        latinNumber: 'III',
-        icon: 'assets/images/third_hour.png',
-        colorVibrant1: '953622',
-        colorVibrant2: 'C8491C',
-        colorDark: '576959',
-        colorLight: 'FFFF83',
-      ),
-      sixthHour: AppLocalizations_Labels_SixthHour(
-        title: 'Sixth Hour',
-        titleLatin: 'Sext',
-        subtitle:
+        thirdHourLatinNumber: 'III',
+        thirdHourIcon: 'assets/images/third_hour.png',
+        thirdHourColorVibrant1: '953622',
+        thirdHourColorVibrant2: 'C8491C',
+        thirdHourColorDark: '576959',
+        thirdHourColorLight: 'FFFF83',
+        sixthHourTitle: 'Sixth Hour',
+        sixthHourTitleLatin: 'Sext',
+        sixthHourSubtitle:
             'In commemoration of the crucifixion of Jesus Christ at noon.',
-        description:
+        sixthHourDescription:
             'Instituted to commemorate the crucifixion of our Lord Jesus Christ.',
-        latinNumber: 'VI',
-        icon: 'assets/images/sixth_hour.png',
-        colorVibrant1: '888D35',
-        colorVibrant2: 'D05D5A',
-        colorDark: '441A1A',
-        colorLight: 'D9B46B',
-      ),
-      ninthHour: AppLocalizations_Labels_NinthHour(
-        title: 'Ninth Hour',
-        titleLatin: 'None',
-        subtitle:
+        sixthHourLatinNumber: 'VI',
+        sixthHourIcon: 'assets/images/sixth_hour.png',
+        sixthHourColorVibrant1: '888D35',
+        sixthHourColorVibrant2: 'D05D5A',
+        sixthHourColorDark: '441A1A',
+        sixthHourColorLight: 'D9B46B',
+        ninthHourTitle: 'Ninth Hour',
+        ninthHourTitleLatin: 'None',
+        ninthHourSubtitle:
             'In commemoration of the hour of death when Jesus Christ gave up his spirit.',
-        description:
+        ninthHourDescription:
             'Instituted to commemorate the hour of death of our Lord Jesus Christ in the flesh, and the right-hand thief who found favour in His eyes.',
-        latinNumber: 'IX',
-        icon: 'assets/images/ninth_hour.png',
-        colorVibrant1: 'AD5025',
-        colorVibrant2: '931002',
-        colorDark: '6B3012',
-        colorLight: 'DCC4A3',
-      ),
-      eleventhHour: AppLocalizations_Labels_EleventhHour(
-        title: 'Eleventh Stunde',
-        titleLatin: 'Vespers',
-        subtitle:
+        ninthHourLatinNumber: 'IX',
+        ninthHourIcon: 'assets/images/ninth_hour.png',
+        ninthHourColorVibrant1: 'AD5025',
+        ninthHourColorVibrant2: '931002',
+        ninthHourColorDark: '6B3012',
+        ninthHourColorLight: 'DCC4A3',
+        eleventhHourTitle: 'Eleventh Stunde',
+        eleventhHourTitleLatin: 'Vespers',
+        eleventhHourSubtitle:
             'In commemoration of the taking down of Jesus Christ from the cross and the anointing of His body.',
-        description:
+        eleventhHourDescription:
             'Instituted to commemorate the time when the body of Jesus was taken down from the cross, anointed with spices and wrapped in linen.',
-        latinNumber: 'XI',
-        icon: 'assets/images/eleventh_hour.png',
-        colorVibrant1: 'A9190D',
-        colorVibrant2: 'D37503',
-        colorDark: '4A2312',
-        colorLight: 'F8E9C7',
-      ),
-      twelfthHour: AppLocalizations_Labels_TwelfthHour(
-        title: 'Twelfth Hour',
-        titleLatin: 'Compline',
-        subtitle:
+        eleventhHourLatinNumber: 'XI',
+        eleventhHourIcon: 'assets/images/eleventh_hour.png',
+        eleventhHourColorVibrant1: 'A9190D',
+        eleventhHourColorVibrant2: 'D37503',
+        eleventhHourColorDark: '4A2312',
+        eleventhHourColorLight: 'F8E9C7',
+        twelfthHourTitle: 'Twelfth Hour',
+        twelfthHourTitleLatin: 'Compline',
+        twelfthHourSubtitle:
             'In commemoration of the burial of Jesus Christ and our own death.',
-        description:
+        twelfthHourDescription:
             'Instituted to commemorate the laying down of the body of our Lord Jesus Christ in the tomb, also because it is the last hour of man\'s life in his das, since sleep is considered as a little death.',
-        latinNumber: 'XII',
-        icon: 'assets/images/twelfth_hour.png',
-        colorVibrant1: '86312E',
-        colorVibrant2: 'BA9F5A',
-        colorDark: '425444',
-        colorLight: 'D5BD8A',
-      ),
-      midnightHour: AppLocalizations_Labels_MidnightHour(
-        title: 'Midnight Prayer',
-        titleLatin: 'Vigil',
-        subtitle:
+        twelfthHourLatinNumber: 'XII',
+        twelfthHourIcon: 'assets/images/twelfth_hour.png',
+        twelfthHourColorVibrant1: '86312E',
+        twelfthHourColorVibrant2: 'BA9F5A',
+        twelfthHourColorDark: '425444',
+        twelfthHourColorLight: 'D5BD8A',
+        midnightHourTitle: 'Midnight Prayer',
+        midnightHourTitleLatin: 'Vigil',
+        midnightHourSubtitle:
             'In commemoration of the prayer vigils that Jesus Christ held in Gethsemane.',
-        description:
+        midnightHourDescription:
             'Instituted to commemorate the three times our Saviour Jesus Christ prayed in Gethsemane during His affliction on the Holy Week.',
-        latinNumber: '',
-        icon: 'assets/images/vigil_hour.png',
-        colorVibrant1: 'CD503A',
-        colorVibrant2: 'E5985E',
-        colorDark: '2F1619',
-        colorLight: 'E8B770',
+        midnightHourLatinNumber: '',
+        midnightHourIcon: 'assets/images/vigil_hour.png',
+        midnightHourColorVibrant1: 'CD503A',
+        midnightHourColorVibrant2: 'E5985E',
+        midnightHourColorDark: '2F1619',
+        midnightHourColorLight: 'E8B770',
       ),
     ),
     Locale.fromSubtags(languageCode: 'de'): AppLocalizations_Labels(
@@ -220,104 +206,90 @@ class AppLocalizations {
         introduction: 'Einführung',
         prayNow: 'Jetzt beten',
         activateThisPrayerAgain: 'Dieses Gebet wieder aktivieren?',
-      ),
-      firstHour: AppLocalizations_Labels_FirstHour(
-        title: 'Erste Stunde',
-        titleLatin: 'Prim',
-        subtitle:
+        firstHourTitle: 'Erste Stunde',
+        firstHourTitleLatin: 'Prim',
+        firstHourSubtitle:
             'Zum Gedenken an die Auferstehung Jesu Christi und zum Dank für einen neuen Tag.',
-        description:
+        firstHourDescription:
             'Eingesetzt, um der Auferstehung unseres Herrn Jesus Christus von den Toten zu gedenken. Am Morgen zu beten, um Gott für den Beginn eines neuen Tages zu danken und Ihn für Seine Auferstehung zu verherrlichen.',
-        latinNumber: 'I',
-        icon: 'assets/images/first_hour.png',
-        colorVibrant1: '95383D',
-        colorVibrant2: '84529D',
-        colorDark: '442218',
-        colorLight: '442218',
-      ),
-      thirdHour: AppLocalizations_Labels_ThirdHour(
-        title: 'Dritte Stunde',
-        titleLatin: 'Terz',
-        subtitle:
+        firstHourLatinNumber: 'I',
+        firstHourIcon: 'assets/images/first_hour.png',
+        firstHourColorVibrant1: '95383D',
+        firstHourColorVibrant2: '84529D',
+        firstHourColorDark: '442218',
+        firstHourColorLight: '442218',
+        thirdHourTitle: 'Dritte Stunde',
+        thirdHourTitleLatin: 'Terz',
+        thirdHourSubtitle:
             'Zum Gedenken an die Ausgießung des Geistes und der Stunde, in der Jesus Christus verurteilt wurde.',
-        description:
+        thirdHourDescription:
             'Eingesetzt, um der Stunde zu gedenken, in der unser Herr Jesus Christus verurteilt wurde. Auch kam in dieser Stunde der Heilige Geist auf die Apostel herab.',
-        latinNumber: 'III',
-        icon: 'assets/images/third_hour.png',
-        colorVibrant1: '953622',
-        colorVibrant2: 'C8491C',
-        colorDark: '576959',
-        colorLight: 'FFFF83',
-      ),
-      sixthHour: AppLocalizations_Labels_SixthHour(
-        title: 'Sechste Stunde',
-        titleLatin: 'Sext',
-        subtitle:
+        thirdHourLatinNumber: 'III',
+        thirdHourIcon: 'assets/images/third_hour.png',
+        thirdHourColorVibrant1: '953622',
+        thirdHourColorVibrant2: 'C8491C',
+        thirdHourColorDark: '576959',
+        thirdHourColorLight: 'FFFF83',
+        sixthHourTitle: 'Sechste Stunde',
+        sixthHourTitleLatin: 'Sext',
+        sixthHourSubtitle:
             'Zum Gedenken an die Kreuzigung Jesu Christi um die Mittagszeit.',
-        description:
+        sixthHourDescription:
             'Eingesetzt, um der Kreuzigung unseres Herrn Jesus Christus zu gedenken.',
-        latinNumber: 'VI',
-        icon: 'assets/images/sixth_hour.png',
-        colorVibrant1: '888D35',
-        colorVibrant2: 'D05D5A',
-        colorDark: '441A1A',
-        colorLight: 'D9B46B',
-      ),
-      ninthHour: AppLocalizations_Labels_NinthHour(
-        title: 'Neunte Stunde',
-        titleLatin: 'Non',
-        subtitle:
+        sixthHourLatinNumber: 'VI',
+        sixthHourIcon: 'assets/images/sixth_hour.png',
+        sixthHourColorVibrant1: '888D35',
+        sixthHourColorVibrant2: 'D05D5A',
+        sixthHourColorDark: '441A1A',
+        sixthHourColorLight: 'D9B46B',
+        ninthHourTitle: 'Neunte Stunde',
+        ninthHourTitleLatin: 'Non',
+        ninthHourSubtitle:
             'Zum Gedenken an die Todesstunde, in der Jesus Christus seinen Geist aufgab.',
-        description:
+        ninthHourDescription:
             'Eingesetzt, um der Stunde des Todes unseres Herrn Jesus Christus im Fleisch zu gedenken, und des Verbrechers zu Seiner Rechten, der Gunst in Seinen Augen fand.',
-        latinNumber: 'IX',
-        icon: 'assets/images/ninth_hour.png',
-        colorVibrant1: 'AD5025',
-        colorVibrant2: '931002',
-        colorDark: '6B3012',
-        colorLight: 'DCC4A3',
-      ),
-      eleventhHour: AppLocalizations_Labels_EleventhHour(
-        title: 'Elfte Stunde',
-        titleLatin: 'Vesper',
-        subtitle:
+        ninthHourLatinNumber: 'IX',
+        ninthHourIcon: 'assets/images/ninth_hour.png',
+        ninthHourColorVibrant1: 'AD5025',
+        ninthHourColorVibrant2: '931002',
+        ninthHourColorDark: '6B3012',
+        ninthHourColorLight: 'DCC4A3',
+        eleventhHourTitle: 'Elfte Stunde',
+        eleventhHourTitleLatin: 'Vesper',
+        eleventhHourSubtitle:
             'Zum Gedenken an die Kreuzabnahme Jesu Christi und der Salbung seines Leibes.',
-        description:
+        eleventhHourDescription:
             'Eingesetzt, um der Stunde zu gedenken, in der der Leib Jesu vom Kreuz abgenommen und mit wohlriechenden Ölen gesalbt und in Leinentuch eingewickelt wurde.',
-        latinNumber: 'XI',
-        icon: 'assets/images/eleventh_hour.png',
-        colorVibrant1: 'A9190D',
-        colorVibrant2: 'D37503',
-        colorDark: '4A2312',
-        colorLight: 'F8E9C7',
-      ),
-      twelfthHour: AppLocalizations_Labels_TwelfthHour(
-        title: 'Zwölfte Stunde',
-        titleLatin: 'Komplet',
-        subtitle:
+        eleventhHourLatinNumber: 'XI',
+        eleventhHourIcon: 'assets/images/eleventh_hour.png',
+        eleventhHourColorVibrant1: 'A9190D',
+        eleventhHourColorVibrant2: 'D37503',
+        eleventhHourColorDark: '4A2312',
+        eleventhHourColorLight: 'F8E9C7',
+        twelfthHourTitle: 'Zwölfte Stunde',
+        twelfthHourTitleLatin: 'Komplet',
+        twelfthHourSubtitle:
             'Zum Gedenken an die Grablegung Jesu Christi sowie unseres eigenen Todes.',
-        description:
+        twelfthHourDescription:
             'Eingesetzt, um der Grablegung des Leibes unseres Herrn Jesus Christus zu gedenken; auch, weil es die letzte Stunde des Tages ist, denn der Schlaf ist wie ein kleiner Tod.',
-        latinNumber: 'XII',
-        icon: 'assets/images/twelfth_hour.png',
-        colorVibrant1: '86312E',
-        colorVibrant2: 'BA9F5A',
-        colorDark: '425444',
-        colorLight: 'D5BD8A',
-      ),
-      midnightHour: AppLocalizations_Labels_MidnightHour(
-        title: 'Mitternachtsgebet',
-        titleLatin: 'Vigil',
-        subtitle:
+        twelfthHourLatinNumber: 'XII',
+        twelfthHourIcon: 'assets/images/twelfth_hour.png',
+        twelfthHourColorVibrant1: '86312E',
+        twelfthHourColorVibrant2: 'BA9F5A',
+        twelfthHourColorDark: '425444',
+        twelfthHourColorLight: 'D5BD8A',
+        midnightHourTitle: 'Mitternachtsgebet',
+        midnightHourTitleLatin: 'Vigil',
+        midnightHourSubtitle:
             'Zum Gedenken an die Gebetswachen, die Jesus Christus in Gethsemane hielt.',
-        description:
+        midnightHourDescription:
             'Eingesetzt, um der drei Male zu gedenken, die unser Retter Jesus Christus während Seiner Bedrängnis in der Passionswoche in Gethsemane betete.',
-        latinNumber: '',
-        icon: 'assets/images/vigil_hour.png',
-        colorVibrant1: 'CD503A',
-        colorVibrant2: 'E5985E',
-        colorDark: '2F1619',
-        colorLight: 'E8B770',
+        midnightHourLatinNumber: '',
+        midnightHourIcon: 'assets/images/vigil_hour.png',
+        midnightHourColorVibrant1: 'CD503A',
+        midnightHourColorVibrant2: 'E5985E',
+        midnightHourColorDark: '2F1619',
+        midnightHourColorLight: 'E8B770',
       ),
     ),
     Locale.fromSubtags(languageCode: 'ar'): AppLocalizations_Labels(
@@ -329,7 +301,7 @@ class AppLocalizations {
         save: 'يحفظ',
         saveChanges: 'حفظ التغييرات؟',
         disable: 'إبطال',
-        enable: 'يمكن',
+        enable: 'ممكن',
         activate: 'تفعيل',
         reset: 'إعادة ضبط',
         turnOffNotifiaction: 'أغلق التنبيهات؟',
@@ -339,13 +311,13 @@ class AppLocalizations {
             'يرجى تمكين إخطارات في الإعدادات العامة لجهازك',
         whenWouldYouLikeToBeNotified: 'عندما تريد أن يتم إخطار؟',
         daily: 'اليومي',
-        monday: 'يوم الاثنين',
+        monday: 'الاثنين',
         tuesday: 'يوم الثلاثاء',
         wednesday: 'الأربعاء',
         thursday: 'يوم الخميس',
-        friday: 'يوم الجمعة',
-        saturday: 'يوم السبت',
-        sunday: 'يوم الأحد',
+        friday: 'جمعة',
+        saturday: 'السبت',
+        sunday: 'الأحد',
       ),
       app: AppLocalizations_Labels_App(
         title: 'صلاة',
@@ -373,97 +345,85 @@ class AppLocalizations {
         introduction: 'مقدمة',
         prayNow: 'نصلي الآن',
         activateThisPrayerAgain: 'تفعيل هذه الصلاة مرة أخرى؟',
-      ),
-      firstHour: AppLocalizations_Labels_FirstHour(
-        title: 'الساعة الأولى',
-        titleLatin: 'أولي',
-        subtitle: 'في ذكرى قيامة يسوع المسيح ولتقديم الشكر ليوم جديد.',
-        description:
+        firstHourTitle: 'الساعة الأولى',
+        firstHourTitleLatin: 'أولي',
+        firstHourSubtitle: 'في ذكرى قيامة يسوع المسيح ولتقديم الشكر ليوم جديد.',
+        firstHourDescription:
             'وضعت للاحتفال ساعة الذي ارتفع ربنا يسوع المسيح من بين الأموات. يجب أن تقرأ في الصباح، لتقديم الشكر لله على beginnign يوم جديد، ونمجده لقيامته.',
-        latinNumber: 'أنا',
-        icon: 'الأصول / صور / first_hour.png',
-        colorVibrant1: '95383D',
-        colorVibrant2: '84529D',
-        colorDark: '442218',
-        colorLight: '442218',
-      ),
-      thirdHour: AppLocalizations_Labels_ThirdHour(
-        title: 'الساعة الثالثة',
-        titleLatin: 'Terce',
-        subtitle: 'في ذكرى حلول الروح والساعة التي أدين يسوع المسيح.',
-        description:
+        firstHourLatinNumber: 'أنا',
+        firstHourIcon: 'assets/images/first_hour.png',
+        firstHourColorVibrant1: '95383D',
+        firstHourColorVibrant2: '84529D',
+        firstHourColorDark: '442218',
+        firstHourColorLight: '442218',
+        thirdHourTitle: 'الساعة الثالثة',
+        thirdHourTitleLatin: 'Terce',
+        thirdHourSubtitle: 'في ذكرى حلول الروح والساعة التي أدين يسوع المسيح.',
+        thirdHourDescription:
             'وضعت للاحتفال ساعة الذي كان محكوما ربنا يسوع المسيح. أيضا، في هذه الساعة جاء Spririt المقدسة أسفل على التلاميذ.',
-        latinNumber: 'III',
-        icon: 'الأصول / صور / third_hour.png',
-        colorVibrant1: '953622',
-        colorVibrant2: 'C8491C',
-        colorDark: '576959',
-        colorLight: 'FFFF83',
-      ),
-      sixthHour: AppLocalizations_Labels_SixthHour(
-        title: 'الساعة السادسة',
-        titleLatin: 'مكررا رابعا',
-        subtitle: 'في ذكرى صلب يسوع المسيح ظهرا.',
-        description: 'وضعت لاحياء ذكرى صلب ربنا يسوع المسيح.',
-        latinNumber: 'السادس',
-        icon: 'الأصول / صور / sixth_hour.png',
-        colorVibrant1: '888D35',
-        colorVibrant2: 'D05D5A',
-        colorDark: '441A1A',
-        colorLight: 'D9B46B',
-      ),
-      ninthHour: AppLocalizations_Labels_NinthHour(
-        title: 'تاسعا ساعة',
-        titleLatin: 'لا أحد',
-        subtitle: 'في ذكرى ساعة الموت عندما أعطى يسوع المسيح حتى روحه.',
-        description:
+        thirdHourLatinNumber: 'III',
+        thirdHourIcon: 'assets/images/third_hour.png',
+        thirdHourColorVibrant1: '953622',
+        thirdHourColorVibrant2: 'C8491C',
+        thirdHourColorDark: '576959',
+        thirdHourColorLight: 'FFFF83',
+        sixthHourTitle: 'الساعة السادسة',
+        sixthHourTitleLatin: 'مكررا رابعا',
+        sixthHourSubtitle: 'في ذكرى صلب يسوع المسيح ظهرا.',
+        sixthHourDescription: 'وضعت لاحياء ذكرى صلب ربنا يسوع المسيح.',
+        sixthHourLatinNumber: 'السادس',
+        sixthHourIcon: 'assets/images/sixth_hour.png',
+        sixthHourColorVibrant1: '888D35',
+        sixthHourColorVibrant2: 'D05D5A',
+        sixthHourColorDark: '441A1A',
+        sixthHourColorLight: 'D9B46B',
+        ninthHourTitle: 'تاسعا ساعة',
+        ninthHourTitleLatin: 'لا أحد',
+        ninthHourSubtitle:
+            'في ذكرى ساعة الموت عندما أعطى يسوع المسيح حتى روحه.',
+        ninthHourDescription:
             'وضعت للاحتفال ساعة الموت ربنا يسوع المسيح في الجسد، والسارق اليمنى الذي وجدت نعمة في عينيه.',
-        latinNumber: 'IX',
-        icon: 'الأصول / صور / ninth_hour.png',
-        colorVibrant1: 'AD5025',
-        colorVibrant2: '931002',
-        colorDark: '6B3012',
-        colorLight: 'DCC4A3',
-      ),
-      eleventhHour: AppLocalizations_Labels_EleventhHour(
-        title: 'الحادي عشر Stunde',
-        titleLatin: 'نجوم السماء',
-        subtitle: 'في ذكرى اتخاذ بانخفاض يسوع المسيح عن الصليب ومسحة من جسده.',
-        description:
+        ninthHourLatinNumber: 'IX',
+        ninthHourIcon: 'assets/images/ninth_hour.png',
+        ninthHourColorVibrant1: 'AD5025',
+        ninthHourColorVibrant2: '931002',
+        ninthHourColorDark: '6B3012',
+        ninthHourColorLight: 'DCC4A3',
+        eleventhHourTitle: 'الحادي عشر Stunde',
+        eleventhHourTitleLatin: 'صلاة المساء',
+        eleventhHourSubtitle:
+            'في ذكرى اتخاذ بانخفاض يسوع المسيح عن الصليب ومسحة من جسده.',
+        eleventhHourDescription:
             'وضعت للاحتفال الوقت الذي أخذ جسد يسوع ينزل عن الصليب، مسحه مع التوابل وملفوفة في الكتان.',
-        latinNumber: 'XI',
-        icon: 'الأصول / صور / eleventh_hour.png',
-        colorVibrant1: 'A9190D',
-        colorVibrant2: 'D37503',
-        colorDark: '4A2312',
-        colorLight: 'F8E9C7',
-      ),
-      twelfthHour: AppLocalizations_Labels_TwelfthHour(
-        title: 'الثاني عشر ساعة',
-        titleLatin: 'Compline',
-        subtitle: 'في ذكرى دفن يسوع المسيح والموت الخاصة بنا.',
-        description:
+        eleventhHourLatinNumber: 'XI',
+        eleventhHourIcon: 'assets/images/eleventh_hour.png',
+        eleventhHourColorVibrant1: 'A9190D',
+        eleventhHourColorVibrant2: 'D37503',
+        eleventhHourColorDark: '4A2312',
+        eleventhHourColorLight: 'F8E9C7',
+        twelfthHourTitle: 'الثاني عشر ساعة',
+        twelfthHourTitleLatin: 'Compline',
+        twelfthHourSubtitle: 'في ذكرى دفن يسوع المسيح والموت الخاصة بنا.',
+        twelfthHourDescription:
             'وضعت للاحتفال وضع جسد ربنا يسوع المسيح في القبر، وأيضا لأنها الساعة الأخيرة من حياة الإنسان في داس له، حيث تعتبر النوم كما قليلا الموت.',
-        latinNumber: 'XII',
-        icon: 'الأصول / صور / twelfth_hour.png',
-        colorVibrant1: '86312E',
-        colorVibrant2: 'BA9F5A',
-        colorDark: '425444',
-        colorLight: 'D5BD8A',
-      ),
-      midnightHour: AppLocalizations_Labels_MidnightHour(
-        title: 'الصلاة منتصف الليل',
-        titleLatin: 'يقظة',
-        subtitle:
+        twelfthHourLatinNumber: 'XII',
+        twelfthHourIcon: 'assets/images/twelfth_hour.png',
+        twelfthHourColorVibrant1: '86312E',
+        twelfthHourColorVibrant2: 'BA9F5A',
+        twelfthHourColorDark: '425444',
+        twelfthHourColorLight: 'D5BD8A',
+        midnightHourTitle: 'الصلاة منتصف الليل',
+        midnightHourTitleLatin: 'يقظة',
+        midnightHourSubtitle:
             'في ذكرى الوقفات الاحتجاجية صلاة يسوع المسيح الذي عقد في الجسمانية.',
-        description:
+        midnightHourDescription:
             'وضعت لإحياء ثلاث مرات مخلصنا يسوع المسيح يصلي في بستان الزيتون خلال صاحب فتنة في أسبوع الآلام.',
-        latinNumber: '',
-        icon: 'الأصول / صور / vigil_hour.png',
-        colorVibrant1: 'CD503A',
-        colorVibrant2: 'E5985E',
-        colorDark: '2F1619',
-        colorLight: 'E8B770',
+        midnightHourLatinNumber: '',
+        midnightHourIcon: 'assets/images/vigil_hour.png',
+        midnightHourColorVibrant1: 'CD503A',
+        midnightHourColorVibrant2: 'E5985E',
+        midnightHourColorDark: '2F1619',
+        midnightHourColorLight: 'E8B770',
       ),
     ),
     Locale.fromSubtags(languageCode: 'ko'): AppLocalizations_Labels(
@@ -519,95 +479,82 @@ class AppLocalizations {
         introduction: '소개',
         prayNow: '기도 해주기',
         activateThisPrayerAgain: '다시기도를 활성화?',
-      ),
-      firstHour: AppLocalizations_Labels_FirstHour(
-        title: '첫 번째 시간',
-        titleLatin: '초기',
-        subtitle: '예수 그리스도의 부활을 기념 새로운 날에 대한 감사를 제공합니다.',
-        description:
+        firstHourTitle: '첫 번째 시간',
+        firstHourTitleLatin: '초기',
+        firstHourSubtitle: '예수 그리스도의 부활을 기념 새로운 날에 대한 감사를 제공합니다.',
+        firstHourDescription:
             '우리 주 예수 그리스도 께서 죽음에서 부활하는 시간을 기념하기 위해 제정. 새로운 하루의 beginnign 하나님 께 감사를드립니다하고, 그분의 부활을 위해 하나님을 영화 롭게하기 위해, 아침에 읽을 수있다.',
-        latinNumber: '나는',
-        icon: '자산 / 이미지 / first_hour.png',
-        colorVibrant1: '95383D',
-        colorVibrant2: '84529D',
-        colorDark: '442218',
-        colorLight: '442218',
-      ),
-      thirdHour: AppLocalizations_Labels_ThirdHour(
-        title: '세 번째 시간',
-        titleLatin: 'Terce',
-        subtitle: '성령의 부어 주심과 예수 그리스도 께서 정죄하는 시간을 기념.',
-        description:
+        firstHourLatinNumber: '나는',
+        firstHourIcon: 'assets/images/first_hour.png',
+        firstHourColorVibrant1: '95383D',
+        firstHourColorVibrant2: '84529D',
+        firstHourColorDark: '442218',
+        firstHourColorLight: '442218',
+        thirdHourTitle: '세 번째 시간',
+        thirdHourTitleLatin: 'Terce',
+        thirdHourSubtitle: '성령의 부어 주심과 예수 그리스도 께서 정죄하는 시간을 기념.',
+        thirdHourDescription:
             '우리 주 예수 그리스도 께서 정죄하는 시간을 기념하기 위해 제정. 또한,이 시간에 성령 Spririt 제자에 내려왔다.',
-        latinNumber: 'III',
-        icon: '자산 / 이미지 / third_hour.png',
-        colorVibrant1: '953622',
-        colorVibrant2: 'C8491C',
-        colorDark: '576959',
-        colorLight: 'FFFF83',
-      ),
-      sixthHour: AppLocalizations_Labels_SixthHour(
-        title: '여섯 번째 시간',
-        titleLatin: 'Sext',
-        subtitle: '정오에 예수 그리스도의 십자가 기념.',
-        description: '우리 주 예수 그리스도의 십자가를 기념하기 위해 제정.',
-        latinNumber: 'VI',
-        icon: '자산 / 이미지 / sixth_hour.png',
-        colorVibrant1: '888D35',
-        colorVibrant2: 'D05D5A',
-        colorDark: '441A1A',
-        colorLight: 'D9B46B',
-      ),
-      ninthHour: AppLocalizations_Labels_NinthHour(
-        title: '아홉 번째 시간',
-        titleLatin: '없음',
-        subtitle: '죽음의 시간을 기념 예수 그리스도는 성령을 받았습니다.',
-        description:
+        thirdHourLatinNumber: 'III',
+        thirdHourIcon: 'assets/images/third_hour.png',
+        thirdHourColorVibrant1: '953622',
+        thirdHourColorVibrant2: 'C8491C',
+        thirdHourColorDark: '576959',
+        thirdHourColorLight: 'FFFF83',
+        sixthHourTitle: '여섯 번째 시간',
+        sixthHourTitleLatin: 'Sext',
+        sixthHourSubtitle: '정오에 예수 그리스도의 십자가 기념.',
+        sixthHourDescription: '우리 주 예수 그리스도의 십자가를 기념하기 위해 제정.',
+        sixthHourLatinNumber: 'VI',
+        sixthHourIcon: 'assets/images/sixth_hour.png',
+        sixthHourColorVibrant1: '888D35',
+        sixthHourColorVibrant2: 'D05D5A',
+        sixthHourColorDark: '441A1A',
+        sixthHourColorLight: 'D9B46B',
+        ninthHourTitle: '아홉 번째 시간',
+        ninthHourTitleLatin: '없음',
+        ninthHourSubtitle: '죽음의 시간을 기념 예수 그리스도는 성령을 받았습니다.',
+        ninthHourDescription:
             '육체를 우리 주 예수 그리스도의 죽음의 시간, 그리고 그의 눈에 호의를 발견 오른쪽 도둑을 기념하기 위해 제정.',
-        latinNumber: 'IX',
-        icon: '자산 / 이미지 / ninth_hour.png',
-        colorVibrant1: 'AD5025',
-        colorVibrant2: '931002',
-        colorDark: '6B3012',
-        colorLight: 'DCC4A3',
-      ),
-      eleventhHour: AppLocalizations_Labels_EleventhHour(
-        title: '열한번째 Stunde',
-        titleLatin: '저녁 예배',
-        subtitle: '십자가에서 예수 그리스도의 복용과 그의 몸의 기름 부음의 기념.',
-        description: '예수님의 몸은 십자가에서 내려올 향신료와 기름 부음과 리넨에 싸여 된 시간을 기념하기 위해 제정.',
-        latinNumber: 'XI',
-        icon: '자산 / 이미지 / eleventh_hour.png',
-        colorVibrant1: 'A9190D',
-        colorVibrant2: 'D37503',
-        colorDark: '4A2312',
-        colorLight: 'F8E9C7',
-      ),
-      twelfthHour: AppLocalizations_Labels_TwelfthHour(
-        title: '열두 번째 시간',
-        titleLatin: 'Compline',
-        subtitle: '예수 그리스도와 우리 자신의 죽음의 매장을 기념.',
-        description:
+        ninthHourLatinNumber: 'IX',
+        ninthHourIcon: 'assets/images/ninth_hour.png',
+        ninthHourColorVibrant1: 'AD5025',
+        ninthHourColorVibrant2: '931002',
+        ninthHourColorDark: '6B3012',
+        ninthHourColorLight: 'DCC4A3',
+        eleventhHourTitle: '열한번째 Stunde',
+        eleventhHourTitleLatin: '저녁 예배',
+        eleventhHourSubtitle: '십자가에서 예수 그리스도의 복용과 그의 몸의 기름 부음의 기념.',
+        eleventhHourDescription:
+            '예수님의 몸은 십자가에서 내려올 향신료와 기름 부음과 리넨에 싸여 된 시간을 기념하기 위해 제정.',
+        eleventhHourLatinNumber: 'XI',
+        eleventhHourIcon: 'assets/images/eleventh_hour.png',
+        eleventhHourColorVibrant1: 'A9190D',
+        eleventhHourColorVibrant2: 'D37503',
+        eleventhHourColorDark: '4A2312',
+        eleventhHourColorLight: 'F8E9C7',
+        twelfthHourTitle: '열두 번째 시간',
+        twelfthHourTitleLatin: 'Compline',
+        twelfthHourSubtitle: '예수 그리스도와 우리 자신의 죽음의 매장을 기념.',
+        twelfthHourDescription:
             '그것은 그의 다스에서 인간의 삶의 마지막 시간이기 때문에 잠이 조금 죽음으로 간주되기 때문에, 또한, 무덤에 누워 아래로 우리 주 예수 그리스도의 몸을 기념하기 위해 제정.',
-        latinNumber: 'XII',
-        icon: '자산 / 이미지 / twelfth_hour.png',
-        colorVibrant1: '86312E',
-        colorVibrant2: 'BA9F5A',
-        colorDark: '425444',
-        colorLight: 'D5BD8A',
-      ),
-      midnightHour: AppLocalizations_Labels_MidnightHour(
-        title: '자정기도',
-        titleLatin: '철야 기도',
-        subtitle: '예수 그리스도 께서 겟세마네에서 열린기도 집회의 기념.',
-        description:
+        twelfthHourLatinNumber: 'XII',
+        twelfthHourIcon: 'assets/images/twelfth_hour.png',
+        twelfthHourColorVibrant1: '86312E',
+        twelfthHourColorVibrant2: 'BA9F5A',
+        twelfthHourColorDark: '425444',
+        twelfthHourColorLight: 'D5BD8A',
+        midnightHourTitle: '자정기도',
+        midnightHourTitleLatin: '철야 기도',
+        midnightHourSubtitle: '예수 그리스도 께서 겟세마네에서 열린기도 집회의 기념.',
+        midnightHourDescription:
             '성령 주에 대한 그의 고난 중에 우리 구주 예수 그리스도 께서 겟세마네에서기도 세 번을 기념하기 위해 제정.',
-        latinNumber: '',
-        icon: '자산 / 이미지 / vigil_hour.png',
-        colorVibrant1: 'CD503A',
-        colorVibrant2: 'E5985E',
-        colorDark: '2F1619',
-        colorLight: 'E8B770',
+        midnightHourLatinNumber: '',
+        midnightHourIcon: 'assets/images/vigil_hour.png',
+        midnightHourColorVibrant1: 'CD503A',
+        midnightHourColorVibrant2: 'E5985E',
+        midnightHourColorDark: '2F1619',
+        midnightHourColorLight: 'E8B770',
       ),
     ),
   };
@@ -804,7 +751,77 @@ class AppLocalizations_Labels_Agpeya {
       this.conclusion,
       this.introduction,
       this.prayNow,
-      this.activateThisPrayerAgain});
+      this.activateThisPrayerAgain,
+      this.firstHourTitle,
+      this.firstHourTitleLatin,
+      this.firstHourSubtitle,
+      this.firstHourDescription,
+      this.firstHourLatinNumber,
+      this.firstHourIcon,
+      this.firstHourColorVibrant1,
+      this.firstHourColorVibrant2,
+      this.firstHourColorDark,
+      this.firstHourColorLight,
+      this.thirdHourTitle,
+      this.thirdHourTitleLatin,
+      this.thirdHourSubtitle,
+      this.thirdHourDescription,
+      this.thirdHourLatinNumber,
+      this.thirdHourIcon,
+      this.thirdHourColorVibrant1,
+      this.thirdHourColorVibrant2,
+      this.thirdHourColorDark,
+      this.thirdHourColorLight,
+      this.sixthHourTitle,
+      this.sixthHourTitleLatin,
+      this.sixthHourSubtitle,
+      this.sixthHourDescription,
+      this.sixthHourLatinNumber,
+      this.sixthHourIcon,
+      this.sixthHourColorVibrant1,
+      this.sixthHourColorVibrant2,
+      this.sixthHourColorDark,
+      this.sixthHourColorLight,
+      this.ninthHourTitle,
+      this.ninthHourTitleLatin,
+      this.ninthHourSubtitle,
+      this.ninthHourDescription,
+      this.ninthHourLatinNumber,
+      this.ninthHourIcon,
+      this.ninthHourColorVibrant1,
+      this.ninthHourColorVibrant2,
+      this.ninthHourColorDark,
+      this.ninthHourColorLight,
+      this.eleventhHourTitle,
+      this.eleventhHourTitleLatin,
+      this.eleventhHourSubtitle,
+      this.eleventhHourDescription,
+      this.eleventhHourLatinNumber,
+      this.eleventhHourIcon,
+      this.eleventhHourColorVibrant1,
+      this.eleventhHourColorVibrant2,
+      this.eleventhHourColorDark,
+      this.eleventhHourColorLight,
+      this.twelfthHourTitle,
+      this.twelfthHourTitleLatin,
+      this.twelfthHourSubtitle,
+      this.twelfthHourDescription,
+      this.twelfthHourLatinNumber,
+      this.twelfthHourIcon,
+      this.twelfthHourColorVibrant1,
+      this.twelfthHourColorVibrant2,
+      this.twelfthHourColorDark,
+      this.twelfthHourColorLight,
+      this.midnightHourTitle,
+      this.midnightHourTitleLatin,
+      this.midnightHourSubtitle,
+      this.midnightHourDescription,
+      this.midnightHourLatinNumber,
+      this.midnightHourIcon,
+      this.midnightHourColorVibrant1,
+      this.midnightHourColorVibrant2,
+      this.midnightHourColorDark,
+      this.midnightHourColorLight});
 
   final String subtitle;
 
@@ -837,6 +854,146 @@ class AppLocalizations_Labels_Agpeya {
   final String prayNow;
 
   final String activateThisPrayerAgain;
+
+  final String firstHourTitle;
+
+  final String firstHourTitleLatin;
+
+  final String firstHourSubtitle;
+
+  final String firstHourDescription;
+
+  final String firstHourLatinNumber;
+
+  final String firstHourIcon;
+
+  final String firstHourColorVibrant1;
+
+  final String firstHourColorVibrant2;
+
+  final String firstHourColorDark;
+
+  final String firstHourColorLight;
+
+  final String thirdHourTitle;
+
+  final String thirdHourTitleLatin;
+
+  final String thirdHourSubtitle;
+
+  final String thirdHourDescription;
+
+  final String thirdHourLatinNumber;
+
+  final String thirdHourIcon;
+
+  final String thirdHourColorVibrant1;
+
+  final String thirdHourColorVibrant2;
+
+  final String thirdHourColorDark;
+
+  final String thirdHourColorLight;
+
+  final String sixthHourTitle;
+
+  final String sixthHourTitleLatin;
+
+  final String sixthHourSubtitle;
+
+  final String sixthHourDescription;
+
+  final String sixthHourLatinNumber;
+
+  final String sixthHourIcon;
+
+  final String sixthHourColorVibrant1;
+
+  final String sixthHourColorVibrant2;
+
+  final String sixthHourColorDark;
+
+  final String sixthHourColorLight;
+
+  final String ninthHourTitle;
+
+  final String ninthHourTitleLatin;
+
+  final String ninthHourSubtitle;
+
+  final String ninthHourDescription;
+
+  final String ninthHourLatinNumber;
+
+  final String ninthHourIcon;
+
+  final String ninthHourColorVibrant1;
+
+  final String ninthHourColorVibrant2;
+
+  final String ninthHourColorDark;
+
+  final String ninthHourColorLight;
+
+  final String eleventhHourTitle;
+
+  final String eleventhHourTitleLatin;
+
+  final String eleventhHourSubtitle;
+
+  final String eleventhHourDescription;
+
+  final String eleventhHourLatinNumber;
+
+  final String eleventhHourIcon;
+
+  final String eleventhHourColorVibrant1;
+
+  final String eleventhHourColorVibrant2;
+
+  final String eleventhHourColorDark;
+
+  final String eleventhHourColorLight;
+
+  final String twelfthHourTitle;
+
+  final String twelfthHourTitleLatin;
+
+  final String twelfthHourSubtitle;
+
+  final String twelfthHourDescription;
+
+  final String twelfthHourLatinNumber;
+
+  final String twelfthHourIcon;
+
+  final String twelfthHourColorVibrant1;
+
+  final String twelfthHourColorVibrant2;
+
+  final String twelfthHourColorDark;
+
+  final String twelfthHourColorLight;
+
+  final String midnightHourTitle;
+
+  final String midnightHourTitleLatin;
+
+  final String midnightHourSubtitle;
+
+  final String midnightHourDescription;
+
+  final String midnightHourLatinNumber;
+
+  final String midnightHourIcon;
+
+  final String midnightHourColorVibrant1;
+
+  final String midnightHourColorVibrant2;
+
+  final String midnightHourColorDark;
+
+  final String midnightHourColorLight;
 
   String getByKey(String key) {
     switch (key) {
@@ -872,433 +1029,146 @@ class AppLocalizations_Labels_Agpeya {
         return prayNow;
       case 'activateThisPrayerAgain':
         return activateThisPrayerAgain;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_FirstHour {
-  const AppLocalizations_Labels_FirstHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_ThirdHour {
-  const AppLocalizations_Labels_ThirdHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_SixthHour {
-  const AppLocalizations_Labels_SixthHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_NinthHour {
-  const AppLocalizations_Labels_NinthHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_EleventhHour {
-  const AppLocalizations_Labels_EleventhHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_TwelfthHour {
-  const AppLocalizations_Labels_TwelfthHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
-      default:
-        return '';
-    }
-  }
-}
-
-class AppLocalizations_Labels_MidnightHour {
-  const AppLocalizations_Labels_MidnightHour(
-      {this.title,
-      this.titleLatin,
-      this.subtitle,
-      this.description,
-      this.latinNumber,
-      this.icon,
-      this.colorVibrant1,
-      this.colorVibrant2,
-      this.colorDark,
-      this.colorLight});
-
-  final String title;
-
-  final String titleLatin;
-
-  final String subtitle;
-
-  final String description;
-
-  final String latinNumber;
-
-  final String icon;
-
-  final String colorVibrant1;
-
-  final String colorVibrant2;
-
-  final String colorDark;
-
-  final String colorLight;
-
-  String getByKey(String key) {
-    switch (key) {
-      case 'title':
-        return title;
-      case 'titleLatin':
-        return titleLatin;
-      case 'subtitle':
-        return subtitle;
-      case 'description':
-        return description;
-      case 'latinNumber':
-        return latinNumber;
-      case 'icon':
-        return icon;
-      case 'colorVibrant1':
-        return colorVibrant1;
-      case 'colorVibrant2':
-        return colorVibrant2;
-      case 'colorDark':
-        return colorDark;
-      case 'colorLight':
-        return colorLight;
+      case 'firstHourTitle':
+        return firstHourTitle;
+      case 'firstHourTitleLatin':
+        return firstHourTitleLatin;
+      case 'firstHourSubtitle':
+        return firstHourSubtitle;
+      case 'firstHourDescription':
+        return firstHourDescription;
+      case 'firstHourLatinNumber':
+        return firstHourLatinNumber;
+      case 'firstHourIcon':
+        return firstHourIcon;
+      case 'firstHourColorVibrant1':
+        return firstHourColorVibrant1;
+      case 'firstHourColorVibrant2':
+        return firstHourColorVibrant2;
+      case 'firstHourColorDark':
+        return firstHourColorDark;
+      case 'firstHourColorLight':
+        return firstHourColorLight;
+      case 'thirdHourTitle':
+        return thirdHourTitle;
+      case 'thirdHourTitleLatin':
+        return thirdHourTitleLatin;
+      case 'thirdHourSubtitle':
+        return thirdHourSubtitle;
+      case 'thirdHourDescription':
+        return thirdHourDescription;
+      case 'thirdHourLatinNumber':
+        return thirdHourLatinNumber;
+      case 'thirdHourIcon':
+        return thirdHourIcon;
+      case 'thirdHourColorVibrant1':
+        return thirdHourColorVibrant1;
+      case 'thirdHourColorVibrant2':
+        return thirdHourColorVibrant2;
+      case 'thirdHourColorDark':
+        return thirdHourColorDark;
+      case 'thirdHourColorLight':
+        return thirdHourColorLight;
+      case 'sixthHourTitle':
+        return sixthHourTitle;
+      case 'sixthHourTitleLatin':
+        return sixthHourTitleLatin;
+      case 'sixthHourSubtitle':
+        return sixthHourSubtitle;
+      case 'sixthHourDescription':
+        return sixthHourDescription;
+      case 'sixthHourLatinNumber':
+        return sixthHourLatinNumber;
+      case 'sixthHourIcon':
+        return sixthHourIcon;
+      case 'sixthHourColorVibrant1':
+        return sixthHourColorVibrant1;
+      case 'sixthHourColorVibrant2':
+        return sixthHourColorVibrant2;
+      case 'sixthHourColorDark':
+        return sixthHourColorDark;
+      case 'sixthHourColorLight':
+        return sixthHourColorLight;
+      case 'ninthHourTitle':
+        return ninthHourTitle;
+      case 'ninthHourTitleLatin':
+        return ninthHourTitleLatin;
+      case 'ninthHourSubtitle':
+        return ninthHourSubtitle;
+      case 'ninthHourDescription':
+        return ninthHourDescription;
+      case 'ninthHourLatinNumber':
+        return ninthHourLatinNumber;
+      case 'ninthHourIcon':
+        return ninthHourIcon;
+      case 'ninthHourColorVibrant1':
+        return ninthHourColorVibrant1;
+      case 'ninthHourColorVibrant2':
+        return ninthHourColorVibrant2;
+      case 'ninthHourColorDark':
+        return ninthHourColorDark;
+      case 'ninthHourColorLight':
+        return ninthHourColorLight;
+      case 'eleventhHourTitle':
+        return eleventhHourTitle;
+      case 'eleventhHourTitleLatin':
+        return eleventhHourTitleLatin;
+      case 'eleventhHourSubtitle':
+        return eleventhHourSubtitle;
+      case 'eleventhHourDescription':
+        return eleventhHourDescription;
+      case 'eleventhHourLatinNumber':
+        return eleventhHourLatinNumber;
+      case 'eleventhHourIcon':
+        return eleventhHourIcon;
+      case 'eleventhHourColorVibrant1':
+        return eleventhHourColorVibrant1;
+      case 'eleventhHourColorVibrant2':
+        return eleventhHourColorVibrant2;
+      case 'eleventhHourColorDark':
+        return eleventhHourColorDark;
+      case 'eleventhHourColorLight':
+        return eleventhHourColorLight;
+      case 'twelfthHourTitle':
+        return twelfthHourTitle;
+      case 'twelfthHourTitleLatin':
+        return twelfthHourTitleLatin;
+      case 'twelfthHourSubtitle':
+        return twelfthHourSubtitle;
+      case 'twelfthHourDescription':
+        return twelfthHourDescription;
+      case 'twelfthHourLatinNumber':
+        return twelfthHourLatinNumber;
+      case 'twelfthHourIcon':
+        return twelfthHourIcon;
+      case 'twelfthHourColorVibrant1':
+        return twelfthHourColorVibrant1;
+      case 'twelfthHourColorVibrant2':
+        return twelfthHourColorVibrant2;
+      case 'twelfthHourColorDark':
+        return twelfthHourColorDark;
+      case 'twelfthHourColorLight':
+        return twelfthHourColorLight;
+      case 'midnightHourTitle':
+        return midnightHourTitle;
+      case 'midnightHourTitleLatin':
+        return midnightHourTitleLatin;
+      case 'midnightHourSubtitle':
+        return midnightHourSubtitle;
+      case 'midnightHourDescription':
+        return midnightHourDescription;
+      case 'midnightHourLatinNumber':
+        return midnightHourLatinNumber;
+      case 'midnightHourIcon':
+        return midnightHourIcon;
+      case 'midnightHourColorVibrant1':
+        return midnightHourColorVibrant1;
+      case 'midnightHourColorVibrant2':
+        return midnightHourColorVibrant2;
+      case 'midnightHourColorDark':
+        return midnightHourColorDark;
+      case 'midnightHourColorLight':
+        return midnightHourColorLight;
       default:
         return '';
     }
@@ -1307,17 +1177,7 @@ class AppLocalizations_Labels_MidnightHour {
 
 class AppLocalizations_Labels {
   const AppLocalizations_Labels(
-      {this.general,
-      this.app,
-      this.settings,
-      this.agpeya,
-      this.firstHour,
-      this.thirdHour,
-      this.sixthHour,
-      this.ninthHour,
-      this.eleventhHour,
-      this.twelfthHour,
-      this.midnightHour});
+      {this.general, this.app, this.settings, this.agpeya});
 
   final AppLocalizations_Labels_General general;
 
@@ -1326,20 +1186,6 @@ class AppLocalizations_Labels {
   final AppLocalizations_Labels_Settings settings;
 
   final AppLocalizations_Labels_Agpeya agpeya;
-
-  final AppLocalizations_Labels_FirstHour firstHour;
-
-  final AppLocalizations_Labels_ThirdHour thirdHour;
-
-  final AppLocalizations_Labels_SixthHour sixthHour;
-
-  final AppLocalizations_Labels_NinthHour ninthHour;
-
-  final AppLocalizations_Labels_EleventhHour eleventhHour;
-
-  final AppLocalizations_Labels_TwelfthHour twelfthHour;
-
-  final AppLocalizations_Labels_MidnightHour midnightHour;
 
   String getByKey(String key) {
     switch (key) {
