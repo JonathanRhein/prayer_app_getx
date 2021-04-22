@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/models/databse/agpeya_hour_db.dart';
-import 'package:prayer_app_getx/models/presentation/agpeya_hour_mdl.dart';
 import 'package:prayer_app_getx/services/db_srvc.dart';
 
 class AgpeyaController extends GetxController {

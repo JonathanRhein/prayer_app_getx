@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:prayer_app_getx/localizations.dart';
 import 'dart:ui' as ui;
 
 import 'package:prayer_app_getx/utils/constants/languages.dart';
@@ -42,23 +41,17 @@ class LanguageController extends GetxController {
     return language;
   }
 
-  // gets the language locale app is set to
+// gets the language locale app is set to
   Locale get getLocale {
-    if ((currentLanguageStore.value == '') ||
-        (currentLanguageStore.value == null)) {
+    if (currentLanguageStore.value == '') {
       language.value = Languages.defaultLanguage;
       updateLanguage(Languages.defaultLanguage);
+    } else if (currentLanguageStore.value != '') {
+      //set the stored string country code to the locale
+      return Locale(currentLanguageStore.value);
     }
-    // gets the default language key (from the translation language system)
-    Locale _updatedLocal = AppLocalizations.languages.keys.first;
-    // looks for matching language key stored and sets to it
-    AppLocalizations.languages.keys.forEach((locale) {
-      if (locale.languageCode == currentLanguage) {
-        _updatedLocal = locale;
-      }
-    });
-    //print('getLocale: ' + _updatedLocal.toString());
-    return _updatedLocal;
+    // gets the default language key for the system.
+    return Get.deviceLocale;
   }
 
 // updates the language stored

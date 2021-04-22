@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/controller/language_ctl.dart';
-import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
 import 'package:prayer_app_getx/shared_widgets/app_bar_cstm.dart';
 import 'package:prayer_app_getx/shared_widgets/body_text.dart';
@@ -14,7 +13,6 @@ import 'package:prayer_app_getx/utils/constants/languages.dart';
 class SettingsView extends StatelessWidget {
   @override
   Widget build(context) {
-    final labels = AppLocalizations.of(context);
     return Scaffold(
         endDrawer: EndDrawerCustom(),
         body: Stack(
@@ -27,27 +25,25 @@ class SettingsView extends StatelessWidget {
                 switchLanguageListTile(context)
               ],
             ),
-            AppBarCustom(title: labels.settings.title, hasBackButton: true),
+            AppBarCustom(title: 'settings.title'.tr, hasBackButton: true),
           ],
         ));
   }
 }
 
 switchThemeListTile(BuildContext context) {
-  final labels = AppLocalizations.of(context);
   return SwitchListTileCustom(
       value: ThemeService().isLightMode,
       onChanged: (_) => ThemeService().switchTheme(),
-      title: labels.settings.darkMode);
+      title: 'settings.dark_mode'.tr);
 }
 
 switchLanguageListTile(BuildContext context) {
-  final labels = AppLocalizations.of(context);
   return GetBuilder<LanguageController>(
       builder: (controller) => ListTile(
           leading: Padding(
             padding: const EdgeInsets.only(left: 34.0),
-            child: BodyText(labels.settings.language),
+            child: BodyText('settings.language'.tr),
           ),
           trailing: Padding(
             padding: const EdgeInsets.only(right: 15.0),
@@ -58,7 +54,7 @@ switchLanguageListTile(BuildContext context) {
           onTap: () {
             Get.dialog(GetBuilder<LanguageController>(
                 builder: (controller) => AlertDialog(
-                      title: BodyText(labels.settings.chooseLanguage),
+                      title: BodyText('settings.chooseLanguage'.tr),
                       content: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -80,7 +76,7 @@ switchLanguageListTile(BuildContext context) {
                       ),
                       actions: <Widget>[
                         TextButton(
-                          child: LinkText(labels.general.save),
+                          child: LinkText('general.save'.tr),
                           onPressed: () async {
                             await controller
                                 .updateLanguage(controller.selectedLanguage);
@@ -88,7 +84,7 @@ switchLanguageListTile(BuildContext context) {
                           },
                         ),
                         TextButton(
-                          child: LinkText(labels.general.close),
+                          child: LinkText('general.close'.tr),
                           onPressed: () {
                             Get.back();
                           },

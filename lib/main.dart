@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:prayer_app_getx/controller/language_ctl.dart';
-import 'package:prayer_app_getx/localizations.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
-import 'package:prayer_app_getx/utils/themes.dart';
-import 'package:prayer_app_getx/views/agpeya_vw.dart';
-import 'package:prayer_app_getx/views/home_vw.dart';
-import 'package:prayer_app_getx/views/settings_vw.dart';
+import 'package:prayer_app_getx/utils/constants/app_routes.dart';
+import 'package:prayer_app_getx/utils/localization.g.dart';
+import 'package:prayer_app_getx/utils/themes.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,21 +21,12 @@ class PrayerApp extends StatelessWidget {
     return GetBuilder<LanguageController>(
         builder: (languageController) => GetMaterialApp(
               locale: languageController.getLocale,
-              localizationsDelegates: [
-                const AppLocalizationsDelegate(),
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              supportedLocales: AppLocalizations.languages.keys.toList(),
+              translations: Localization(),
               theme: Themes.light,
               darkTheme: Themes.dark,
               themeMode: ThemeService().theme,
               debugShowCheckedModeBanner: false,
-              getPages: [
-                GetPage(name: '/', page: () => HomeView()),
-                GetPage(name: '/agpeya', page: () => AgpeyaView()),
-                GetPage(name: '/settings', page: () => SettingsView()),
-              ],
+              getPages: AppRoutes.routes,
               initialRoute: '/agpeya',
               // builder inserts the AnnotatedRegion above all subsequent routes (i.e. widgets)
               // and handles the switch of font color of the status bar (time, signal, battery etc.)

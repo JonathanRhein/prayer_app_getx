@@ -36,6 +36,9 @@ dependencies:
 
   flutter_sheet_localization:
   intl:
+  
+  http:
+  csv:
 
 dev_dependencies:
   flutter_test:
