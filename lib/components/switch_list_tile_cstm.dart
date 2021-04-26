@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_app_getx/shared_widgets/body_text.dart';
+import 'package:prayer_app_getx/components/body_text.dart';
 
 class SwitchListTileCustom extends StatelessWidget {
   final bool value;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/shared_widgets/app_bar_background.dart';
+import 'package:prayer_app_getx/components/app_bar_background.dart';
 
 class AppBarCustom extends StatelessWidget {
   final bool hasBackButton;

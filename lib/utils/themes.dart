@@ -14,7 +14,6 @@ ThemeData lightTheme() {
   final Color _mainAccentColor = Color(0xFF917f26);
   final Color _mainAccentColorHue = Color(0xFFE1E0D6);
 
-
   // Define everything text related here
   TextTheme _textTheme(TextTheme base) {
     return base.copyWith(
@@ -33,6 +32,12 @@ ThemeData lightTheme() {
         bodyText2: base.bodyText1.copyWith(
           fontFamily: Styles.fontFamilyBodyText1,
           fontSize: Styles.fontSizeBodyText1,
+          color: _mainAccentColor,
+        ),
+        // used for headlines in floating text
+        headline2: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilyHeadline2,
+          fontSize: Styles.fontSizeHeadline2,
           color: _mainAccentColor,
         ));
   }
@@ -63,7 +68,7 @@ ThemeData lightTheme() {
       switchTheme: SwitchThemeData(
         thumbColor:
             MaterialStateProperty.resolveWith((states) => _mainAccentColor),
-        trackColor: 
+        trackColor:
             MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -101,6 +106,12 @@ ThemeData darkTheme() {
           fontFamily: Styles.fontFamilyBodyText1,
           fontSize: Styles.fontSizeBodyText1,
           color: _mainAccentColor,
+        ),
+        // used for headlines in floating text
+        headline2: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilyHeadline2,
+          fontSize: Styles.fontSizeHeadline2,
+          color: _mainAccentColor,
         ));
   }
 
@@ -121,7 +132,7 @@ ThemeData darkTheme() {
       // The color that the Material widget uses to draw elevation shadows.
       shadowColor: Color(0xFF000000),
 
-      // Background Color of drawer menu 
+      // Background Color of drawer menu
       canvasColor: Color(0xFF000000),
 
       // Dialog background color

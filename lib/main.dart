@@ -6,7 +6,7 @@ import 'package:prayer_app_getx/controller/language_ctl.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/app_routes.dart';
 import 'package:prayer_app_getx/utils/localization.g.dart';
-import 'package:prayer_app_getx/utils/themes.dart'; 
+import 'package:prayer_app_getx/utils/themes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class PrayerApp extends StatelessWidget {
               themeMode: ThemeService().theme,
               debugShowCheckedModeBanner: false,
               getPages: AppRoutes.routes,
-              initialRoute: '/agpeya',
+              initialRoute: '/agpeya_list',
               // builder inserts the AnnotatedRegion above all subsequent routes (i.e. widgets)
               // and handles the switch of font color of the status bar (time, signal, battery etc.)
               // when switching modes

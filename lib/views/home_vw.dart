@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/shared_widgets/app_bar_cstm.dart';
-import 'package:prayer_app_getx/shared_widgets/end_drawer_cstm.dart';
+import 'package:prayer_app_getx/components/app_bar_cstm.dart';
+import 'package:prayer_app_getx/components/end_drawer_cstm.dart';
 
 class HomeView extends StatelessWidget {
   @override
