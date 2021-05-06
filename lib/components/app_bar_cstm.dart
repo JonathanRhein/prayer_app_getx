@@ -5,13 +5,23 @@ import 'package:prayer_app_getx/components/app_bar_background.dart';
 class AppBarCustom extends StatelessWidget {
   final bool hasBackButton;
   final String title;
+  final String backgroundImage;
 
-  AppBarCustom({this.title, this.hasBackButton: true});
+  AppBarCustom({this.title, this.hasBackButton: true, this.backgroundImage});
 
   @override
   Widget build(BuildContext context) {
+    // check if there is a background image provided and change font color
+    // to light color
+    final bool _isDarkBackground = this.backgroundImage != null;
     return Container(
       decoration: ShapeDecoration(
+        image: _isDarkBackground
+            ? DecorationImage(
+                alignment: Alignment.topCenter,
+                image: ExactAssetImage(this.backgroundImage),
+                fit: BoxFit.cover)
+            : null,
         color: context.theme.primaryColor,
         shape: AppBarBackground(),
         shadows: [
@@ -33,10 +43,12 @@ class AppBarCustom extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 this.hasBackButton
-                    ? GestureDetector(
-                        child: new Icon(Icons.arrow_back),
-                        onTap: () => Get.back(),
-                      )
+                    ? _isDarkBackground
+                        ? _backButtonWithBackground()
+                        : GestureDetector(
+                            child: Icon(Icons.arrow_back),
+                            onTap: () => Get.back(),
+                          )
                     : Container(),
                 GestureDetector(
                     child: Icon(Icons.menu),
@@ -48,14 +60,28 @@ class AppBarCustom extends StatelessWidget {
             ),
             FittedBox(
               fit: BoxFit.fitWidth,
-                        child: Text(
-                title,
-                style: context.textTheme.headline1,
-              ),
+              child: _isDarkBackground
+                  ? null
+                  : Text(
+                      title,
+                      style: context.textTheme.headline1,
+                    ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _backButtonWithBackground() {
+    return InkWell(
+      onTap: () => Get.back(),
+      child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+          ),
+          child: Icon(Icons.arrow_back, size: 50.0, color: Colors.black38)),
     );
   }
 }

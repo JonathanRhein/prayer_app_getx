@@ -20,6 +20,7 @@ class AgpeyaListController extends GetxController {
         dbList.add(AgpeyaHourDatabase.fromMap(hour));
       });
     });
+    
   }
 
   setHour(int index) => hour = dbList[index].name;
