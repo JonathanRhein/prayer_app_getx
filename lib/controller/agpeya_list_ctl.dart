@@ -24,7 +24,4 @@ class AgpeyaListController extends GetxController {
   }
 
   setHour(int index) => hour = dbList[index].name;
-
-  // retrieves the respective property of any hour in current language
-  String getTrnsltn(String property) => ('agpeya.' + hour + '.' + property).tr;
 }

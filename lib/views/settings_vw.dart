@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/link_text.dart';
 import 'package:prayer_app_getx/components/switch_list_tile_cstm.dart';
 import 'package:prayer_app_getx/utils/constants/languages.dart';
+import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class SettingsView extends StatelessWidget {
   @override
@@ -40,12 +41,13 @@ switchThemeListTile(BuildContext context) {
 switchLanguageListTile(BuildContext context) {
   return GetBuilder<LanguageController>(
       builder: (ctl) => ListTile(
+          contentPadding: EdgeInsets.zero,
           leading: Padding(
-            padding: const EdgeInsets.only(left: 34.0),
+            padding: EdgeInsets.only(left: Styles.screenLeftPadding),
             child: BodyText('settings.language'.tr),
           ),
           trailing: Padding(
-            padding: const EdgeInsets.only(right: 15.0),
+            padding: EdgeInsets.only(right: Styles.screenRightPadding),
             child: BodyText(
               ctl.getLanguageForToken(ctl.currentLanguage),
             ),

@@ -1,5 +1,5 @@
-
 class Styles {
+  //-------------------- FONTS ----------------------
 
   // Headline1
   static final String fontFamilyHeadline1 = 'Vidaloka';
@@ -12,4 +12,14 @@ class Styles {
   // BodyText1
   static final String fontFamilyBodyText1 = 'Montserrat';
   static final double fontSizeBodyText1 = 16.0;
+
+  // Subtitle
+  static final String fontFamilySubtitleText1 = 'Montserrat';
+  static final double fontSizeSubtitleText1 = 16.0;
+
+  //-------------------- SPACERS ----------------------
+
+  // General padding values (left & right) for each screen
+  static final double screenLeftPadding = 25.0;
+  static final double screenRightPadding = 25.0;
 }

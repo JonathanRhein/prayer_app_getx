@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
+import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class SwitchListTileCustom extends StatelessWidget {
   final bool value;
@@ -11,11 +12,10 @@ class SwitchListTileCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(
-            value: value,
-            onChanged: onChanged,
-            title: Padding(
-              padding: const EdgeInsets.only(left: 34.0),
-              child: BodyText(title),
-            ));
+        contentPadding: EdgeInsets.only(
+            left: Styles.screenLeftPadding, right: Styles.screenRightPadding),
+        value: value,
+        onChanged: onChanged,
+        title: BodyText(title));
   }
 }

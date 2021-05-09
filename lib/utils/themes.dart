@@ -11,6 +11,7 @@ ThemeData lightTheme() {
 
   // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFF1F1F1F);
+  final Color _subtitleTextColor = Color(0xFF888888);
   final Color _mainAccentColor = Color(0xFF917f26);
   final Color _mainAccentColorHue = Color(0xFFE1E0D6);
 
@@ -39,6 +40,12 @@ ThemeData lightTheme() {
           fontFamily: Styles.fontFamilyHeadline2,
           fontSize: Styles.fontSizeHeadline2,
           color: _mainAccentColor,
+        ),
+        // used for headlines in floating text
+        subtitle1: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilySubtitleText1,
+          fontSize: Styles.fontSizeSubtitleText1,
+          color: _subtitleTextColor,
         ));
   }
 
@@ -84,6 +91,7 @@ ThemeData darkTheme() {
 
   // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFFFFFFFF);
+  final Color _subtitleTextColor = Color(0xFF6A6A6A);
   final Color _mainAccentColor = Color(0xFF917f26);
   final Color _mainAccentColorHue = Color(0xFF484848);
 
@@ -112,6 +120,12 @@ ThemeData darkTheme() {
           fontFamily: Styles.fontFamilyHeadline2,
           fontSize: Styles.fontSizeHeadline2,
           color: _mainAccentColor,
+        ),
+        // used for headlines in floating text
+        subtitle1: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilySubtitleText1,
+          fontSize: Styles.fontSizeSubtitleText1,
+          color: _subtitleTextColor,
         ));
   }
 

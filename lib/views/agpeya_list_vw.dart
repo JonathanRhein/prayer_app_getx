@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:prayer_app_getx/controller/agpeya_list_ctl.dart';
 import 'package:prayer_app_getx/components/app_bar_cstm.dart';
 import 'package:prayer_app_getx/components/end_drawer_cstm.dart';
-import 'package:prayer_app_getx/components/list_tile_cstm.dart';
+import 'package:prayer_app_getx/components/hour_list_tile.dart';
+import 'package:prayer_app_getx/services/translation_srvc.dart';
 
 class AgpeyaListView extends StatelessWidget {
   final ctl = Get.put(AgpeyaListController());
+  final tS = TranslationService();
 
   @override
   Widget build(context) {
@@ -25,7 +27,10 @@ class AgpeyaListView extends StatelessWidget {
 
   _listItemBuilder(int index) {
     ctl.setHour(index);
-    return ListTileCustom(ctl.getTrnsltn('icon'), ctl.getTrnsltn('title'),
-        ctl.getTrnsltn('subtitle'), ctl.hour);
+    return HourListTile(
+        tS.getTrnsltn(ctl.hour, 'icon'),
+        tS.getTrnsltn(ctl.hour, 'title'),
+        tS.getTrnsltn(ctl.hour, 'subtitle'),
+        ctl.hour);
   }
 }

@@ -2,21 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/headline2_text.dart';
+import 'package:prayer_app_getx/utils/constants/styles.dart';
 
-class ListTileCustom extends StatelessWidget {
+class HourListTile extends StatelessWidget {
   final String imagePath;
   final String title;
   final String text;
   final String hour;
 
-  ListTileCustom(this.imagePath, this.title, this.text, this.hour);
+  HourListTile(this.imagePath, this.title, this.text, this.hour);
 
   @override
   Widget build(context) {
     return InkWell(
       onTap: () => Get.toNamed('/agpeya_prayer', arguments: hour),
       child: Padding(
-        padding: const EdgeInsets.only(left: 50, right: 30),
+        padding: EdgeInsets.only(
+            left: Styles.screenLeftPadding, right: Styles.screenRightPadding),
         child: Column(
           children: [
             SizedBox(

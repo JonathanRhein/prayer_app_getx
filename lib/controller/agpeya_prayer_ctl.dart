@@ -7,6 +7,7 @@ class AgpeyaPrayerController extends GetxController {
   final dbList = <AgpeyaPrayerDatabase>[].obs;
   final DatabaseService _db = DatabaseService();
   final String hour;
+  String prayer;
 
   AgpeyaPrayerController(this.hour);
 
@@ -24,6 +25,5 @@ class AgpeyaPrayerController extends GetxController {
     });
   }
 
-  // retrieves the respective property of any prayer in current language
-  String getTrnsltn(String property) => ('agpeya.' + hour + '.' + property).tr;
+  setPrayer(int index) => prayer = dbList[index].name;
 }
