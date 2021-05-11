@@ -40,7 +40,7 @@ switchThemeListTile(BuildContext context) {
 
 switchLanguageListTile(BuildContext context) {
   return GetBuilder<LanguageController>(
-      builder: (ctl) => ListTile(
+      builder: (controller) => ListTile(
           contentPadding: EdgeInsets.zero,
           leading: Padding(
             padding: EdgeInsets.only(left: Styles.screenLeftPadding),
@@ -49,7 +49,7 @@ switchLanguageListTile(BuildContext context) {
           trailing: Padding(
             padding: EdgeInsets.only(right: Styles.screenRightPadding),
             child: BodyText(
-              ctl.getLanguageForToken(ctl.currentLanguage),
+              controller.getLanguageForToken(controller.currentLanguage),
             ),
           ),
           onTap: () {
@@ -59,7 +59,7 @@ switchLanguageListTile(BuildContext context) {
 
 switchLanguageDialog(BuildContext context) {
   Get.dialog(GetBuilder<LanguageController>(
-      builder: (ctl) => AlertDialog(
+      builder: (controller) => AlertDialog(
             title: BodyText('settings.chooseLanguage'.tr),
             content: Container(
               child: Column(
@@ -71,10 +71,10 @@ switchLanguageDialog(BuildContext context) {
                     .map((item) => RadioListTile(
                           activeColor: context.theme.accentColor,
                           title: BodyText(item.value.language),
-                          groupValue: ctl.currentLanguageIndex,
+                          groupValue: controller.currentLanguageIndex,
                           value: item.key,
                           onChanged: (value) {
-                            ctl.selectLanguage(value);
+                            controller.selectLanguage(value);
                           },
                         ))
                     .toList(),
@@ -84,7 +84,7 @@ switchLanguageDialog(BuildContext context) {
               TextButton(
                 child: LinkText('general.save'.tr),
                 onPressed: () async {
-                  await ctl.updateLanguage(ctl.selectedLanguage);
+                  await controller.updateLanguage(controller.selectedLanguage);
                   Get.back();
                 },
               ),

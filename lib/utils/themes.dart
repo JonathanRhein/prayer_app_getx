@@ -50,40 +50,49 @@ ThemeData lightTheme() {
   }
 
   return lightTheme.copyWith(
+    // The text theme for fonts
+    textTheme: _textTheme(lightTheme.textTheme),
 
-      // The text theme for fonts
-      textTheme: _textTheme(lightTheme.textTheme),
+    // The foreground color for widgets (knobs, text, overscroll edge effect, etc).
+    accentColor: _mainAccentColor,
 
-      // The foreground color for widgets (knobs, text, overscroll edge effect, etc).
-      accentColor: _mainAccentColor,
+    // The background color for major parts of the app (toolbars, tab bars, etc)
+    primaryColor: Color(0xFFFFFFFF),
 
-      // The background color for major parts of the app (toolbars, tab bars, etc)
-      primaryColor: Color(0xFFFFFFFF),
+    // A color that contrasts with the primaryColor, e.g. used as the remaining part of a progress bar.
+    backgroundColor: Color(0xFF000000),
 
-      // A color that contrasts with the primaryColor, e.g. used as the remaining part of a progress bar.
-      backgroundColor: Color(0xFF000000),
+    // The color that the Material widget uses to draw elevation shadows.
+    shadowColor: Color(0xFFDCDCDC),
 
-      // The color that the Material widget uses to draw elevation shadows.
-      shadowColor: Color(0xFFDCDCDC),
+    // The default color of the Material that underlies the Scaffold. The background color for a typical material app or a page within the app.
+    scaffoldBackgroundColor: Color(0xFFF5F5F5),
+    iconTheme: IconThemeData(
+      color: _mainAccentColor,
+      size: 25.0,
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor:
+          MaterialStateProperty.resolveWith((states) => _mainAccentColor),
+      trackColor:
+          MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
+    ),
 
-      // The default color of the Material that underlies the Scaffold. The background color for a typical material app or a page within the app.
-      scaffoldBackgroundColor: Color(0xFFF5F5F5),
-      iconTheme: IconThemeData(
-        color: _mainAccentColor,
-        size: 25.0,
-      ),
-      switchTheme: SwitchThemeData(
-        thumbColor:
-            MaterialStateProperty.resolveWith((states) => _mainAccentColor),
-        trackColor:
-            MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
-      ),
-      textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-              overlayColor: MaterialStateProperty.resolveWith(
-                  (state) => Color(0xFFE9E2BD)),
-              foregroundColor: MaterialStateProperty.resolveWith(
-                  (state) => _mainAccentColor))));
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+      backgroundColor:
+          MaterialStateProperty.resolveWith((state) => _mainAccentColor),
+      overlayColor:
+          MaterialStateProperty.resolveWith((state) => Color(0xFFE9E2BD)),
+    )),
+
+    textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+            overlayColor:
+                MaterialStateProperty.resolveWith((state) => Color(0xFFE9E2BD)),
+            foregroundColor: MaterialStateProperty.resolveWith(
+                (state) => _mainAccentColor))),
+  );
 }
 
 ThemeData darkTheme() {
@@ -164,6 +173,13 @@ ThemeData darkTheme() {
         trackColor:
             MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.resolveWith((state) => _mainAccentColor),
+        overlayColor:
+            MaterialStateProperty.resolveWith((state) => Color(0xFF221C01)),
+      )),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
               overlayColor: MaterialStateProperty.resolveWith(

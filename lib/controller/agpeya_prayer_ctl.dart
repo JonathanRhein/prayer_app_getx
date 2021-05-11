@@ -4,7 +4,8 @@ import 'package:prayer_app_getx/services/db_srvc.dart';
 
 class AgpeyaPrayerController extends GetxController {
   static AgpeyaPrayerController get to => Get.find();
-  final dbList = <AgpeyaPrayerDatabase>[].obs;
+  final dbList = <AgpeyaPrayerDatabase>[];
+  final prayerList = <dynamic>[].obs;
   final DatabaseService _db = DatabaseService();
   final String hour;
   String prayer;
@@ -13,11 +14,12 @@ class AgpeyaPrayerController extends GetxController {
 
   @override
   void onInit() async {
-    await _loadPrayersDBList();
+    await _loadPrayerDBList();
+    _buildPrayerDBListWithHeadings();
     super.onInit();
   }
 
-  _loadPrayersDBList() async {
+  _loadPrayerDBList() async {
     await _db.getAllAgpeyaHourPrayersForSpecificHour(hour).then((hours) {
       hours.forEach((hour) {
         dbList.add(AgpeyaPrayerDatabase.fromMap(hour));
@@ -25,5 +27,19 @@ class AgpeyaPrayerController extends GetxController {
     });
   }
 
-  setPrayer(int index) => prayer = dbList[index].name;
+  // creates a list of prayers with headings for each new section
+  _buildPrayerDBListWithHeadings() {
+    String oldSection = "";
+    dbList.forEach((prayer) {
+      String newSection = prayer.section;
+      if (oldSection != newSection) {
+        prayerList.add(newSection);
+        oldSection = newSection;
+      } else {
+        prayerList.add(prayer);
+      }
+    });
+  }
+
+  // setPrayer(int index) => prayer = dbList[index].name;
 }
