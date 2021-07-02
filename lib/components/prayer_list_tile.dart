@@ -20,7 +20,7 @@ class PrayerListTile extends StatelessWidget {
   Widget build(context) {
     dynamic listItem = controller.prayerList[index];
     return InkWell(
-      onTap: () => {},
+      onTap: () => Get.toNamed('/agpeya_text', arguments: index),
       child: Padding(
         padding: EdgeInsets.only(
             left: Styles.screenLeftPadding, right: Styles.screenRightPadding),

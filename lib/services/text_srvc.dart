@@ -37,6 +37,8 @@ class TextService {
     return _previewText + "...";
   }
 
+  
+
   String _parseHtmlString(String htmlString) {
     var document = parse(htmlString);
     String parsedString = parse(document.body.text).documentElement.text;

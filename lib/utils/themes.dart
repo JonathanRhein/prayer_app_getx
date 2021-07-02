@@ -41,6 +41,13 @@ ThemeData lightTheme() {
           fontSize: Styles.fontSizeHeadline2,
           color: _mainAccentColor,
         ),
+        // used for headlines of prayers in text
+        headline3: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilyHeadline3,
+          fontSize: Styles.fontSizeHeadline3,
+          fontWeight: Styles.fontWeightHeadline3,
+          color: _mainTextColor,
+        ),
         // used for headlines in floating text
         subtitle1: base.bodyText1.copyWith(
           fontFamily: Styles.fontFamilySubtitleText1,
@@ -129,6 +136,13 @@ ThemeData darkTheme() {
           fontFamily: Styles.fontFamilyHeadline2,
           fontSize: Styles.fontSizeHeadline2,
           color: _mainAccentColor,
+        ),
+        // used for headlines of prayers in text
+        headline3: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilyHeadline3,
+          fontSize: Styles.fontSizeHeadline3,
+          fontWeight: Styles.fontWeightHeadline3,
+          color: _mainTextColor,
         ),
         // used for headlines in floating text
         subtitle1: base.bodyText1.copyWith(
