@@ -16,6 +16,10 @@ class Styles {
   static final double fontSizeHeadline3 = 16.0;
   static final FontWeight fontWeightHeadline3 = FontWeight.bold;
 
+  // Headline4
+  static final String fontFamilyHeadline4 = 'Vidaloka';
+  static final double fontSizeHeadline4 = 24.0;
+
   // BodyText1
   static final String fontFamilyBodyText1 = 'Montserrat';
   static final double fontSizeBodyText1 = 16.0;

@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/components/body_text.dart';
-import 'package:prayer_app_getx/components/headline2_text.dart';
 import 'package:prayer_app_getx/components/prayer_heading.dart';
+import 'package:prayer_app_getx/components/prayer_section_heading.dart';
 import 'package:prayer_app_getx/components/prayer_text.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
-class TextListTile extends StatelessWidget {
+class FullTextListTile extends StatelessWidget {
   final int index;
-  final AgpeyaPrayerController controller;
+  final AgpeyaHourController controller;
   final textService = TextService();
   final translationService = TranslationService();
 
-  TextListTile(this.index, this.controller);
+  FullTextListTile(this.index, this.controller);
 
   @override
   Widget build(context) {
@@ -31,7 +29,7 @@ class TextListTile extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                Headline2Text(('agpeya.' + listItem).tr)
+                PrayerSectionHeading(('agpeya.' + listItem).tr)
               ],
             )
           : Column(

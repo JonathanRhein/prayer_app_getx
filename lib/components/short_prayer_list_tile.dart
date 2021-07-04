@@ -3,18 +3,18 @@ import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/headline2_text.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
-class PrayerListTile extends StatelessWidget {
+class ShortPrayerListTile extends StatelessWidget {
   final int index;
-  final AgpeyaPrayerController controller;
+  final AgpeyaHourController controller;
   final textService = TextService();
   final translationService = TranslationService();
 
-  PrayerListTile(this.index, this.controller);
+  ShortPrayerListTile(this.index, this.controller);
 
   @override
   Widget build(context) {
