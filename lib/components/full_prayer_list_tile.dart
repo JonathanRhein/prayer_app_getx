@@ -13,7 +13,7 @@ class FullTextListTile extends StatelessWidget {
   final AgpeyaHourController controller;
   final textService = TextService();
   final translationService = TranslationService();
-
+  
   FullTextListTile(this.index, this.controller);
 
   @override
