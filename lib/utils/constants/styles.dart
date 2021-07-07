@@ -20,6 +20,10 @@ class Styles {
   static final String fontFamilyHeadline4 = 'Vidaloka';
   static final double fontSizeHeadline4 = 24.0;
 
+  // Headline4
+  static final String fontFamilyHeadline5 = 'Vidaloka';
+  static final double fontSizeHeadline5 = 24.0;
+
   // BodyText1
   static final String fontFamilyBodyText1 = 'Montserrat';
   static final double fontSizeBodyText1 = 16.0;
@@ -33,4 +37,7 @@ class Styles {
   // General padding values (left & right) for each screen
   static final double screenLeftPadding = 25.0;
   static final double screenRightPadding = 25.0;
+
+  // Top padding for all content underneath custom app bar
+  static final double paddingUnderneathCustomAppBar = 320.0;
 }

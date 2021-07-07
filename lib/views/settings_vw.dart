@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/controller/language_ctl.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
-import 'package:prayer_app_getx/components/app_bar_cstm.dart';
+import 'package:prayer_app_getx/components/general_app_bar.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/end_drawer_cstm.dart';
 import 'package:get/get.dart';
@@ -19,13 +19,13 @@ class SettingsView extends StatelessWidget {
           children: [
             ListView(
               itemExtent: 60,
-              padding: EdgeInsets.only(top: 320),
+              padding: EdgeInsets.only(top: Styles.paddingUnderneathCustomAppBar),
               children: <Widget>[
                 switchThemeListTile(context),
                 switchLanguageListTile(context)
               ],
             ),
-            AppBarCustom(title: 'settings.title'.tr, hasBackButton: true),
+            GeneralAppBar(title: 'settings.title'.tr, hasBackButton: true),
           ],
         ));
   }

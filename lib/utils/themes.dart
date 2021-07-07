@@ -54,6 +54,12 @@ ThemeData lightTheme() {
           fontSize: Styles.fontSizeHeadline4,
           color: _mainAccentColor,
         ),
+        // used text in prayer app bar
+        headline5: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilyHeadline5,
+          fontSize: Styles.fontSizeHeadline5,
+          color: _mainTextColor,
+        ),
         // used for headlines in floating text
         subtitle1: base.bodyText1.copyWith(
           fontFamily: Styles.fontFamilySubtitleText1,
@@ -155,6 +161,12 @@ ThemeData darkTheme() {
           fontFamily: Styles.fontFamilyHeadline4,
           fontSize: Styles.fontSizeHeadline4,
           color: _mainAccentColor,
+        ),
+        // used text in prayer app bar
+        headline5: base.bodyText1.copyWith(
+          fontFamily: Styles.fontFamilyHeadline5,
+          fontSize: Styles.fontSizeHeadline5,
+          color: _mainTextColor,
         ),
         // used for headlines in floating text
         subtitle1: base.bodyText1.copyWith(

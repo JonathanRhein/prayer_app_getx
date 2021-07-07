@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/components/app_bar_background.dart';
+import 'package:prayer_app_getx/components/prayer_app_bar_background.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
-class AppBarCustom extends StatelessWidget {
+class PrayerAppBar extends StatelessWidget {
   final bool hasBackButton;
   final String title;
 
-  AppBarCustom({this.title, this.hasBackButton: true});
+  PrayerAppBar({this.title, this.hasBackButton: true});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        color: context.theme.primaryColor,
-        shape: AppBarBackground(),
+        color: context.theme.primaryColor.withOpacity(0.6),
+        shape: PrayerAppBarBackground(),
         shadows: [
           BoxShadow(
-            color: context.theme.shadowColor,
+            color: context.theme.shadowColor.withOpacity(0.6),
             blurRadius: 4.0,
             spreadRadius: 2.0,
           ),
         ],
       ),
       padding: EdgeInsets.only(top: 70.0, left: Styles.screenLeftPadding),
-      height: 370,
+      height: 150,
       child: Padding(
         padding: EdgeInsets.only(right: Styles.screenRightPadding),
         child: Column(
@@ -33,26 +33,20 @@ class AppBarCustom extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                this.hasBackButton
+                hasBackButton
                     ? GestureDetector(
                         child: Icon(Icons.arrow_back),
                         onTap: () => Get.back(),
                       )
-                    : Container(),
+                    : null,
+                FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(title, style: context.textTheme.headline5),
+                ),
                 GestureDetector(
                     child: Icon(Icons.menu),
                     onTap: () => Scaffold.of(context).openEndDrawer()),
               ],
-            ),
-            SizedBox(
-              height: 70,
-            ),
-            FittedBox(
-              fit: BoxFit.fitWidth,
-              child: Text(
-                title,
-                style: context.textTheme.headline1,
-              ),
             ),
           ],
         ),

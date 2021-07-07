@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class AppBarBackground extends ShapeBorder {
+class PrayerAppBarBackground extends ShapeBorder {
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    Offset controllPoint1 = Offset(0, rect.size.height - 100);
-    Offset endPoint1 = Offset(100, rect.size.height - 100);
-    Offset controllPoint2 = Offset(rect.size.width, rect.size.height - 100);
-    Offset endPoint2 = Offset(rect.size.width, rect.size.height - 200);
+    Offset controllPoint1 = Offset(0, rect.size.height - 20);
+    Offset endPoint1 = Offset(20, rect.size.height - 20);
+    Offset controllPoint2 = Offset(rect.size.width, rect.size.height - 20);
+    Offset endPoint2 = Offset(rect.size.width, rect.size.height - 40);
 
     return Path()
       ..lineTo(0, rect.size.height)
       ..quadraticBezierTo(
           controllPoint1.dx, controllPoint1.dy, endPoint1.dx, endPoint1.dy)
-      ..lineTo(rect.size.width - 100, rect.size.height - 100)
+      ..lineTo(rect.size.width - 20, rect.size.height - 20)
       ..quadraticBezierTo(
           controllPoint2.dx, controllPoint2.dy, endPoint2.dx, endPoint2.dy)
       ..lineTo(rect.size.width, 0);
@@ -24,16 +24,16 @@ class AppBarBackground extends ShapeBorder {
   @override
   //Path getInnerPath(Rect rect, {TextDirection textDirection}) => null;
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    Offset controllPoint1 = Offset(0, rect.size.height - 100);
-    Offset endPoint1 = Offset(100, rect.size.height - 100);
-    Offset controllPoint2 = Offset(rect.size.width, rect.size.height - 100);
-    Offset endPoint2 = Offset(rect.size.width, rect.size.height - 200);
+    Offset controllPoint1 = Offset(0, rect.size.height - 20);
+    Offset endPoint1 = Offset(20, rect.size.height - 20);
+    Offset controllPoint2 = Offset(rect.size.width, rect.size.height - 20);
+    Offset endPoint2 = Offset(rect.size.width, rect.size.height - 40);
 
     return Path()
       ..lineTo(0, rect.size.height)
       ..quadraticBezierTo(
           controllPoint1.dx, controllPoint1.dy, endPoint1.dx, endPoint1.dy)
-      ..lineTo(rect.size.width - 100, rect.size.height - 100)
+      ..lineTo(rect.size.width - 20, rect.size.height - 20)
       ..quadraticBezierTo(
           controllPoint2.dx, controllPoint2.dy, endPoint2.dx, endPoint2.dy)
       ..lineTo(rect.size.width, 0);
