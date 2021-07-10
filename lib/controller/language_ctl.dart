@@ -6,7 +6,7 @@ import 'dart:ui' as ui;
 import 'package:prayer_app_getx/utils/constants/languages.dart';
 
 class LanguageController extends GetxController {
-  static LanguageController get to => Get.find();
+  static LanguageController get find => Get.find();
   final language = "".obs;
   final _box = GetStorage();
   final _key = 'language';

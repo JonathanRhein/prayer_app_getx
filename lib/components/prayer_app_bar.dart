@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/components/prayer_app_bar_background.dart';
+import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class PrayerAppBar extends StatelessWidget {
   final bool hasBackButton;
   final String title;
+  final prayerController = AgpeyaPrayerController.find;
 
-  PrayerAppBar({this.title, this.hasBackButton: true});
+  PrayerAppBar({Key key, this.title, this.hasBackButton: true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: ShapeDecoration(
-        color: context.theme.primaryColor.withOpacity(0.6),
-        shape: PrayerAppBarBackground(),
-        shadows: [
+      decoration: BoxDecoration(
+        color: context.theme.primaryColor.withOpacity(0.7),
+        boxShadow: [
           BoxShadow(
-            color: context.theme.shadowColor.withOpacity(0.6),
+            color: context.theme.shadowColor.withOpacity(0.7),
             blurRadius: 4.0,
             spreadRadius: 2.0,
           ),
         ],
       ),
-      padding: EdgeInsets.only(top: 70.0, left: Styles.screenLeftPadding),
-      height: 150,
+      padding: EdgeInsets.only(top: 0.0, left: Styles.screenLeftPadding),
+      height: 50,
       child: Padding(
         padding: EdgeInsets.only(right: Styles.screenRightPadding),
         child: Column(
@@ -38,7 +39,7 @@ class PrayerAppBar extends StatelessWidget {
                         child: Icon(Icons.arrow_back),
                         onTap: () => Get.back(),
                       )
-                    : null,
+                    : SizedBox(),
                 FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(title, style: context.textTheme.headline5),

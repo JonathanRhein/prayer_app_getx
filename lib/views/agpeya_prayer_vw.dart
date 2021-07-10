@@ -10,32 +10,36 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class AgpeyaPrayerView extends StatelessWidget {
   final prayerController = Get.put(AgpeyaPrayerController(Get.arguments));
-  final hourController = AgpeyaHourController.to;
+  final hourController = AgpeyaHourController.find;
   final translationService = TranslationService();
 
   @override
   Widget build(context) {
     return Scaffold(
         endDrawer: EndDrawerCustom(),
-        body: Obx(() => Stack(
-              children: [
-                GestureDetector(
-                  onTap: () => prayerController.revealMenuControls(),
-                  child: ScrollablePositionedList.builder(
-                      padding: EdgeInsets.only(top: 40),
-                      itemScrollController: prayerController.scrollController,
-                      itemCount: hourController.prayerList.length,
-                      itemBuilder: (context, index) =>
-                          FullTextListTile(index, hourController)),
-                ),
-                prayerController.isTapped.value
-                    ? PrayerAppBar(
-                        title: translationService.getTranslation(
-                            hourController.hour, 'title'),
-                        hasBackButton: true,
-                      )
-                    : Container(),
-              ],
+        body: Obx(() => SafeArea(
+              bottom: false,
+              child: Stack(
+                children: [
+                  GestureDetector(
+                    onTap: () => prayerController.toggleMenus(),
+                    child: ScrollablePositionedList.builder(
+                        itemScrollController: prayerController.scrollController,
+                        itemCount: hourController.prayerList.length,
+                        itemBuilder: (context, index) =>
+                            FullTextListTile(index, hourController)),
+                  ),
+                  AnimatedSwitcher(
+                      duration: Duration(milliseconds: 500),
+                      child: prayerController.showMenu.value
+                          ? PrayerAppBar(
+                              title: translationService.getTranslation(
+                                  hourController.hour, 'title'),
+                              hasBackButton: true,
+                            )
+                          : SizedBox())
+                ],
+              ),
             )));
   }
 }

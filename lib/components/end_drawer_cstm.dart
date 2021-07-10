@@ -10,7 +10,7 @@ class EndDrawerCustom extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(color: context.theme.accentColor),
-            child: Container()
+            child: SizedBox()
           ),
           ListTile(
               title: Text(

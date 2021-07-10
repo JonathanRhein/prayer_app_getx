@@ -29,6 +29,8 @@ class DatabaseService {
 
   static Database _db;
 
+  // TODO: Noch “Aus dem Evangelium hinzufügen…” in DB und Google Sheet
+
   Future<Database> get db async {
     if (_db != null) {
       return _db;

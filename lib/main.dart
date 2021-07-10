@@ -29,7 +29,7 @@ class PrayerApp extends StatelessWidget {
               getPages: AppRoutes.routes,
               initialRoute: '/agpeya_list',
               // builder inserts the AnnotatedRegion above all subsequent routes
-              // (i.e. widgets) and handles the switch of font color of the 
+              // (i.e. widgets) and handles the switch of font color of the
               // status bar (time, signal, battery etc.) when switching modes
               builder: (context, child) => AnnotatedRegion(
                 child: child,

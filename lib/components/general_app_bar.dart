@@ -38,7 +38,7 @@ class GeneralAppBar extends StatelessWidget {
                         child: Icon(Icons.arrow_back),
                         onTap: () => Get.back(),
                       )
-                    : Container(),
+                    : SizedBox(),
                 GestureDetector(
                     child: Icon(Icons.menu),
                     onTap: () => Scaffold.of(context).openEndDrawer()),

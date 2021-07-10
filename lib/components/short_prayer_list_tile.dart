@@ -19,6 +19,9 @@ class ShortPrayerListTile extends StatelessWidget {
   @override
   Widget build(context) {
     dynamic listItem = controller.prayerList[index];
+
+    // TODO: Remove inkwell from headings in prayer view
+    
     return InkWell(
       onTap: () => Get.toNamed('/agpeya_text', arguments: index),
       child: Padding(

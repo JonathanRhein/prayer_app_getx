@@ -3,12 +3,11 @@ import 'package:prayer_app_getx/models/databse/agpeya_prayer_db.dart';
 import 'package:prayer_app_getx/services/db_srvc.dart';
 
 class AgpeyaHourController extends GetxController {
-  static AgpeyaHourController get to => Get.find();
+  static AgpeyaHourController get find => Get.find();
   final dbList = <AgpeyaPrayerDatabase>[];
   final prayerList = <dynamic>[].obs;
   final DatabaseService _db = DatabaseService();
   final hour;
-  String prayer;
 
   AgpeyaHourController(this.hour);
 

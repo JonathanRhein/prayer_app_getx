@@ -1,3 +1,5 @@
+// TODO: Remove if not used in future!
+
 import 'package:flutter/material.dart';
 
 class PrayerAppBarBackground extends ShapeBorder {
