@@ -12,6 +12,8 @@ class AgpeyaHourView extends StatelessWidget {
   final controller = Get.put(AgpeyaHourController(Get.arguments));
   final translationService = TranslationService();
 
+  // TODO: fix "PRAY NOW" button routing
+
   @override
   Widget build(context) {
     return Scaffold(

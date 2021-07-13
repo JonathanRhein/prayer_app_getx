@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
-import 'package:prayer_app_getx/components/headline2_text.dart';
+import 'package:prayer_app_getx/components/prayer_section_heading.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
@@ -21,7 +21,9 @@ class ShortPrayerListTile extends StatelessWidget {
     dynamic listItem = controller.prayerList[index];
 
     // TODO: Remove inkwell from headings in prayer view
-    
+
+    // TODO: Increase font of headings in hour list view golden text
+
     return InkWell(
       onTap: () => Get.toNamed('/agpeya_text', arguments: index),
       child: Padding(
@@ -34,7 +36,7 @@ class ShortPrayerListTile extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  Headline2Text(('agpeya.' + listItem).tr)
+                  PrayerSectionHeading(('agpeya.' + listItem).tr)
                 ],
               )
             : Column(

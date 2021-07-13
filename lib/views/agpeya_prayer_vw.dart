@@ -24,14 +24,17 @@ class AgpeyaPrayerView extends StatelessWidget {
                   GestureDetector(
                     onTap: () => prayerController.toggleMenus(),
                     child: ScrollablePositionedList.builder(
-                        itemScrollController: prayerController.scrollController,
+                        itemScrollController:
+                            prayerController.autoScrollController,
+                        itemPositionsListener:
+                            prayerController.itemPositionListener,
                         itemCount: hourController.prayerList.length,
                         itemBuilder: (context, index) =>
                             FullTextListTile(index, hourController)),
                   ),
                   AnimatedSwitcher(
                       duration: Duration(milliseconds: 500),
-                      child: prayerController.showMenu.value
+                      child: prayerController.showMenus.value
                           ? PrayerAppBar(
                               title: translationService.getTranslation(
                                   hourController.hour, 'title'),
