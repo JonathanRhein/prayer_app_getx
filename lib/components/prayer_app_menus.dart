@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/style.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/bottom_sheet_text.dart';
 import 'package:prayer_app_getx/components/box_decoration_cstm.dart';
 import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
@@ -76,6 +75,8 @@ class PrayerAppMenus extends StatelessWidget {
 
   void _showTextFormatBottomSheet() {
     var context = Get.context;
+    // TODO: update UI of bottom sheet on theme change --> check respective
+    // discussion on Github
     Get.bottomSheet(
       GetBuilder<AgpeyaPrayerController>(
         builder: (_) {
@@ -88,7 +89,11 @@ class PrayerAppMenus extends StatelessWidget {
                 _changeTextAlignmentControls(context),
                 _changeLineSpacingControls(context),
                 _changeFontFamilyControls(context),
-                _changeThemeModeControls(context)
+                _changeThemeModeControls(context),
+                SizedBox(
+                  height: Styles.ButtonSpacing,
+                ),
+                _changeSettingsControls(context)
               ],
             ),
           );
@@ -233,6 +238,16 @@ class PrayerAppMenus extends StatelessWidget {
         Switch(
             value: prayerController.isDarkMode,
             onChanged: (value) => prayerController.changeThemeMode(value)),
+      ],
+    );
+  }
+
+  Row _changeSettingsControls(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        ElevatedButton(onPressed: () => prayerController.resetSettings(), child: Text('general.reset'.tr)),
+        ElevatedButton(onPressed: () => Get.toNamed(Strings.SettingsRoute), child: Text('settings.title'.tr))
       ],
     );
   }

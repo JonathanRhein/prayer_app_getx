@@ -140,4 +140,23 @@ class AgpeyaPrayerController extends GetxController {
     themeService.switchTheme();
     update();
   }
+
+  void resetSettings() {
+    fontSizeSectionHeading = Styles.FontSizeHeadline4;
+    fontSizePrayerHeading = Styles.FontSizeHeadline3;
+    fontSizeText = Styles.FontSizeBodyText1;
+    textAlignment = textService.stringToTextAlign(Styles.TextAlignmnet);
+    lineSpacing = Styles.LineSpacing;
+    fontFamily = Styles.FontFamilyBodyText1;
+
+    _sharedPreferences
+      ..write(Strings.FontSizeSectionHeading, fontSizeSectionHeading)
+      ..write(Strings.FontSizePrayerHeading, fontSizePrayerHeading)
+      ..write(Strings.FontSizeText, fontSizeText)
+      ..write(Strings.TextAlignment, Styles.TextAlignmnet)
+      ..write(Strings.LineSpacing, lineSpacing)
+      ..write(Strings.FontFamily, fontFamily);
+      
+    update();
+  }
 }

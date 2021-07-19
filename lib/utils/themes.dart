@@ -122,11 +122,15 @@ ThemeData lightTheme() {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-      backgroundColor:
-          MaterialStateProperty.resolveWith((state) => _mainAccentColor),
-      overlayColor:
-          MaterialStateProperty.resolveWith((state) => Color(0xFFE9E2BD)),
-    )),
+            padding: MaterialStateProperty.resolveWith((state) =>
+                EdgeInsets.only(left: 20, right: 20, top: 12, bottom: 12)),
+            backgroundColor:
+                MaterialStateProperty.resolveWith((state) => _mainAccentColor),
+            overlayColor: MaterialStateProperty.resolveWith(
+                (state) => _mainAccentColorHue.withOpacity(0.2)),
+            shape: MaterialStateProperty.resolveWith((state) =>
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0))))),
 
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -256,15 +260,18 @@ ThemeData darkTheme() {
       )),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.resolveWith((state) => _mainAccentColor),
-        overlayColor:
-            MaterialStateProperty.resolveWith((state) => Color(0xFF221C01)),
-      )),
+              padding: MaterialStateProperty.resolveWith((state) =>
+                  EdgeInsets.only(left: 20, right: 20, top: 12, bottom: 12)),
+              backgroundColor: MaterialStateProperty.resolveWith(
+                  (state) => _mainAccentColor),
+              overlayColor: MaterialStateProperty.resolveWith(
+                  (state) => _mainAccentColorHue.withOpacity(0.2)),
+              shape: MaterialStateProperty.resolveWith((state) =>
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(80.0))))),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-              overlayColor: MaterialStateProperty.resolveWith(
-                  (state) => Color(0xFF221C01)),
-              foregroundColor: MaterialStateProperty.resolveWith(
-                  (state) => _mainAccentColor))));
+              overlayColor:
+                  MaterialStateProperty.resolveWith((state) => Color(0xFF221C01)),
+              foregroundColor: MaterialStateProperty.resolveWith((state) => _mainAccentColor))));
 }

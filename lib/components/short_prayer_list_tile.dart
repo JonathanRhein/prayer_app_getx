@@ -7,6 +7,7 @@ import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
+import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class ShortPrayerListTile extends StatelessWidget {
@@ -26,7 +27,7 @@ class ShortPrayerListTile extends StatelessWidget {
     // TODO: Increase font of headings in hour list view golden text
 
     return InkWell(
-      onTap: () => Get.toNamed('/agpeya_text', arguments: index),
+      onTap: () => Get.toNamed(Strings.AgpeyaPrayerRoute, arguments: index),
       child: Padding(
         padding: EdgeInsets.only(
             left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
