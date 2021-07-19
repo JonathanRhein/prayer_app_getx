@@ -18,7 +18,7 @@ class HourListTile extends StatelessWidget {
       onTap: () => Get.toNamed('/agpeya_prayer', arguments: hour),
       child: Padding(
         padding: EdgeInsets.only(
-            left: Styles.screenLeftPadding, right: Styles.screenRightPadding),
+            left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
         child: Column(
           children: [
             SizedBox(

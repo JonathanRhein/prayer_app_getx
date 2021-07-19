@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:html/parser.dart';
+import 'package:prayer_app_getx/utils/constants/strings.dart';
 
 class TextService {
   String getTextPreview(String prayerText) {
@@ -55,5 +56,17 @@ class TextService {
         return TextAlign.right;
     }
     return null;
+  }
+
+  TextAlign stringToTextAlign(alignment) {
+    switch (alignment) {
+      case Strings.Left:
+        return TextAlign.left;
+      case Strings.Center:
+        return TextAlign.center;
+      case Strings.Justify:
+        return TextAlign.justify;
+    }
+    return TextAlign.left;
   }
 }

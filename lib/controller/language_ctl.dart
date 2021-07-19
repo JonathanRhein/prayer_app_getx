@@ -8,7 +8,7 @@ import 'package:prayer_app_getx/utils/constants/languages.dart';
 class LanguageController extends GetxController {
   static LanguageController get find => Get.find();
   final language = "".obs;
-  final _box = GetStorage();
+  final _storedPreferences = GetStorage();
   final _key = 'language';
   List<String> _languageList = [];
   int currentLanguageIndex;
@@ -37,7 +37,7 @@ class LanguageController extends GetxController {
 
 // Gets current language stored
   RxString get currentLanguageStore {
-    language.value = _box.read(_key) ?? '';
+    language.value = _storedPreferences.read(_key) ?? '';
     return language;
   }
 
@@ -57,7 +57,7 @@ class LanguageController extends GetxController {
 // updates the language stored
   Future<void> updateLanguage(String value) async {
     language.value = value;
-    await _box.write(_key, value);
+    await _storedPreferences.write(_key, value);
     Get.updateLocale(getLocale);
     update();
   }

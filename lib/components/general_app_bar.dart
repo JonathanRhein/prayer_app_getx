@@ -23,10 +23,10 @@ class GeneralAppBar extends StatelessWidget {
           ),
         ],
       ),
-      padding: EdgeInsets.only(top: 70.0, left: Styles.screenLeftPadding),
+      padding: EdgeInsets.only(top: 70.0, left: Styles.ScreenLeftPadding),
       height: 370,
       child: Padding(
-        padding: EdgeInsets.only(right: Styles.screenRightPadding),
+        padding: EdgeInsets.only(right: Styles.ScreenRightPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -13,7 +13,7 @@ class SwitchListTileCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return SwitchListTile(
         contentPadding: EdgeInsets.only(
-            left: Styles.screenLeftPadding, right: Styles.screenRightPadding),
+            left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
         value: value,
         onChanged: onChanged,
         title: BodyText(title));

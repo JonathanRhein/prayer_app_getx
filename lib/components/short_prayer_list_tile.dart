@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
+import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
 import 'package:prayer_app_getx/components/prayer_section_heading.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
@@ -28,7 +29,7 @@ class ShortPrayerListTile extends StatelessWidget {
       onTap: () => Get.toNamed('/agpeya_text', arguments: index),
       child: Padding(
         padding: EdgeInsets.only(
-            left: Styles.screenLeftPadding, right: Styles.screenRightPadding),
+            left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
         child: listItem is String
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +37,7 @@ class ShortPrayerListTile extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  PrayerSectionHeading(('agpeya.' + listItem).tr)
+                  PrayerListSectionHeading(('agpeya.' + listItem).tr)
                 ],
               )
             : Column(

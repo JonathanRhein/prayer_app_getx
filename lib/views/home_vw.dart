@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
           children: [
             ListView(
               itemExtent: 60,
-              padding: EdgeInsets.only(top: Styles.paddingUnderneathCustomAppBar),
+              padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
               children: <Widget>[],
             ),
             GeneralAppBar(title: 'app.title'.tr, hasBackButton: true),

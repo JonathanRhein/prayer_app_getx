@@ -18,7 +18,7 @@ class AgpeyaListView extends StatelessWidget {
         body: Stack(
           children: [
             Obx(() => ListView.builder(
-                padding: EdgeInsets.only(top: Styles.paddingUnderneathCustomAppBar),
+                padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
                 itemCount: controller.dbList.length,
                 itemBuilder: (context, index) => _listItemBuilder(index))),
             GeneralAppBar(title: 'agpeya.title'.tr, hasBackButton: true),

@@ -21,7 +21,7 @@ class AgpeyaHourView extends StatelessWidget {
         body: Stack(
           children: [
             Obx(() => ListView.builder(
-                padding: EdgeInsets.only(top: Styles.paddingUnderneathCustomAppBar),
+                padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
                 itemCount: controller.prayerList.length,
                 itemBuilder: (context, index) =>
                     ShortPrayerListTile(index, controller))),

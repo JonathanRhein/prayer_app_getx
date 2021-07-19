@@ -55,6 +55,12 @@ flutter:
     - family: Montserrat     
       fonts:
         - asset: assets/fonts/Montserrat-Regular.ttf
+    - family: OpenSans     
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+    - family: Crimson     
+      fonts:
+        - asset: assets/fonts/CrimsonText-Regular.ttf
 
   assets:
     - assets/images/

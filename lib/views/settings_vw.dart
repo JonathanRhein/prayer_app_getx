@@ -19,7 +19,7 @@ class SettingsView extends StatelessWidget {
           children: [
             ListView(
               itemExtent: 60,
-              padding: EdgeInsets.only(top: Styles.paddingUnderneathCustomAppBar),
+              padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
               children: <Widget>[
                 switchThemeListTile(context),
                 switchLanguageListTile(context)
@@ -43,11 +43,11 @@ switchLanguageListTile(BuildContext context) {
       builder: (controller) => ListTile(
           contentPadding: EdgeInsets.zero,
           leading: Padding(
-            padding: EdgeInsets.only(left: Styles.screenLeftPadding),
+            padding: EdgeInsets.only(left: Styles.ScreenLeftPadding),
             child: BodyText('settings.language'.tr),
           ),
           trailing: Padding(
-            padding: EdgeInsets.only(right: Styles.screenRightPadding),
+            padding: EdgeInsets.only(right: Styles.ScreenRightPadding),
             child: BodyText(
               controller.getLanguageForToken(controller.currentLanguage),
             ),

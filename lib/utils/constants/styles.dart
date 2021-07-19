@@ -1,43 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:prayer_app_getx/utils/constants/strings.dart';
 
 class Styles {
   //-------------------- FONTS ----------------------
-
   // Headline1
-  static final String fontFamilyHeadline1 = 'Vidaloka';
-  static final double fontSizeHeadline1 = 55.0;
+  static const String FontFamilyHeadline1 = Strings.Vidaloka;
+  static const double FontSizeHeadline1 = 55.0;
 
   // Headline2
-  static final String fontFamilyHeadline2 = 'Vidaloka';
-  static final double fontSizeHeadline2 = 18.0;
+  static const String FontFamilyHeadline2 = Strings.Vidaloka;
+  static const double FontSizeHeadline2 = 20.0;
 
   // Headline3
-  static final String fontFamilyHeadline3 = 'Montserrat';
-  static final double fontSizeHeadline3 = 16.0;
-  static final FontWeight fontWeightHeadline3 = FontWeight.bold;
+  static const String FontFamilyHeadline3 = Strings.Montserrat;
+  static const double FontSizeHeadline3 = 18.0;
+  static const FontWeight FontWeightHeadline3 = FontWeight.bold;
 
   // Headline4
-  static final String fontFamilyHeadline4 = 'Vidaloka';
-  static final double fontSizeHeadline4 = 24.0;
+  static const String FontFamilyHeadline4 = Strings.Vidaloka;
+  static const double FontSizeHeadline4 = 24.0;
 
   // Headline4
-  static final String fontFamilyHeadline5 = 'Vidaloka';
-  static final double fontSizeHeadline5 = 24.0;
+  static const String FontFamilyHeadline5 = Strings.Vidaloka;
+  static const double FontSizeHeadline5 = 24.0;
 
   // BodyText1
-  static final String fontFamilyBodyText1 = 'Montserrat';
-  static final double fontSizeBodyText1 = 16.0;
+  static const String FontFamilyBodyText1 = Strings.Montserrat;
+  static const double FontSizeBodyText1 = 18.0;
 
   // Subtitle
-  static final String fontFamilySubtitleText1 = 'Montserrat';
-  static final double fontSizeSubtitleText1 = 16.0;
+  static const String FontFamilySubtitleText1 = Strings.Montserrat;
+  static const double FontSizeSubtitleText1 = 18.0;
+
+  // Default TextAlignment
+  static const String TextAlignmnet = Strings.Left;
 
   //-------------------- SPACERS ----------------------
 
   // General padding values (left & right) for each screen
-  static final double screenLeftPadding = 25.0;
-  static final double screenRightPadding = 25.0;
+  static const double GeneralPadding = 25.0;
+  static const double ScreenLeftPadding = 25.0;
+  static const double ScreenRightPadding = 25.0;
+
+  // Padding for button grid layouts
+  static const double ButtonSpacing = 10.0;
 
   // Top padding for all content underneath custom app bar
-  static final double paddingUnderneathCustomAppBar = 320.0;
+  static const double PaddingUnderneathCustomAppBar = 320.0;
+
+  // Line spacing applied to text shown on prayer views
+  static const double LineSpacing = 1.2;
+
+  //-------------------- MAX & MINs --------------------
+
+  // For prayer views where text appearance can be adjusted by the user
+  static const double FontSizeTextMax = 30.0;
+  static const double FontSizeTextMin = 10.00;
+
+  // Line spacing minimum and maximum applied to text shown on prayer views
+  static const double LineSpacingMax = 2.5;
+  static const double LineSpacingMin = 1.0;
 }
