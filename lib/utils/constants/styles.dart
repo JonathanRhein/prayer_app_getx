@@ -49,7 +49,7 @@ class Styles {
   static const double PaddingUnderneathCustomAppBar = 320.0;
 
   // Line spacing applied to text shown on prayer views
-  static const double LineSpacing = 1.2;
+  static const double LineSpacing = 1.5;
 
   //-------------------- MAX & MINs --------------------
 

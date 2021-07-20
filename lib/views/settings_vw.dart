@@ -19,7 +19,8 @@ class SettingsView extends StatelessWidget {
           children: [
             ListView(
               itemExtent: 60,
-              padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
+              padding:
+                  EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
               children: <Widget>[
                 switchThemeListTile(context),
                 switchLanguageListTile(context)
@@ -60,7 +61,7 @@ switchLanguageListTile(BuildContext context) {
 switchLanguageDialog(BuildContext context) {
   Get.dialog(GetBuilder<LanguageController>(
       builder: (controller) => AlertDialog(
-            title: BodyText('settings.chooseLanguage'.tr),
+            title: BodyText('settings.choose_language'.tr),
             content: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,

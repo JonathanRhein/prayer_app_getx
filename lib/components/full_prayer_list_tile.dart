@@ -25,6 +25,9 @@ class FullTextListTile extends StatelessWidget {
     return GetBuilder<AgpeyaPrayerController>(
         builder: (_) => Padding(
             padding: EdgeInsets.only(
+                bottom: hourController.prayerList.length - 1 == index
+                    ? Styles.GeneralPadding
+                    : 0,
                 left: Styles.ScreenLeftPadding,
                 right: Styles.ScreenRightPadding),
             child: Column(

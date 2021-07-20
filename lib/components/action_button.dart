@@ -15,8 +15,10 @@ class ActionButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(text.toUpperCase(),
-              style: context.textTheme.bodyText1.copyWith(color: Colors.white)),
+          Text(
+            text.toUpperCase(),
+            textScaleFactor: 1.2,
+          ),
           Icon(Icons.navigate_next)
         ],
       ),

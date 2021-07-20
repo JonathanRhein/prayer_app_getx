@@ -12,8 +12,6 @@ class AgpeyaHourView extends StatelessWidget {
   final controller = Get.put(AgpeyaHourController(Get.arguments));
   final translationService = TranslationService();
 
-  // TODO: fix "PRAY NOW" button routing
-
   @override
   Widget build(context) {
     return Scaffold(
@@ -36,7 +34,7 @@ class AgpeyaHourView extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.bottomRight,
                     child: ActionButton(
-                        text: 'agpeya.pray_now'.tr, args: controller.hour)))
+                        text: 'agpeya.pray_now'.tr, args: 0)))
           ],
         ));
   }

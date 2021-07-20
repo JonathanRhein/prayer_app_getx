@@ -29,15 +29,18 @@ class AgpeyaHourController extends GetxController {
   // creates a list of prayers with headings for each new section
   _buildPrayerDBListWithHeadings() {
     String oldSection = "";
-    dbList.forEach((prayer) {
+    int index = 0;
+    while (index < dbList.length) {
+      var prayer = dbList[index];
       String newSection = prayer.section;
       if (oldSection != newSection) {
         prayerList.add(newSection);
         oldSection = newSection;
       } else {
         prayerList.add(prayer);
+        index++;
       }
-    });
+    }
   }
 
   // setPrayer(int index) => prayer = dbList[index].name;

@@ -25,7 +25,4 @@ class ThemeService {
     Get.changeThemeMode(_loadThemeFromBox() ? ThemeMode.light : ThemeMode.dark);
     saveThemeToBox(!_loadThemeFromBox());
   }
-
-  bool isSystemModeDark() =>
-      MediaQuery.of(Get.context).platformBrightness == Brightness.dark;
 }

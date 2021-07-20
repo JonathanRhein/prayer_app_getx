@@ -15,6 +15,8 @@ void main() async {
   runApp(PrayerApp());
 }
 
+// TODO: give visual feedback on overscrolling 
+
 class PrayerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
