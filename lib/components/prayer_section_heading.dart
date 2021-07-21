@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
 
 class PrayerSectionHeading extends StatelessWidget {
   final String text;
-  final prayerController = AgpeyaPrayerController.find;
+  final settingsController = TextSettingsController.find;
 
   PrayerSectionHeading(this.text);
 
   @override
   Widget build(context) {
     return Text(text,
-        textAlign: prayerController.textAlignment,
+        textAlign: settingsController.textAlignment,
         style: TextStyle(
-            height: prayerController.lineSpacing,
-            fontSize: prayerController.fontSizeSectionHeading,
+            height: settingsController.lineSpacing,
+            fontSize: settingsController.fontSizeSectionHeading,
             fontFamily: 'Vidaloka'));
   }
 }

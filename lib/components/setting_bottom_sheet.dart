@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/bottom_sheet_text.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class SettingBottomSheet extends StatelessWidget {
-  final prayerController = AgpeyaPrayerController.find;
+  final settingsController = Get.put(TextSettingsController());
 
   SettingBottomSheet();
 
   @override
   Widget build(context) {
-    return GetBuilder<AgpeyaPrayerController>(
+    return GetBuilder<TextSettingsController>(
       builder: (_) {
         return Container(
           color: context.theme.scaffoldBackgroundColor,
@@ -49,13 +49,13 @@ class SettingBottomSheet extends StatelessWidget {
       children: [
         OutlinedButton(
             style: OutlinedButton.styleFrom(
-                primary: prayerController.fontSizeText < Styles.FontSizeTextMin
+                primary: settingsController.fontSizeText < Styles.FontSizeTextMin
                     ? context.theme.shadowColor
                     : context.theme.primaryColorDark),
             onPressed: () =>
-                prayerController.fontSizeText < Styles.FontSizeTextMin
+                settingsController.fontSizeText < Styles.FontSizeTextMin
                     ? {}
-                    : prayerController.changeFontSize(FontSize.smaller),
+                    : settingsController.changeFontSize(FontSize.smaller),
             child: Text(
               'settings.decrease_font'.tr,
               textScaleFactor: 0.8,
@@ -65,13 +65,13 @@ class SettingBottomSheet extends StatelessWidget {
         ),
         OutlinedButton(
             style: OutlinedButton.styleFrom(
-                primary: prayerController.fontSizeText > Styles.FontSizeTextMax
+                primary: settingsController.fontSizeText > Styles.FontSizeTextMax
                     ? context.theme.shadowColor
                     : context.theme.primaryColorDark),
             onPressed: () =>
-                prayerController.fontSizeText > Styles.FontSizeTextMax
+                settingsController.fontSizeText > Styles.FontSizeTextMax
                     ? {}
-                    : prayerController.changeFontSize(FontSize.larger),
+                    : settingsController.changeFontSize(FontSize.larger),
             child: Text(
               'settings.increase_font'.tr,
               textScaleFactor: 1.2,
@@ -105,11 +105,11 @@ class SettingBottomSheet extends StatelessWidget {
     return OutlinedButton(
         style: OutlinedButton.styleFrom(
             side: BorderSide(
-                color: prayerController.textAlignment ==
+                color: settingsController.textAlignment ==
                         TextService().stringToTextAlign(textAlignment)
                     ? context.theme.accentColor
                     : context.theme.primaryColorLight)),
-        onPressed: () => prayerController.changeTextAlignment(textAlignment),
+        onPressed: () => settingsController.changeTextAlignment(textAlignment),
         child: Icon(icon));
   }
 
@@ -125,9 +125,9 @@ class SettingBottomSheet extends StatelessWidget {
           min: Styles.LineSpacingMin,
           max: Styles.LineSpacingMax,
           onChanged: (value) {
-            prayerController.setLineSpacing(value);
+            settingsController.setLineSpacing(value);
           },
-          value: prayerController.lineSpacing,
+          value: settingsController.lineSpacing,
         ),
       ],
     );
@@ -156,10 +156,10 @@ class SettingBottomSheet extends StatelessWidget {
     return OutlinedButton(
         style: OutlinedButton.styleFrom(
             side: BorderSide(
-                color: prayerController.fontFamily == fontFamily
+                color: settingsController.fontFamily == fontFamily
                     ? context.theme.accentColor
                     : context.theme.primaryColorLight)),
-        onPressed: () => prayerController.changeFontFamily(fontFamily),
+        onPressed: () => settingsController.changeFontFamily(fontFamily),
         child: Text(
           fontFamily,
           style: TextStyle(fontFamily: fontFamily),
@@ -172,8 +172,8 @@ class SettingBottomSheet extends StatelessWidget {
       children: [
         BottomSheetText('settings.dark_mode'.tr),
         Switch(
-            value: prayerController.isDarkMode,
-            onChanged: (value) => prayerController.changeThemeMode(value)),
+            value: settingsController.isDarkMode,
+            onChanged: (value) => settingsController.changeThemeMode(value)),
       ],
     );
   }
@@ -183,7 +183,7 @@ class SettingBottomSheet extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         ElevatedButton(
-            onPressed: () => prayerController.resetSettings(),
+            onPressed: () => settingsController.resetSettings(),
             child: Text('general.reset'.tr.toUpperCase())),
         ElevatedButton(
             onPressed: () {

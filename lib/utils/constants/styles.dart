@@ -51,7 +51,7 @@ class Styles {
   // Line spacing applied to text shown on prayer views
   static const double LineSpacing = 1.5;
 
-  //-------------------- MAX & MINs --------------------
+  //-------------------- MAX & MIN VALUES --------------------
 
   // For prayer views where text appearance can be adjusted by the user
   static const double FontSizeTextMax = 30.0;
@@ -60,4 +60,8 @@ class Styles {
   // Line spacing minimum and maximum applied to text shown on prayer views
   static const double LineSpacingMax = 2.5;
   static const double LineSpacingMin = 1.0;
+
+  //-------------------- DURATIONS --------------------
+
+  static const Duration ScrollDuration = Duration(milliseconds: 1500);
 }

@@ -102,7 +102,7 @@ ThemeData lightTheme() {
       trackColor:
           MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
     ),
-
+    /* TODO: check why this has no effect on the bottomSheet */
     bottomSheetTheme: BottomSheetThemeData(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(35)))),
@@ -247,6 +247,9 @@ ThemeData darkTheme() {
         color: _mainAccentColor,
         size: 25.0,
       ),
+      bottomSheetTheme: BottomSheetThemeData(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(35)))),
       sliderTheme: SliderThemeData(
           activeTrackColor: _mainAccentColor,
           thumbColor: _mainAccentColor,
@@ -282,8 +285,8 @@ ThemeData darkTheme() {
                   (state) => _mainAccentColor),
               overlayColor: MaterialStateProperty.resolveWith(
                   (state) => _mainAccentColorHue.withOpacity(0.2)),
-              shape: MaterialStateProperty.resolveWith((state) =>
-                  RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0))),
+              shape:
+                  MaterialStateProperty.resolveWith((state) => RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0))),
               shadowColor: MaterialStateProperty.resolveWith((states) => Colors.transparent))),
       textButtonTheme: TextButtonThemeData(style: ButtonStyle(overlayColor: MaterialStateProperty.resolveWith((state) => Color(0xFF221C01)), foregroundColor: MaterialStateProperty.resolveWith((state) => _mainAccentColor))));
 }

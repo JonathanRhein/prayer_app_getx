@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
 
 class PrayerHeading extends StatelessWidget {
   final String text;
-  final prayerController = AgpeyaPrayerController.find;
+  final settingsController = TextSettingsController.find;
   final context = Get.context;
 
   PrayerHeading(this.text);
@@ -12,12 +12,12 @@ class PrayerHeading extends StatelessWidget {
   @override
   Widget build(context) {
     return Text(text,
-        textAlign: prayerController.textAlignment,
+        textAlign: settingsController.textAlignment,
         style: TextStyle(
-            height: prayerController.lineSpacing,
+            height: settingsController.lineSpacing,
             color: context.theme.primaryColorDark,
             fontWeight: FontWeight.bold,
-            fontSize: prayerController.fontSizePrayerHeading,
-            fontFamily: prayerController.fontFamily));
+            fontSize: settingsController.fontSizePrayerHeading,
+            fontFamily: settingsController.fontFamily));
   }
 }

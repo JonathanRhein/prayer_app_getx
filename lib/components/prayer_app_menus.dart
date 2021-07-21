@@ -60,8 +60,11 @@ class PrayerAppMenus extends StatelessWidget {
       height: 60,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          GestureDetector(
+              child: Icon(Icons.arrow_upward),
+              onTap: () => prayerController.scrollToTop()),
           GestureDetector(
               child: Icon(Icons.text_format),
               onTap: () => showModalBottomSheet(

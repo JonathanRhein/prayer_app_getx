@@ -5,19 +5,24 @@ import 'package:flutter/rendering.dart';
 // direction detection, this service class implements it.
 
 class ScrollService {
+  var itemOffsetTrailing;
+  var itemOffsetLeading;
+  var itemOffsetLeadingNew;
+  var itemIndex;
+
   var scrollPosition = 0.0;
   var scrollDirection;
 
   ScrollDirection determineScrollDirection(item) {
-    var itemOffset = item.itemTrailingEdge;
-    var itemIndex = item.index;
+    itemOffsetTrailing = item.itemTrailingEdge;
+    itemIndex = item.index;
     // index as well as offset are multiplied to determine the total scroll
     // offset within the list. Since index is initially 0, some positive value
     // (0.00001) is added as the result of the multiplication will otherwise
     // be 0. Subtracting a large value from the offset made it more robust to
     // "flickering" in situations where scrolling is "fading out"
     var currentScrollPosition =
-        (itemIndex + 0.000001) * (itemOffset - 10000000000);
+        (itemIndex + 0.000001) * (itemOffsetTrailing - 10000000000);
     if (currentScrollPosition != scrollPosition) {
       if (currentScrollPosition < scrollPosition &&
           scrollDirection != ScrollDirection.forward) {
@@ -29,5 +34,17 @@ class ScrollService {
       scrollPosition = currentScrollPosition;
     }
     return scrollDirection;
+  }
+
+  bool reachedTop(item) {
+    itemOffsetLeading = item.itemLeadingEdge;
+    // make sure true gets returned only one time and not each and every time 
+    // when the screen is tapped and the scroll position has not changed 
+    if (itemOffsetLeadingNew != itemOffsetLeading) {
+      itemOffsetLeadingNew = itemOffsetLeading;
+      return itemIndex == 0 && itemOffsetLeading == 0 ? true : false;
+    } else {
+      return false;
+    }
   }
 }

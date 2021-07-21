@@ -5,10 +5,12 @@ import 'package:prayer_app_getx/components/full_prayer_list_tile.dart';
 import 'package:prayer_app_getx/components/prayer_app_menus.dart';
 import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class AgpeyaPrayerView extends StatelessWidget {
+  final settingsController = Get.put(TextSettingsController());
   final prayerController = Get.put(AgpeyaPrayerController(Get.arguments));
   final hourController = AgpeyaHourController.find;
   final translationService = TranslationService();
@@ -25,7 +27,7 @@ class AgpeyaPrayerView extends StatelessWidget {
                     onTap: () => prayerController.toggleMenus(),
                     child: ScrollablePositionedList.builder(
                         itemScrollController:
-                            prayerController.autoScrollController,
+                            prayerController.scrollController,
                         itemPositionsListener:
                             prayerController.itemPositionListener,
                         itemCount: hourController.prayerList.length,
