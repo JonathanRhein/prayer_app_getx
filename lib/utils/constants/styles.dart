@@ -63,5 +63,8 @@ class Styles {
 
   //-------------------- DURATIONS --------------------
 
-  static const Duration ScrollDuration = Duration(milliseconds: 1500);
+  static const Duration ScrollDurationLong = Duration(milliseconds: 1500);
+  static const Duration ScrollDurationShort = Duration(milliseconds: 750);
+
+  static const Duration AnimatedSwitcherDuration = Duration(milliseconds: 500);
 }

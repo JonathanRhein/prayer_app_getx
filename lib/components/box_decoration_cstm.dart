@@ -8,9 +8,10 @@ class BoxDecorationCustom {
       color: context.theme.scaffoldBackgroundColor,
       boxShadow: [
         BoxShadow(
-          color: context.theme.scaffoldBackgroundColor,
-          blurRadius: 4.0,
-          spreadRadius: 2.0,
+          offset: Offset(0, 8),
+          color: context.theme.shadowColor,
+          blurRadius: 8.0,
+          spreadRadius: 1.0,
         ),
       ],
     );

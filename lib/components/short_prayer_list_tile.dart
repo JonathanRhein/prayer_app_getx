@@ -20,7 +20,7 @@ class ShortPrayerListTile extends StatelessWidget {
   @override
   Widget build(context) {
     dynamic listItem = controller.prayerList[index];
-  
+
     return Padding(
       /* add some padding at the bottom of the list */
       padding: controller.prayerList.length - 1 == index
@@ -66,7 +66,7 @@ class ShortPrayerListTile extends StatelessWidget {
                         Icon(Icons.navigate_next),
                       ],
                     ),
-                    SizedBox(height: 10)
+                    SizedBox(height: 10),
                   ],
                 ),
               ),

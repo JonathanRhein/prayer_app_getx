@@ -125,6 +125,9 @@ ThemeData lightTheme() {
           MaterialStateProperty.resolveWith((state) => _mainAccentColorHue),
     )),
 
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(foregroundColor: _mainAccentColor),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
             textStyle: MaterialStateProperty.resolveWith((state) => TextStyle(
@@ -273,6 +276,8 @@ ThemeData darkTheme() {
                   (state) => _mainAccentColorHue),
               shadowColor: MaterialStateProperty.resolveWith(
                   (states) => Colors.transparent))),
+      floatingActionButtonTheme:
+          FloatingActionButtonThemeData(foregroundColor: _mainAccentColor),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
               textStyle: MaterialStateProperty.resolveWith((state) => TextStyle(
@@ -283,10 +288,9 @@ ThemeData darkTheme() {
                   EdgeInsets.only(left: 20, right: 20, top: 12, bottom: 12)),
               backgroundColor: MaterialStateProperty.resolveWith(
                   (state) => _mainAccentColor),
-              overlayColor: MaterialStateProperty.resolveWith(
-                  (state) => _mainAccentColorHue.withOpacity(0.2)),
-              shape:
-                  MaterialStateProperty.resolveWith((state) => RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0))),
+              overlayColor:
+                  MaterialStateProperty.resolveWith((state) => _mainAccentColorHue.withOpacity(0.2)),
+              shape: MaterialStateProperty.resolveWith((state) => RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0))),
               shadowColor: MaterialStateProperty.resolveWith((states) => Colors.transparent))),
       textButtonTheme: TextButtonThemeData(style: ButtonStyle(overlayColor: MaterialStateProperty.resolveWith((state) => Color(0xFF221C01)), foregroundColor: MaterialStateProperty.resolveWith((state) => _mainAccentColor))));
 }

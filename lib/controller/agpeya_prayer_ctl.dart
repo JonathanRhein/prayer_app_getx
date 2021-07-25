@@ -19,6 +19,8 @@ class AgpeyaPrayerController extends GetxController {
   final _scrollService = ScrollService();
   bool reachedTop;
 
+  final showTOC = false.obs;
+
   @override
   void onInit() async {
     super.onInit();
@@ -26,6 +28,7 @@ class AgpeyaPrayerController extends GetxController {
   }
 
   void toggleMenus() => showMenus.value = !showMenus.value;
+  void toggleTOC() => showTOC.value = !showTOC.value;
 
   void setupScrolling() {
     // perform automatic scroll-action after UI is fully built to index of
@@ -34,7 +37,7 @@ class AgpeyaPrayerController extends GetxController {
         Duration.zero,
         () => scrollController.scrollTo(
             index: index,
-            duration: Styles.ScrollDuration,
+            duration: Styles.ScrollDurationLong,
             curve: Curves.easeInOutCubic));
 
     // toggle Menus on scroll action performed by the user. Menu disappears on
@@ -54,6 +57,6 @@ class AgpeyaPrayerController extends GetxController {
     });
   }
 
-  void scrollToTop() =>
-      scrollController.scrollTo(index: 0, duration: Styles.ScrollDuration);
+  void scrollToPrayer(index) =>
+      scrollController.scrollTo(index: index, duration: Styles.ScrollDurationShort);
 }
