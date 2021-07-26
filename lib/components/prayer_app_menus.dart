@@ -38,7 +38,7 @@ class PrayerAppMenus extends StatelessWidget {
     return Container(
       decoration: BoxDecorationCustom.getCustomBoxDecoration(),
       padding: EdgeInsets.only(top: 0.0, left: Styles.ScreenLeftPadding),
-      height: 50,
+      height: Styles.TopMenuHeight,
       child: Padding(
         padding: EdgeInsets.only(right: Styles.ScreenRightPadding),
         child: Row(

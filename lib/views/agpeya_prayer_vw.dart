@@ -21,6 +21,9 @@ class AgpeyaPrayerView extends StatelessWidget {
 
   @override
   Widget build(context) {
+    var _screenHeight = Get.mediaQuery.size.height;
+    var _screenWidth = Get.mediaQuery.size.width;
+    print(_screenHeight);
     return Scaffold(
         endDrawer: EndDrawerCustom(),
         body: Obx(() => SafeArea(
@@ -45,22 +48,20 @@ class AgpeyaPrayerView extends StatelessWidget {
                             hasBackButton: true,
                           )
                         : SizedBox()),
-                AnimatedSwitcher(
-                    duration: Styles.AnimatedSwitcherDuration,
+                Positioned.fill(
+                    bottom: 100,
+                    top: Styles.TopMenuHeight + 20,
+                    left: _screenWidth / 1.7,
                     child: prayerController.showTOC.value
-                        ? Center(
-                            child: SizedBox(
-                              height: 300,
-                              child: CupertinoPicker(
-                                backgroundColor:
-                                    context.theme.scaffoldBackgroundColor,
-                                onSelectedItemChanged: (index) {
-                                  prayerController.scrollToPrayer(index);
-                                },
-                                itemExtent: 50.0,
-                                children: _getCupertinoItems(),
-                              ),
-                            ),
+                        ? CupertinoPicker(
+                            diameterRatio: 1000,
+                            backgroundColor:
+                                context.theme.scaffoldBackgroundColor,
+                            onSelectedItemChanged: (index) {
+                              prayerController.scrollToPrayer(index);
+                            },
+                            itemExtent: 50.0,
+                            children: _getCupertinoItems(),
                           )
                         : SizedBox())
               ],
@@ -72,11 +73,13 @@ class AgpeyaPrayerView extends StatelessWidget {
     for (var i = 0; i < hourController.prayerList.length; i++) {
       var listItem = hourController.prayerList[i];
       pickerList.add(Center(
+          child: FittedBox(
+        fit: BoxFit.fitWidth,
         child: listItem is String
             ? PrayerListSectionHeading(('agpeya.' + listItem).tr)
             : BodyText(
                 TranslationService().getTranslation(listItem.name, 'title')),
-      ));
+      )));
     }
     return pickerList;
   }

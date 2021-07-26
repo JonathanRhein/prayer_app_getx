@@ -51,6 +51,9 @@ class Styles {
   // Line spacing applied to text shown on prayer views
   static const double LineSpacing = 1.5;
 
+  // Height of top in prayer view
+  static const double TopMenuHeight = 50;
+
   //-------------------- MAX & MIN VALUES --------------------
 
   // For prayer views where text appearance can be adjusted by the user
