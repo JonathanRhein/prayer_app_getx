@@ -14,32 +14,32 @@ class SettingBottomSheet extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return GetBuilder<TextSettingsController>(
-      builder: (_) {
-        return Container(
-          color: context.theme.scaffoldBackgroundColor,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                height: Styles.GeneralPadding,
-              ),
-              _changeFontSizeControls(context),
-              _changeTextAlignmentControls(context),
-              _changeLineSpacingControls(context),
-              _changeFontFamilyControls(context),
-              _changeThemeModeControls(context),
-              SizedBox(
-                height: Styles.ButtonSpacing,
-              ),
-              _changeSettingsControls(context),
-              SizedBox(
-                height: Styles.GeneralPadding + 20.0,
-              ),
-            ],
-          ),
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.all(Styles.GeneralPadding),
+      child: GetBuilder<TextSettingsController>(
+        builder: (_) {
+          return Container(
+           
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _changeFontSizeControls(context),
+                _changeTextAlignmentControls(context),
+                _changeLineSpacingControls(context),
+                _changeFontFamilyControls(context),
+                _changeThemeModeControls(context),
+                SizedBox(
+                  height: Styles.ButtonSpacing,
+                ),
+                _changeSettingsControls(context),
+                SizedBox(
+                  height: Styles.ButtonSpacing,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -49,9 +49,10 @@ class SettingBottomSheet extends StatelessWidget {
       children: [
         OutlinedButton(
             style: OutlinedButton.styleFrom(
-                primary: settingsController.fontSizeText < Styles.FontSizeTextMin
-                    ? context.theme.shadowColor
-                    : context.theme.primaryColorDark),
+                primary:
+                    settingsController.fontSizeText < Styles.FontSizeTextMin
+                        ? context.theme.shadowColor
+                        : context.theme.primaryColorDark),
             onPressed: () =>
                 settingsController.fontSizeText < Styles.FontSizeTextMin
                     ? {}
@@ -65,9 +66,10 @@ class SettingBottomSheet extends StatelessWidget {
         ),
         OutlinedButton(
             style: OutlinedButton.styleFrom(
-                primary: settingsController.fontSizeText > Styles.FontSizeTextMax
-                    ? context.theme.shadowColor
-                    : context.theme.primaryColorDark),
+                primary:
+                    settingsController.fontSizeText > Styles.FontSizeTextMax
+                        ? context.theme.shadowColor
+                        : context.theme.primaryColorDark),
             onPressed: () =>
                 settingsController.fontSizeText > Styles.FontSizeTextMax
                     ? {}

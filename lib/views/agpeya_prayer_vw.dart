@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/end_drawer_cstm.dart';
 import 'package:prayer_app_getx/components/full_prayer_list_tile.dart';
 import 'package:prayer_app_getx/components/prayer_app_menus.dart';
-import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
-import 'package:prayer_app_getx/components/toc_bottom_sheet.dart';
 import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
 import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
