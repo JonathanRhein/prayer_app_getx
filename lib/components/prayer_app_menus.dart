@@ -6,6 +6,7 @@ import 'package:prayer_app_getx/components/box_decoration_cstm.dart';
 import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
 import 'package:prayer_app_getx/components/setting_bottom_sheet.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
+import 'package:prayer_app_getx/components/toc_bottom_sheet.dart';
 
 import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
@@ -89,7 +90,15 @@ class PrayerAppMenus extends StatelessWidget {
           ),
           FloatingActionButton(
             heroTag: 'showTOC',
-            onPressed: () => prayerController.toggleTOC(),
+            onPressed: () {
+              prayerController.dismissMenu();
+              showModalBottomSheet(
+                  enableDrag: true,
+                  context: context,
+                  builder: (context) {
+                    return TableOfContentsBottomSheet();
+                  }).whenComplete(() => prayerController.enableMenu());
+            },
             child: Icon(Icons.toc),
             backgroundColor: context.theme.scaffoldBackgroundColor,
           ),

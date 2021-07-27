@@ -38,8 +38,8 @@ class ScrollService {
 
   bool reachedTop(item) {
     itemOffsetLeading = item.itemLeadingEdge;
-    // make sure true gets returned only one time and not each and every time 
-    // when the screen is tapped and the scroll position has not changed 
+    // make sure true gets returned only one time and not each and every time
+    // when the screen is tapped and the scroll position has not changed
     if (itemOffsetLeadingNew != itemOffsetLeading) {
       itemOffsetLeadingNew = itemOffsetLeading;
       return itemIndex == 0 && itemOffsetLeading == 0 ? true : false;

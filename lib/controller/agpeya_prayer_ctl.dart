@@ -8,9 +8,10 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class AgpeyaPrayerController extends GetxController {
   static AgpeyaPrayerController get find => Get.find();
-  final index;
+  final initialIndex;
+  int currentIndex;
 
-  AgpeyaPrayerController(this.index);
+  AgpeyaPrayerController(this.initialIndex);
 
   final showMenus = false.obs;
   final scrollController = ItemScrollController();
@@ -19,7 +20,7 @@ class AgpeyaPrayerController extends GetxController {
   final _scrollService = ScrollService();
   bool reachedTop;
 
-  final showTOC = false.obs;
+  bool showTableOfContents = false;
 
   @override
   void onInit() async {
@@ -28,7 +29,13 @@ class AgpeyaPrayerController extends GetxController {
   }
 
   void toggleMenus() => showMenus.value = !showMenus.value;
-  void toggleTOC() => showTOC.value = !showTOC.value;
+
+  void dismissMenu() {
+    showMenus.value = false;
+    showTableOfContents = true;
+  }
+
+  void enableMenu() => showTableOfContents = false;
 
   void setupScrolling() {
     // perform automatic scroll-action after UI is fully built to index of
@@ -36,7 +43,7 @@ class AgpeyaPrayerController extends GetxController {
     Future.delayed(
         Duration.zero,
         () => scrollController.scrollTo(
-            index: index,
+            index: initialIndex,
             duration: Styles.ScrollDurationLong,
             curve: Curves.easeInOutCubic));
 
@@ -44,19 +51,21 @@ class AgpeyaPrayerController extends GetxController {
     // scroll down action
     itemPositionListener.itemPositions.addListener(() {
       var item = itemPositionListener.itemPositions.value.first;
+      currentIndex = item.index;
       var newScrollDirection = _scrollService.determineScrollDirection(item);
-
-      if (scrollDirection != newScrollDirection) {
+      
+      if (!showTableOfContents) {
+        if (scrollDirection != newScrollDirection) {
+          showMenus.value =
+              newScrollDirection == ScrollDirection.forward ? false : true;
+          scrollDirection = newScrollDirection;
+        }
         showMenus.value =
-            newScrollDirection == ScrollDirection.forward ? false : true;
-        scrollDirection = newScrollDirection;
+            _scrollService.reachedTop(item) ? false : showMenus.value;
       }
-
-      showMenus.value =
-          _scrollService.reachedTop(item) ? false : showMenus.value;
     });
   }
 
-  void scrollToPrayer(index) =>
-      scrollController.scrollTo(index: index, duration: Styles.ScrollDurationShort);
+  void scrollToPrayer(index) => scrollController.scrollTo(
+      index: index, duration: Styles.ScrollDurationShort);
 }
