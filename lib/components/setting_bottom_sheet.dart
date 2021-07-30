@@ -19,7 +19,6 @@ class SettingBottomSheet extends StatelessWidget {
       child: GetBuilder<TextSettingsController>(
         builder: (_) {
           return Container(
-           
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -174,6 +173,7 @@ class SettingBottomSheet extends StatelessWidget {
       children: [
         BottomSheetText('settings.dark_mode'.tr),
         Switch(
+            inactiveThumbColor: Get.context.theme.primaryColorLight,
             value: settingsController.isDarkMode,
             onChanged: (value) => settingsController.changeThemeMode(value)),
       ],

@@ -20,7 +20,7 @@ class SettingsView extends StatelessWidget {
             ListView(
               itemExtent: 60,
               padding:
-                  EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
+                  EdgeInsets.only(top: Styles.PaddingUnderneathGeneralAppBar),
               children: <Widget>[
                 switchThemeListTile(context),
                 switchLanguageListTile(context)
@@ -36,7 +36,7 @@ switchThemeListTile(BuildContext context) {
   return SwitchListTileCustom(
       value: ThemeService().isLightMode,
       onChanged: (_) => ThemeService().switchTheme(),
-      title: 'settings.dark_mode'.tr);
+      title: BodyText('settings.dark_mode'.tr));
 }
 
 switchLanguageListTile(BuildContext context) {

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/general_app_bar_background.dart';
+import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class GeneralAppBar extends StatelessWidget {
   final bool hasBackButton;
   final String title;
+  final bool hasEditButton;
 
-  GeneralAppBar({this.title, this.hasBackButton: true});
+  GeneralAppBar(
+      {this.title, this.hasBackButton: true, this.hasEditButton: false});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,20 @@ class GeneralAppBar extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 70,
+              height: Styles.ButtonSpacing,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                hasEditButton
+                    ? GestureDetector(
+                        child: Icon(Icons.edit),
+                        onTap: () => Get.toNamed(Strings.EditPrayerRoute))
+                    : SizedBox()
+              ],
+            ),
+            SizedBox(
+              height: hasEditButton ? 70 - Styles.ButtonSpacing : 70,
             ),
             FittedBox(
               fit: BoxFit.fitWidth,

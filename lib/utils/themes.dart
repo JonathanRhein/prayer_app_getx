@@ -12,6 +12,7 @@ ThemeData lightTheme() {
   // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFF1F1F1F);
   final Color _subtitleTextColor = Color(0xFF888888);
+  final Color _disabledTextColor = Color(0xFFBFBFBF);
   final Color _mainAccentColor = Color(0xFF917f26);
   final Color _mainAccentColorHue = Color(0xFFE1E0D6);
 
@@ -65,6 +66,12 @@ ThemeData lightTheme() {
           fontFamily: Styles.FontFamilySubtitleText1,
           fontSize: Styles.FontSizeSubtitleText1,
           color: _subtitleTextColor,
+        ),
+        // used for text of disabled elements
+        subtitle2: base.bodyText1.copyWith(
+          fontFamily: Styles.FontFamilySubtitleText1,
+          fontSize: Styles.FontSizeSubtitleText1,
+          color: _disabledTextColor,
         ));
   }
 
@@ -96,13 +103,14 @@ ThemeData lightTheme() {
       color: _mainAccentColor,
       size: 25.0,
     ),
+        
     switchTheme: SwitchThemeData(
       thumbColor:
           MaterialStateProperty.resolveWith((states) => _mainAccentColor),
       trackColor:
           MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
     ),
-    /* TODO: check why this has no effect on the bottomSheet */
+  
     bottomSheetTheme: BottomSheetThemeData(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(35)))),
@@ -161,6 +169,7 @@ ThemeData darkTheme() {
   // Use below color definitions to change colors that apply to more than one property of ThemeData
   final Color _mainTextColor = Color(0xFFFFFFFF);
   final Color _subtitleTextColor = Color(0xFF6A6A6A);
+  final Color _disabledTextColor = Color(0xFF3E3E3E);
   final Color _mainAccentColor = Color(0xFF917f26);
   final Color _mainAccentColorHue = Color(0xFF484848);
 
@@ -214,6 +223,12 @@ ThemeData darkTheme() {
           fontFamily: Styles.FontFamilySubtitleText1,
           fontSize: Styles.FontSizeSubtitleText1,
           color: _subtitleTextColor,
+        ),
+        // used for text of disabled elements
+        subtitle2: base.bodyText1.copyWith(
+          fontFamily: Styles.FontFamilySubtitleText1,
+          fontSize: Styles.FontSizeSubtitleText1,
+          color: _disabledTextColor,
         ));
   }
 

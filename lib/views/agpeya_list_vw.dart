@@ -18,13 +18,16 @@ class AgpeyaListView extends StatelessWidget {
         body: Stack(
           children: [
             Obx(() => ListView.builder(
-                padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
+                padding: EdgeInsets.only(top: Styles.PaddingUnderneathGeneralAppBar),
                 itemCount: controller.dbList.length,
                 itemBuilder: (context, index) => _listItemBuilder(index))),
+            /* TODO: Fix German version of agpeya.title in Gdrive */
             GeneralAppBar(title: 'agpeya.title'.tr, hasBackButton: true),
           ],
         ));
   }
+
+  
 
   _listItemBuilder(int index) {
     controller.setHour(index);

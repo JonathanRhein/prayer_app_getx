@@ -156,8 +156,6 @@ class DatabaseService {
         where: "$columnHourId = ?", whereArgs: [agpeyaHourPrayer['id']]);
   }
 
-
-
   Future close() async {
     var dbClient = await db;
     return dbClient.close();

@@ -19,7 +19,7 @@ class AgpeyaHourView extends StatelessWidget {
         body: Stack(
           children: [
             Obx(() => ListView.builder(
-                padding: EdgeInsets.only(top: Styles.PaddingUnderneathCustomAppBar),
+                padding: EdgeInsets.only(top: Styles.PaddingUnderneathGeneralAppBar),
                 itemCount: controller.prayerList.length,
                 itemBuilder: (context, index) =>
                     ShortPrayerListTile(index, controller))),
@@ -27,6 +27,7 @@ class AgpeyaHourView extends StatelessWidget {
               title:
                   translationService.getTranslation(controller.hour, 'title'),
               hasBackButton: true,
+              hasEditButton: true 
             ),
             Positioned.fill(
                 bottom: 30,

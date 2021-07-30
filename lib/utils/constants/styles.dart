@@ -28,7 +28,7 @@ class Styles {
   static const String FontFamilyBodyText1 = Strings.Montserrat;
   static const double FontSizeBodyText1 = 18.0;
 
-  // Subtitle
+  // Subtitle1
   static const String FontFamilySubtitleText1 = Strings.Montserrat;
   static const double FontSizeSubtitleText1 = 18.0;
 
@@ -46,7 +46,7 @@ class Styles {
   static const double ButtonSpacing = 10.0;
 
   // Top padding for all content underneath custom app bar
-  static const double PaddingUnderneathCustomAppBar = 320.0;
+  static const double PaddingUnderneathGeneralAppBar = 320.0;
 
   // Line spacing applied to text shown on prayer views
   static const double LineSpacing = 1.5;
