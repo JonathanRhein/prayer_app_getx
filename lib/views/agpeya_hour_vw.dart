@@ -18,24 +18,25 @@ class AgpeyaHourView extends StatelessWidget {
         endDrawer: EndDrawerCustom(),
         body: Stack(
           children: [
-            Obx(() => ListView.builder(
-                padding: EdgeInsets.only(top: Styles.PaddingUnderneathGeneralAppBar),
-                itemCount: controller.prayerList.length,
-                itemBuilder: (context, index) =>
-                    ShortPrayerListTile(index, controller))),
+            GetBuilder<AgpeyaHourController>(builder: (_) {
+              return ListView.builder(
+                  padding: EdgeInsets.only(
+                      top: Styles.PaddingUnderneathGeneralAppBar),
+                  itemCount: controller.prayerList.length,
+                  itemBuilder: (context, index) =>
+                      ShortPrayerListTile(index, controller));
+            }),
             GeneralAppBar(
-              title:
-                  translationService.getTranslation(controller.hour, 'title'),
-              hasBackButton: true,
-              hasEditButton: true 
-            ),
+                title:
+                    translationService.getTranslation(controller.hour, 'title'),
+                hasBackButton: true,
+                hasEditButton: true),
             Positioned.fill(
                 bottom: 30,
                 right: 30,
                 child: Align(
                     alignment: Alignment.bottomRight,
-                    child: ActionButton(
-                        text: 'agpeya.pray_now'.tr, args: 0)))
+                    child: ActionButton(text: 'agpeya.pray_now'.tr, args: 0)))
           ],
         ));
   }

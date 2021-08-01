@@ -68,7 +68,7 @@ class DatabaseService {
 
   // CRUD for agpeyaHourTable
 
-  Future<List<AgpeyaHour>> agpeyaHours() async {
+  Future<List<AgpeyaHour>> fetchAgpeyaHours() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaHours);
 
@@ -84,9 +84,18 @@ class DatabaseService {
     });
   }
 
-  Future<List<AgpeyaPrayer>> agpeyaPrayers() async {
+  Future<List<AgpeyaPrayer>> fetchAgpeyaPrayers(String hour) async {
     final db = await database;
-    final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaPrayers);
+    final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaPrayers,
+        columns: [
+          columnPrayerId,
+          columnHour,
+          columnPrayerSection,
+          columnPrayerName,
+          columnIsEnabled
+        ],
+        where: 'hour = ?',
+        whereArgs: [hour]);
 
     // Convert the List<Map<String, dynamic> into a List<AgpeyaHour>.
     return List.generate(maps.length, (i) {

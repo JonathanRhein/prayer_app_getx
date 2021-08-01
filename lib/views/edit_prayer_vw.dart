@@ -19,10 +19,12 @@ class EditPrayerView extends StatelessWidget {
           bottom: false,
           child: Stack(
             children: [
-              Obx(() => ListView.builder(
-                  padding: EdgeInsets.only(top: Styles.TopMenuHeight),
-                  itemCount: hourController.prayerList.length,
-                  itemBuilder: (context, index) => EditPrayerListTile(index))),
+              GetBuilder<AgpeyaHourController>(builder: (_) {
+                return ListView.builder(
+                    padding: EdgeInsets.only(top: Styles.TopMenuHeight),
+                    itemCount: hourController.prayerList.length,
+                    itemBuilder: (context, index) => EditPrayerListTile(index));
+              }),
               SmallAppBar('settings.edit_hour'.trParams({
                 'hour': translationService.getTranslation(
                     hourController.hour, 'title')

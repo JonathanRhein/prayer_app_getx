@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 class AgpeyaHourController extends GetxController {
   static AgpeyaHourController get find => Get.find();
   var dbList = <AgpeyaPrayer>[];
-  final prayerList = <dynamic>[].obs;
+  final prayerList = <dynamic>[];
   final DatabaseService _db = DatabaseService();
   final hour;
 
@@ -14,9 +14,14 @@ class AgpeyaHourController extends GetxController {
 
   @override
   void onInit() async {
-    dbList = await _db.agpeyaPrayers();
+    await _loadPrayersFromDatabase();
     _buildPrayerDBListWithHeadings();
     super.onInit();
+  }
+
+  _loadPrayersFromDatabase() async {
+    dbList = await _db.fetchAgpeyaPrayers(hour);
+    update();
   }
 
   // creates a list of prayers with headings for each new section
@@ -38,7 +43,6 @@ class AgpeyaHourController extends GetxController {
 
   void togglePrayerEnabled(prayerListIndex) async {
     var prayer = dbList[getCorrespondingDbListIndex(prayerListIndex)];
-    
     prayer.isEnabled = prayer.isEnabled == 1 ? 0 : 1;
     await _db.updateAgpeyaPrayer(prayer);
     update();
