@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/bottom_sheet_text.dart';
-import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
+import 'package:prayer_app_getx/controllers/text_settings_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';

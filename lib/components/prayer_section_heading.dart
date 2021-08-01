@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
+import 'package:prayer_app_getx/controllers/text_settings_ctl.dart';
 
 class PrayerSectionHeading extends StatelessWidget {
   final String text;

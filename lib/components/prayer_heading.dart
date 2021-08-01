@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
+import 'package:prayer_app_getx/controllers/text_settings_ctl.dart';
 
 class PrayerHeading extends StatelessWidget {
   final String text;

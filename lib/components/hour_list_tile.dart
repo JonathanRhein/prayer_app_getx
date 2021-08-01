@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/headline2_text.dart';
+import 'package:prayer_app_getx/controllers/agpeya_list_ctl.dart';
+import 'package:prayer_app_getx/models/databse/agpeya_hour.dart';
+import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class HourListTile extends StatelessWidget {
-  final String imagePath;
-  final String title;
-  final String text;
-  final String hour;
+  final index;
+  final listController = AgpeyaListController.find;
+  final translationService = TranslationService();
 
-  HourListTile(this.imagePath, this.title, this.text, this.hour);
+  HourListTile(this.index);
 
   @override
   Widget build(context) {
+    String hour = listController.dbList[index].name;
     return InkWell(
       onTap: () => Get.toNamed(Strings.AgpeyaHourRoute, arguments: hour),
       child: Padding(
@@ -31,7 +34,7 @@ class HourListTile extends StatelessWidget {
                     child: SizedBox(
                   height: 80,
                   child: Image.asset(
-                    imagePath,
+                    translationService.getTranslation(hour, 'icon'),
                     fit: BoxFit.fitHeight,
                   ),
                 )),
@@ -39,7 +42,12 @@ class HourListTile extends StatelessWidget {
                 Expanded(
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [Headline2Text(title), BodyText(text)])),
+                        children: [
+                      Headline2Text(
+                          translationService.getTranslation(hour, 'title')),
+                      BodyText(
+                          translationService.getTranslation(hour, 'subtitle'))
+                    ])),
                 Icon(Icons.navigate_next),
               ],
             ),
