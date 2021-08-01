@@ -33,11 +33,16 @@ class FullTextListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (listItem is String) ...[
-                  SizedBox(
-                    height: 30,
-                  ),
-                  PrayerSectionHeading(('agpeya.' + listItem).tr)
-                ] else ...[
+                  if (hourController
+                      .sectionContainsAnyEnabledPrayers(index)) ...[
+                    SizedBox(
+                      height: 30,
+                    ),
+                    PrayerSectionHeading(('agpeya.' + listItem).tr)
+                  ] else ...[
+                    SizedBox()
+                  ]
+                ] else if (hourController.isPrayerEnabled(index)) ...[
                   SizedBox(height: 20),
                   PrayerHeading(translationService.getTranslation(
                       listItem.name, 'title')),

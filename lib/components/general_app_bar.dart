@@ -55,7 +55,7 @@ class GeneralAppBar extends StatelessWidget {
               children: [
                 hasEditButton
                     ? GestureDetector(
-                        child: Icon(Icons.edit),
+                        child: Icon(Icons.settings),
                         onTap: () => Get.toNamed(Strings.EditPrayerRoute))
                     : SizedBox()
               ],

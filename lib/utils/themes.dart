@@ -103,14 +103,22 @@ ThemeData lightTheme() {
       color: _mainAccentColor,
       size: 25.0,
     ),
-        
+
+    dialogTheme: DialogTheme(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)))),
+
+    snackBarTheme: SnackBarThemeData(
+        actionTextColor: _mainAccentColor,
+        contentTextStyle: TextStyle(color: _mainTextColor)),
+
     switchTheme: SwitchThemeData(
       thumbColor:
           MaterialStateProperty.resolveWith((states) => _mainAccentColor),
       trackColor:
           MaterialStateProperty.resolveWith((states) => _mainAccentColorHue),
     ),
-  
+
     bottomSheetTheme: BottomSheetThemeData(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(35)))),
@@ -265,6 +273,12 @@ ThemeData darkTheme() {
         color: _mainAccentColor,
         size: 25.0,
       ),
+      dialogTheme: DialogTheme(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)))),
+      snackBarTheme: SnackBarThemeData(
+          actionTextColor: _mainAccentColor,
+          contentTextStyle: TextStyle(color: _mainTextColor)),
       bottomSheetTheme: BottomSheetThemeData(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(35)))),

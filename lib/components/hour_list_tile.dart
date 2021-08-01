@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/headline2_text.dart';
 import 'package:prayer_app_getx/controllers/agpeya_list_ctl.dart';
-import 'package:prayer_app_getx/models/databse/agpeya_hour.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
@@ -17,7 +16,7 @@ class HourListTile extends StatelessWidget {
 
   @override
   Widget build(context) {
-    String hour = listController.dbList[index].name;
+    String hour = listController.databaseList[index].name;
     return InkWell(
       onTap: () => Get.toNamed(Strings.AgpeyaHourRoute, arguments: hour),
       child: Padding(

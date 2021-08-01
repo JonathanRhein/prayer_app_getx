@@ -4,8 +4,8 @@ import 'package:prayer_app_getx/services/database_srvc.dart';
 
 class AgpeyaListController extends GetxController {
   static AgpeyaListController get find => Get.find();
-  List dbList = <AgpeyaHour>[];
-  final DatabaseService _db = DatabaseService();
+  List databaseList = <AgpeyaHour>[];
+  final DatabaseService _databaseService = DatabaseService();
 
   @override
   void onInit() async {
@@ -14,7 +14,7 @@ class AgpeyaListController extends GetxController {
   }
 
   _loadHoursFromDatabase() async {
-    dbList = await _db.fetchAgpeyaHours();
+    databaseList = await _databaseService.fetchAgpeyaHours();
     update();
   }
 }

@@ -16,7 +16,7 @@ class AgpeyaPrayerController extends GetxController {
   final showMenus = false.obs;
   final scrollController = ItemScrollController();
   final itemPositionListener = ItemPositionsListener.create();
-  var scrollDirection = ScrollDirection.forward;
+  ScrollDirection scrollDirection = ScrollDirection.forward;
   final _scrollService = ScrollService();
   bool reachedTop;
 
@@ -50,10 +50,11 @@ class AgpeyaPrayerController extends GetxController {
     // toggle Menus on scroll action performed by the user. Menu disappears on
     // scroll down action
     itemPositionListener.itemPositions.addListener(() {
-      var item = itemPositionListener.itemPositions.value.first;
+      ItemPosition item = itemPositionListener.itemPositions.value.first;
       currentIndex = item.index;
-      var newScrollDirection = _scrollService.determineScrollDirection(item);
-      
+      ScrollDirection newScrollDirection =
+          _scrollService.determineScrollDirection(item);
+
       if (!showTableOfContents) {
         if (scrollDirection != newScrollDirection) {
           showMenus.value =

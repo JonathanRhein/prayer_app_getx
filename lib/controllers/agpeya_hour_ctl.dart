@@ -5,9 +5,9 @@ import 'package:collection/collection.dart';
 
 class AgpeyaHourController extends GetxController {
   static AgpeyaHourController get find => Get.find();
-  var dbList = <AgpeyaPrayer>[];
+  List databaseList = <AgpeyaPrayer>[];
   final prayerList = <dynamic>[];
-  final DatabaseService _db = DatabaseService();
+  final DatabaseService _databaseService = DatabaseService();
   final hour;
 
   AgpeyaHourController(this.hour);
@@ -20,7 +20,7 @@ class AgpeyaHourController extends GetxController {
   }
 
   _loadPrayersFromDatabase() async {
-    dbList = await _db.fetchAgpeyaPrayers(hour);
+    databaseList = await _databaseService.fetchAgpeyaPrayers(hour);
     update();
   }
 
@@ -28,8 +28,8 @@ class AgpeyaHourController extends GetxController {
   _buildPrayerDBListWithHeadings() {
     String oldSection = "";
     int index = 0;
-    while (index < dbList.length) {
-      var prayer = dbList[index];
+    while (index < databaseList.length) {
+      AgpeyaPrayer prayer = databaseList[index];
       String newSection = prayer.section;
       if (oldSection != newSection) {
         prayerList.add(newSection);
@@ -42,14 +42,15 @@ class AgpeyaHourController extends GetxController {
   }
 
   void togglePrayerEnabled(prayerListIndex) async {
-    var prayer = dbList[getCorrespondingDbListIndex(prayerListIndex)];
+    AgpeyaPrayer prayer =
+        databaseList[getCorrespondingDbListIndex(prayerListIndex)];
     prayer.isEnabled = prayer.isEnabled == 1 ? 0 : 1;
-    await _db.updateAgpeyaPrayer(prayer);
+    await _databaseService.updateAgpeyaPrayer(prayer);
     update();
   }
 
   // as prayerList contains also section headings this method returns
-  // the corresponding index for dbList in order to be able to update the
+  // the corresponding index for databaseList in order to be able to update the
   // correct database entry
   int getCorrespondingDbListIndex(prayerListIndex) {
     return prayerListIndex -
@@ -61,7 +62,16 @@ class AgpeyaHourController extends GetxController {
   }
 
   bool isPrayerEnabled(prayerListIndex) =>
-      dbList[getCorrespondingDbListIndex(prayerListIndex)].isEnabled == 1;
+      databaseList[getCorrespondingDbListIndex(prayerListIndex)].isEnabled == 1;
 
-  void saveChanges() {}
+
+  // checks to see if there is at least one prayer "enabled" for the given 
+  // section. If none is enabled, the section heading won't be displayed at all
+  bool sectionContainsAnyEnabledPrayers(prayerListIndex) =>
+      databaseList
+          .where((item) =>
+              item.section == prayerList[prayerListIndex] &&
+              item.isEnabled == 1)
+          .length >
+      0;
 }

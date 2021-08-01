@@ -9,9 +9,12 @@ class SwitchListTileCustom extends StatelessWidget {
 
   SwitchListTileCustom({this.value, this.onChanged, this.title});
 
+  // TODO: How remove default right margin/margin from SwitchListTile
+
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(
+      
         inactiveThumbColor: Get.context.theme.primaryColorLight,
         contentPadding: EdgeInsets.only(
             left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),

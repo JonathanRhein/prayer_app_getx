@@ -21,7 +21,7 @@ class AgpeyaListView extends StatelessWidget {
               return ListView.builder(
                   padding: EdgeInsets.only(
                       top: Styles.PaddingUnderneathGeneralAppBar),
-                  itemCount: controller.dbList.length,
+                  itemCount: controller.databaseList.length,
                   itemBuilder: (context, index) => HourListTile(index));
             }),
             GeneralAppBar(title: 'agpeya.title'.tr, hasBackButton: true),

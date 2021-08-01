@@ -6,6 +6,7 @@ import 'package:prayer_app_getx/components/small_app_bar.dart';
 import 'package:prayer_app_getx/components/toc_bottom_sheet.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/controllers/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/utils/constants/strings.dart';
 
 class PrayerAppMenus extends StatelessWidget {
   final bool hasBackButton;
@@ -35,17 +36,9 @@ class PrayerAppMenus extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FloatingActionButton(
-            heroTag: 'showTOC',
-            onPressed: () {
-              prayerController.dismissMenu();
-              showModalBottomSheet(
-                  enableDrag: true,
-                  context: context,
-                  builder: (context) {
-                    return TableOfContentsBottomSheet();
-                  }).whenComplete(() => prayerController.enableMenu());
-            },
-            child: Icon(Icons.toc),
+            heroTag: 'editPrayerEnabled',
+            onPressed: () => Get.toNamed(Strings.EditPrayerRoute),
+            child: Icon(Icons.settings),
             backgroundColor: context.theme.scaffoldBackgroundColor,
           ),
           FloatingActionButton(
@@ -63,6 +56,20 @@ class PrayerAppMenus extends StatelessWidget {
             heroTag: 'scrollTop',
             onPressed: () => prayerController.scrollToPrayer(0),
             child: Icon(Icons.arrow_upward),
+            backgroundColor: context.theme.scaffoldBackgroundColor,
+          ),
+          FloatingActionButton(
+            heroTag: 'showTOC',
+            onPressed: () {
+              prayerController.dismissMenu();
+              showModalBottomSheet(
+                  enableDrag: true,
+                  context: context,
+                  builder: (context) {
+                    return TableOfContentsBottomSheet();
+                  }).whenComplete(() => prayerController.enableMenu());
+            },
+            child: Icon(Icons.toc),
             backgroundColor: context.theme.scaffoldBackgroundColor,
           ),
         ],
