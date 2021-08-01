@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
-import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
-import 'package:prayer_app_getx/controller/text_settings_ctl.dart';
+import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
+import 'package:prayer_app_getx/controllers/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controllers/text_settings_ctl.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 

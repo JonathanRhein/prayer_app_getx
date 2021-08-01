@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prayer_app_getx/controller/language_ctl.dart';
+import 'package:prayer_app_getx/controllers/language_ctl.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
 import 'package:prayer_app_getx/components/general_app_bar.dart';
 import 'package:prayer_app_getx/components/body_text.dart';

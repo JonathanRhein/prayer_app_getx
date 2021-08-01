@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/setting_bottom_sheet.dart';
 import 'package:prayer_app_getx/components/small_app_bar.dart';
 import 'package:prayer_app_getx/components/toc_bottom_sheet.dart';
-import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
-import 'package:prayer_app_getx/controller/agpeya_prayer_ctl.dart';
+import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
+import 'package:prayer_app_getx/controllers/agpeya_prayer_ctl.dart';
 
 class PrayerAppMenus extends StatelessWidget {
   final bool hasBackButton;

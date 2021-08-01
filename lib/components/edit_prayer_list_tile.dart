@@ -4,7 +4,7 @@ import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/components/switch_list_tile_cstm.dart';
-import 'package:prayer_app_getx/controller/agpeya_hour_ctl.dart';
+import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
