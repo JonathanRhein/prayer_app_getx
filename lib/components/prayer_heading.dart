@@ -11,13 +11,24 @@ class PrayerHeading extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Text(text,
+    return RichText(
         textAlign: settingsController.textAlignment,
-        style: TextStyle(
-            height: settingsController.lineSpacing,
-            color: context.theme.primaryColorDark,
-            fontWeight: FontWeight.bold,
-            fontSize: settingsController.fontSizePrayerHeading,
-            fontFamily: settingsController.fontFamily));
+        text: TextSpan(
+            text: '♱',
+            style: TextStyle(
+                height: settingsController.lineSpacing,
+                color: context.theme.primaryColorDark,
+                fontSize: settingsController.fontSizePrayerHeading + 5),
+            children: <TextSpan>[
+              TextSpan(
+                text: ' ' + text,
+                style: TextStyle(
+                    height: settingsController.lineSpacing,
+                    color: context.theme.primaryColorDark,
+                    fontWeight: FontWeight.bold,
+                    fontSize: settingsController.fontSizePrayerHeading,
+                    fontFamily: settingsController.fontFamily),
+              )
+            ]));
   }
 }

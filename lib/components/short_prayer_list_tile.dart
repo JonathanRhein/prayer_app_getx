@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
 import 'package:prayer_app_getx/components/link_text.dart';
-import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
+import 'package:prayer_app_getx/components/list_section_heading.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
-import 'package:prayer_app_getx/models/databse/agpeya_prayer.dart';
+import 'package:prayer_app_getx/models/databse/agpeya_structure.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
@@ -43,13 +43,13 @@ class ShortPrayerListTile extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          PrayerListSectionHeading(('agpeya.' + heading).tr)
+          ListSectionHeading(('agpeya.' + heading).tr)
         ],
       ),
     );
   }
 
-  Widget _getPrayerTile(AgpeyaPrayer prayer) {
+  Widget _getPrayerTile(AgpeyaStructure prayer) {
     BuildContext context = Get.context;
     bool isPrayerEnabled = hourController.isPrayerEnabled(index);
     return InkWell(
@@ -93,11 +93,12 @@ class ShortPrayerListTile extends StatelessWidget {
     );
   }
 
-  _togglePrayerEnabledDialog(AgpeyaPrayer prayer) {
+  _togglePrayerEnabledDialog(AgpeyaStructure prayer) {
+    BuildContext context = Get.context;
     Get.dialog(AlertDialog(
       content: RichText(
-        textScaleFactor: 1.3,
         text: TextSpan(
+          style: context.textTheme.bodyText1,
           text: hourController.isPrayerEnabled(index)
               ? 'general.disable'.tr
               : 'general.enable'.tr,
@@ -133,14 +134,6 @@ class ShortPrayerListTile extends StatelessWidget {
   }
 
   _enablePrayerSnackbar() {
-    /* Get.snackbar(
-      '',
-      '',
-      messageText: BodyText('agpeya.activate_this_prayer_again'.tr),
-      mainButton: TextButton(
-          onPressed: () => hourController.togglePrayerEnabled(index),
-          child: LinkText('general.activate'.tr)),
-    ); */
     Get.snackbar(
       '',
       '',

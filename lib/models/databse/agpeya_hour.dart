@@ -25,6 +25,7 @@ class AgpeyaHour {
   @override
   String toString() {
     return '''AgpeyaPrayer{id: $id, name: $name, isNotification: $isNotification, 
-    notificationTime: $notificationTime, notificationInterval: $notificationInterval}''';
+              notificationTime: $notificationTime, 
+              notificationInterval: $notificationInterval}\n''';
   }
 }

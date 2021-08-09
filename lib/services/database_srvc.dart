@@ -3,26 +3,34 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:prayer_app_getx/models/databse/agpeya_hour.dart';
-import 'package:prayer_app_getx/models/databse/agpeya_prayer.dart';
+import 'package:prayer_app_getx/models/databse/agpeya_structure.dart';
+import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DatabaseService {
   // Column variables for agpeyaHoursTable
   final String tableAgpeyaHours = 'agpeyaHoursTable';
-  final String columnHourId = 'id';
-  final String columnHourName = 'name';
-  final String columnIsNotificationSet = 'isNotificationSet';
-  final String columnNotificationTime = 'notificationTime';
-  final String columnNotificationInterval = 'notificationInterval';
+  final String columnAgpeyaHoursId = 'id';
+  final String columnAgpeyaHoursName = 'name';
+  final String columnAgpeyaHoursIsNotificationSet = 'isNotificationSet';
+  final String columnAgpeyaHoursNotificationTime = 'notificationTime';
+  final String columnAgpeyaHoursNotificationInterval = 'notificationInterval';
 
-  // Column variables for agpeyaHourPrayersTable
+  // Column variables for agpeyaStructureTable
+  final String tableAgpeyaStructure = 'agpeyaStructureTable';
+  final String columnAgpeyaStructureId = 'id';
+  final String columnAgpeyaStructureHour = 'hour';
+  final String columnAgpeyaStructureSection = 'section';
+  final String columnAgpeyaStructureName = 'name';
+  final String columnAgpeyaStructureIsEnabled = 'isEnabled';
+
+  // Column variables for agpeyaPrayersTable
   final String tableAgpeyaPrayers = 'agpeyaPrayersTable';
-  final String columnPrayerId = 'id';
-  final String columnHour = 'hour';
-  final String columnPrayerSection = 'section';
-  final String columnPrayerName = 'name';
-  final String columnIsEnabled = 'isEnabled';
+  final String columnAgpeyaPrayersId = 'id';
+  final String columnAgpeyaPrayersName = 'name';
+  final String columnAgpeyaPrayersIsBiblical = 'isBiblical';
+  final String columnAgpeyaPrayersIsMarian = 'isMarian';
 
   static Database _database;
 
@@ -75,50 +83,94 @@ class DatabaseService {
     // Convert the List<Map<String, dynamic> into a List<AgpeyaHour>.
     return List.generate(maps.length, (i) {
       return AgpeyaHour(
-        id: maps[i][columnHourId],
-        name: maps[i][columnHourName],
-        isNotification: maps[i][columnIsNotificationSet],
-        notificationTime: maps[i][columnNotificationTime],
-        notificationInterval: maps[i][columnNotificationInterval],
+        id: maps[i][columnAgpeyaHoursId],
+        name: maps[i][columnAgpeyaHoursName],
+        isNotification: maps[i][columnAgpeyaHoursIsNotificationSet],
+        notificationTime: maps[i][columnAgpeyaHoursNotificationTime],
+        notificationInterval: maps[i][columnAgpeyaHoursNotificationInterval],
       );
     });
   }
 
-  Future<List<AgpeyaPrayer>> fetchAgpeyaPrayers(String hour) async {
+  Future<List<AgpeyaStructure>> fetchAgpeyaPrayers(String hour) async {
     final db = await database;
-    final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaPrayers,
+    final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaStructure,
         columns: [
-          columnPrayerId,
-          columnHour,
-          columnPrayerSection,
-          columnPrayerName,
-          columnIsEnabled
+          columnAgpeyaStructureId,
+          columnAgpeyaStructureHour,
+          columnAgpeyaStructureSection,
+          columnAgpeyaStructureName,
+          columnAgpeyaStructureIsEnabled
         ],
         where: 'hour = ?',
         whereArgs: [hour]);
 
     // Convert the List<Map<String, dynamic> into a List<AgpeyaHour>.
     return List.generate(maps.length, (i) {
-      return AgpeyaPrayer(
-        id: maps[i][columnPrayerId],
-        hour: maps[i][columnHour],
-        section: maps[i][columnPrayerSection],
-        name: maps[i][columnPrayerName],
-        isEnabled: maps[i][columnIsEnabled],
+      return AgpeyaStructure(
+        id: maps[i][columnAgpeyaStructureId],
+        hour: maps[i][columnAgpeyaStructureHour],
+        section: maps[i][columnAgpeyaStructureSection],
+        name: maps[i][columnAgpeyaStructureName],
+        isEnabled: maps[i][columnAgpeyaStructureIsEnabled],
       );
     });
   }
 
-  Future<void> updateAgpeyaPrayer(AgpeyaPrayer agpeyaPrayer) async {
+  Future<void> updateAgpeyaPrayer(AgpeyaStructure agpeyaPrayer) async {
     final db = await database;
 
     await db.update(
-      tableAgpeyaPrayers,
+      tableAgpeyaStructure,
       agpeyaPrayer.toMap(),
       where: 'id = ?',
       whereArgs: [agpeyaPrayer.id],
     );
   }
+
+  Future<void> updateDatabaseWithOption(
+      option, showOnlyBiblicalPrayers, showMarianTexts, showAllPrayers) async {
+    final db = await database;
+
+    List<Map<String, dynamic>> maps = [];
+
+    if (option == Strings.ShowOnlyBiblicalTexts) {
+      if (showOnlyBiblicalPrayers) {
+        await db.rawQuery('''
+          UPDATE $tableAgpeyaStructure 
+          SET $columnAgpeyaStructureIsEnabled = 0
+          WHERE EXISTS (SELECT *
+            FROM $tableAgpeyaPrayers
+            WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
+              AND ($tableAgpeyaPrayers.isBiblical is NULL))''');
+      }
+    } else if (option == Strings.ShowMarianTexts) {
+      if (showMarianTexts) {
+        await db.rawQuery('''
+          UPDATE $tableAgpeyaStructure 
+          SET $columnAgpeyaStructureIsEnabled = 1
+          WHERE EXISTS (SELECT *
+            FROM $tableAgpeyaPrayers
+            WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
+              AND ($tableAgpeyaPrayers.isMarian = 1))''');
+      } else {
+        await db.rawQuery('''
+          UPDATE $tableAgpeyaStructure 
+          SET $columnAgpeyaStructureIsEnabled = 0
+          WHERE EXISTS (SELECT *
+            FROM $tableAgpeyaPrayers
+            WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
+              AND ($tableAgpeyaPrayers.isMarian = 1))''');
+      }
+    } else if (option == Strings.ShowAllPrayers) {
+      if (showAllPrayers) {
+        await db.rawQuery('''
+          UPDATE $tableAgpeyaStructure 
+          SET $columnAgpeyaStructureIsEnabled = 1''');
+      }
+    }
+  }
+}
 
   // ----------------------------------------------
 
@@ -232,4 +284,4 @@ class DatabaseService {
   }
 
   String capitalize(String s) => s[0].toUpperCase() + s.substring(1); */
-}
+

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/body_text.dart';
-import 'package:prayer_app_getx/components/prayer_list_section_heading.dart';
+import 'package:prayer_app_getx/components/list_section_heading.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/components/switch_list_tile_cstm.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
@@ -33,7 +33,7 @@ class EditPrayerListTile extends StatelessWidget {
                   right: Styles.GeneralPadding,
                   top: Styles.GeneralPadding,
                   bottom: Styles.ButtonSpacing),
-              child: PrayerListSectionHeading(('agpeya.' + listItem).tr),
+              child: ListSectionHeading(('agpeya.' + listItem).tr),
             )
           : GetBuilder<AgpeyaHourController>(
               builder: (_) {

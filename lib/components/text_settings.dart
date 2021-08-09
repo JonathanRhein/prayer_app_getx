@@ -7,15 +7,15 @@ import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
-class SettingBottomSheet extends StatelessWidget {
+class TextSettings extends StatelessWidget {
   final settingsController = Get.put(TextSettingsController());
 
-  SettingBottomSheet();
+  TextSettings();
 
   @override
   Widget build(context) {
     return Padding(
-      padding: const EdgeInsets.all(Styles.GeneralPadding),
+      padding: EdgeInsets.all(Styles.GeneralPadding),
       child: GetBuilder<TextSettingsController>(
         builder: (_) {
           return Container(

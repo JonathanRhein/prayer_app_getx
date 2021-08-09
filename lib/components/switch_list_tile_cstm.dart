@@ -14,7 +14,6 @@ class SwitchListTileCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(
-      
         inactiveThumbColor: Get.context.theme.primaryColorLight,
         contentPadding: EdgeInsets.only(
             left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),

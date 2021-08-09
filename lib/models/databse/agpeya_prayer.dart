@@ -1,25 +1,23 @@
 class AgpeyaPrayer {
   int id;
-  String hour;
-  String section;
   String name;
-  int isEnabled;
+  String isBiblical;
+  int isMarian;
 
-  AgpeyaPrayer({this.id, this.hour, this.section, this.name, this.isEnabled});
+  AgpeyaPrayer({this.id, this.name, this.isBiblical, this.isMarian});
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'hour': hour,
-      'section': section,
       'name': name,
-      'isEnabled': isEnabled,
+      'isBiblical': isBiblical,
+      'isMarian': isMarian,
     };
   }
 
   @override
   String toString() {
-    return '''AgpeyaPrayer{id: $id, hour: $hour, section: $section, 
-    name: $name, isEnabled: $isEnabled}''';
+    return '''AgpeyaPrayer{id: $id, name: $name, isBiblical: $isBiblical, 
+              isMarian: $isMarian}\n''';
   }
 }

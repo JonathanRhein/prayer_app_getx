@@ -104,6 +104,8 @@ ThemeData lightTheme() {
       size: 25.0,
     ),
 
+    dividerTheme: DividerThemeData(color: _disabledTextColor, thickness: 1),
+
     dialogTheme: DialogTheme(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)))),
@@ -273,6 +275,7 @@ ThemeData darkTheme() {
         color: _mainAccentColor,
         size: 25.0,
       ),
+      dividerTheme: DividerThemeData(color: _disabledTextColor, thickness: 1),
       dialogTheme: DialogTheme(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)))),

@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/models/databse/agpeya_prayer.dart';
+import 'package:prayer_app_getx/models/databse/agpeya_structure.dart';
 import 'package:prayer_app_getx/services/database_srvc.dart';
 import 'package:collection/collection.dart';
 
 class AgpeyaHourController extends GetxController {
   static AgpeyaHourController get find => Get.find();
-  List databaseList = <AgpeyaPrayer>[];
+  List databaseList = <AgpeyaStructure>[];
   final prayerList = <dynamic>[];
   final DatabaseService _databaseService = DatabaseService();
   final hour;
@@ -14,22 +14,19 @@ class AgpeyaHourController extends GetxController {
 
   @override
   void onInit() async {
-    await _loadPrayersFromDatabase();
-    _buildPrayerDBListWithHeadings();
+    await buildPrayerDBListWithHeadings();
     super.onInit();
   }
 
-  _loadPrayersFromDatabase() async {
-    databaseList = await _databaseService.fetchAgpeyaPrayers(hour);
-    update();
-  }
-
   // creates a list of prayers with headings for each new section
-  _buildPrayerDBListWithHeadings() {
+  buildPrayerDBListWithHeadings() async {
+    databaseList = await _databaseService.fetchAgpeyaPrayers(hour);
+    
+    prayerList.clear();
     String oldSection = "";
     int index = 0;
     while (index < databaseList.length) {
-      AgpeyaPrayer prayer = databaseList[index];
+      AgpeyaStructure prayer = databaseList[index];
       String newSection = prayer.section;
       if (oldSection != newSection) {
         prayerList.add(newSection);
@@ -39,11 +36,12 @@ class AgpeyaHourController extends GetxController {
         index++;
       }
     }
+    update();
   }
 
   void togglePrayerEnabled(prayerListIndex) async {
-    AgpeyaPrayer prayer =
-        databaseList[getCorrespondingDbListIndex(prayerListIndex)];
+    AgpeyaStructure prayer =
+        databaseList[_getCorrespondingDbListIndex(prayerListIndex)];
     prayer.isEnabled = prayer.isEnabled == 1 ? 0 : 1;
     await _databaseService.updateAgpeyaPrayer(prayer);
     update();
@@ -52,7 +50,7 @@ class AgpeyaHourController extends GetxController {
   // as prayerList contains also section headings this method returns
   // the corresponding index for databaseList in order to be able to update the
   // correct database entry
-  int getCorrespondingDbListIndex(prayerListIndex) {
+  int _getCorrespondingDbListIndex(prayerListIndex) {
     return prayerListIndex -
         prayerList.foldIndexed(
             0,
@@ -62,11 +60,11 @@ class AgpeyaHourController extends GetxController {
   }
 
   bool isPrayerEnabled(prayerListIndex) =>
-      databaseList[getCorrespondingDbListIndex(prayerListIndex)].isEnabled == 1;
+      databaseList[_getCorrespondingDbListIndex(prayerListIndex)].isEnabled ==
+      1;
 
-
-  // checks to see if there is at least one prayer "enabled" for the given 
-  // section. If none is enabled, the section heading won't be displayed at all
+  // checks to see if there is at least one prayer "enabled" for the given
+  // section. If none is enabled, the section heading shall not be displayed
   bool sectionContainsAnyEnabledPrayers(prayerListIndex) =>
       databaseList
           .where((item) =>

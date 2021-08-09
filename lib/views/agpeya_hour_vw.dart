@@ -9,7 +9,7 @@ import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class AgpeyaHourView extends StatelessWidget {
-  final controller = Get.put(AgpeyaHourController(Get.arguments));
+  final hourController = Get.put(AgpeyaHourController(Get.arguments));
   final translationService = TranslationService();
 
   @override
@@ -22,13 +22,13 @@ class AgpeyaHourView extends StatelessWidget {
               return ListView.builder(
                   padding: EdgeInsets.only(
                       top: Styles.PaddingUnderneathGeneralAppBar),
-                  itemCount: controller.prayerList.length,
+                  itemCount: hourController.prayerList.length,
                   itemBuilder: (context, index) =>
-                      ShortPrayerListTile(index, controller));
+                      ShortPrayerListTile(index, hourController));
             }),
             GeneralAppBar(
                 title:
-                    translationService.getTranslation(controller.hour, 'title'),
+                    translationService.getTranslation(hourController.hour, 'title'),
                 hasBackButton: true,
                 hasEditButton: true),
             Positioned.fill(

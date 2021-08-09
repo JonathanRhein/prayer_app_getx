@@ -10,4 +10,7 @@ class Languages {
     LanguageOptionsModel(token: "ko", language: "한국어"), //Korean
     LanguageOptionsModel(token: "de", language: "Deutsch"), //German
   ];
+
+  static Iterable<MapEntry<int, LanguageOptionsModel>> get languages =>
+      languageOptions.asMap().entries;
 }

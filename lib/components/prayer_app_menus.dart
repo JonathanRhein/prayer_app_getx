@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prayer_app_getx/components/setting_bottom_sheet.dart';
+import 'package:prayer_app_getx/components/text_settings.dart';
 import 'package:prayer_app_getx/components/small_app_bar.dart';
-import 'package:prayer_app_getx/components/toc_bottom_sheet.dart';
+import 'package:prayer_app_getx/components/table_of_contents.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/controllers/agpeya_prayer_ctl.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
@@ -36,9 +36,9 @@ class PrayerAppMenus extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FloatingActionButton(
-            heroTag: 'editPrayerEnabled',
+            heroTag: 'editPrayers',
             onPressed: () => Get.toNamed(Strings.EditPrayerRoute),
-            child: Icon(Icons.settings),
+            child: Icon(Icons.settings_outlined),
             backgroundColor: context.theme.scaffoldBackgroundColor,
           ),
           FloatingActionButton(
@@ -47,7 +47,7 @@ class PrayerAppMenus extends StatelessWidget {
                 enableDrag: true,
                 context: context,
                 builder: (context) {
-                  return SettingBottomSheet();
+                  return TextSettings();
                 }),
             child: Icon(Icons.text_format),
             backgroundColor: context.theme.scaffoldBackgroundColor,
@@ -66,7 +66,7 @@ class PrayerAppMenus extends StatelessWidget {
                   enableDrag: true,
                   context: context,
                   builder: (context) {
-                    return TableOfContentsBottomSheet();
+                    return TableOfContents();
                   }).whenComplete(() => prayerController.enableMenu());
             },
             child: Icon(Icons.toc),
