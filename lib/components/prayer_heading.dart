@@ -6,8 +6,9 @@ class PrayerHeading extends StatelessWidget {
   final String text;
   final settingsController = TextSettingsController.find;
   final context = Get.context;
+  final isMarian;
 
-  PrayerHeading(this.text);
+  PrayerHeading(this.text, {this.isMarian: false});
 
   @override
   Widget build(context) {
@@ -23,6 +24,7 @@ class PrayerHeading extends StatelessWidget {
               TextSpan(
                 text: ' ' + text,
                 style: TextStyle(
+                    fontStyle: isMarian ? FontStyle.italic : FontStyle.normal,
                     height: settingsController.lineSpacing,
                     color: context.theme.primaryColorDark,
                     fontWeight: FontWeight.bold,

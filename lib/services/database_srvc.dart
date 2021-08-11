@@ -3,34 +3,17 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:prayer_app_getx/models/databse/agpeya_hour.dart';
+import 'package:prayer_app_getx/models/presentation/agpeya_prayer.dart';
 import 'package:prayer_app_getx/models/databse/agpeya_structure.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DatabaseService {
-  // Column variables for agpeyaHoursTable
+  // Table names
   final String tableAgpeyaHours = 'agpeyaHoursTable';
-  final String columnAgpeyaHoursId = 'id';
-  final String columnAgpeyaHoursName = 'name';
-  final String columnAgpeyaHoursIsNotificationSet = 'isNotificationSet';
-  final String columnAgpeyaHoursNotificationTime = 'notificationTime';
-  final String columnAgpeyaHoursNotificationInterval = 'notificationInterval';
-
-  // Column variables for agpeyaStructureTable
   final String tableAgpeyaStructure = 'agpeyaStructureTable';
-  final String columnAgpeyaStructureId = 'id';
-  final String columnAgpeyaStructureHour = 'hour';
-  final String columnAgpeyaStructureSection = 'section';
-  final String columnAgpeyaStructureName = 'name';
-  final String columnAgpeyaStructureIsEnabled = 'isEnabled';
-
-  // Column variables for agpeyaPrayersTable
   final String tableAgpeyaPrayers = 'agpeyaPrayersTable';
-  final String columnAgpeyaPrayersId = 'id';
-  final String columnAgpeyaPrayersName = 'name';
-  final String columnAgpeyaPrayersIsBiblical = 'isBiblical';
-  final String columnAgpeyaPrayersIsMarian = 'isMarian';
 
   static Database _database;
 
@@ -80,208 +63,141 @@ class DatabaseService {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaHours);
 
-    // Convert the List<Map<String, dynamic> into a List<AgpeyaHour>.
+    // Convert the List<Map<String, dynamic> into a List<AgpeyaHour>
     return List.generate(maps.length, (i) {
       return AgpeyaHour(
-        id: maps[i][columnAgpeyaHoursId],
-        name: maps[i][columnAgpeyaHoursName],
-        isNotification: maps[i][columnAgpeyaHoursIsNotificationSet],
-        notificationTime: maps[i][columnAgpeyaHoursNotificationTime],
-        notificationInterval: maps[i][columnAgpeyaHoursNotificationInterval],
+        id: maps[i]["id"],
+        name: maps[i]["name"],
+        isNotification: maps[i]["isNotificationSet"],
+        notificationTime: maps[i]["notificationTime"],
+        notificationInterval: maps[i]["notificationInterval"],
       );
     });
   }
 
-  Future<List<AgpeyaStructure>> fetchAgpeyaPrayers(String hour) async {
+  Future<List<AgpeyaPrayer>> fetchAgpeyaPrayers(String hour) async {
     final db = await database;
-    final List<Map<String, dynamic>> maps = await db.query(tableAgpeyaStructure,
-        columns: [
-          columnAgpeyaStructureId,
-          columnAgpeyaStructureHour,
-          columnAgpeyaStructureSection,
-          columnAgpeyaStructureName,
-          columnAgpeyaStructureIsEnabled
-        ],
-        where: 'hour = ?',
-        whereArgs: [hour]);
 
-    // Convert the List<Map<String, dynamic> into a List<AgpeyaHour>.
+    final List<Map<String, dynamic>> maps = await db.rawQuery('''
+          SELECT $tableAgpeyaStructure.id, $tableAgpeyaStructure.name, 
+                  hour, section, isEnabled, isBiblical, isMarian
+          FROM $tableAgpeyaStructure
+          JOIN $tableAgpeyaPrayers 
+          ON $tableAgpeyaStructure.name = $tableAgpeyaPrayers.name
+          WHERE $tableAgpeyaStructure.hour LIKE "$hour";''');
+
+    // Convert the List<Map<String, dynamic> into a List<AgpeyaPrayer>
     return List.generate(maps.length, (i) {
-      return AgpeyaStructure(
-        id: maps[i][columnAgpeyaStructureId],
-        hour: maps[i][columnAgpeyaStructureHour],
-        section: maps[i][columnAgpeyaStructureSection],
-        name: maps[i][columnAgpeyaStructureName],
-        isEnabled: maps[i][columnAgpeyaStructureIsEnabled],
+      return AgpeyaPrayer(
+        id: maps[i]["id"],
+        name: maps[i]["name"],
+        hour: maps[i]["hour"],
+        section: maps[i]["section"],
+        isEnabled: maps[i]["isEnabled"],
+        isBiblical: maps[i]["isBiblical"],
+        isMarian: maps[i]["isMarian"],
       );
     });
   }
 
-  Future<void> updateAgpeyaPrayer(AgpeyaStructure agpeyaPrayer) async {
+  Future<void> updateAgpeyaPrayer(AgpeyaPrayer agpeyaPrayer) async {
     final db = await database;
+
+    // Convert the AgpeyaPrayer into an database compatible AgpeyaStructure
+    AgpeyaStructure agpeyaStructure = AgpeyaStructure(
+        id: agpeyaPrayer.id,
+        name: agpeyaPrayer.name,
+        hour: agpeyaPrayer.hour,
+        section: agpeyaPrayer.section,
+        isEnabled: agpeyaPrayer.isEnabled);
 
     await db.update(
       tableAgpeyaStructure,
-      agpeyaPrayer.toMap(),
+      agpeyaStructure.toMap(),
       where: 'id = ?',
-      whereArgs: [agpeyaPrayer.id],
+      whereArgs: [agpeyaStructure.id],
     );
   }
 
-  Future<void> updateDatabaseWithOption(
-      option, showOnlyBiblicalPrayers, showMarianTexts, showAllPrayers) async {
+  Future<bool> checkShowOnlyBiblicalTexts() async {
     final db = await database;
 
-    List<Map<String, dynamic>> maps = [];
+    return Sqflite.firstIntValue(await db.rawQuery('''
+        SELECT count(*)
+        FROM $tableAgpeyaStructure  
+        JOIN $tableAgpeyaPrayers
+        ON $tableAgpeyaStructure.name = $tableAgpeyaPrayers.name
+        WHERE $tableAgpeyaPrayers.isBiblical = 0
+        AND $tableAgpeyaStructure.isEnabled = 1;''')) == 0;
+  }
+
+  Future<bool> checkShowMarianTexts() async {
+    final db = await database;
+
+    return Sqflite.firstIntValue(await db.rawQuery('''
+        SELECT count(*)
+        FROM $tableAgpeyaStructure  
+        JOIN $tableAgpeyaPrayers
+        ON $tableAgpeyaStructure.name = $tableAgpeyaPrayers.name
+        WHERE $tableAgpeyaPrayers.isMarian = 1
+        AND $tableAgpeyaStructure.isEnabled = 1;''')) > 0;
+  }
+
+  Future<void> resetTextsToDefault() async {
+    final db = await database;
+
+    await db.rawQuery('''UPDATE $tableAgpeyaStructure 
+            SET isEnabled = 1;''');
+  }
+
+  Future<void> updateDatabaseWithOption(
+      option, showOnlyBiblicalPrayers, showMarianTexts) async {
+    final db = await database;
 
     if (option == Strings.ShowOnlyBiblicalTexts) {
       if (showOnlyBiblicalPrayers) {
         await db.rawQuery('''
-          UPDATE $tableAgpeyaStructure 
-          SET $columnAgpeyaStructureIsEnabled = 0
-          WHERE EXISTS (SELECT *
+            UPDATE $tableAgpeyaStructure 
+            SET isEnabled = 0
+            WHERE EXISTS (SELECT *
             FROM $tableAgpeyaPrayers
             WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
-              AND ($tableAgpeyaPrayers.isBiblical is NULL))''');
+            AND ($tableAgpeyaPrayers.isBiblical = 0));''');
+
+        await db.rawQuery('''    
+            UPDATE $tableAgpeyaStructure 
+            SET isEnabled = 1
+            WHERE EXISTS (SELECT *
+            FROM $tableAgpeyaPrayers
+            WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
+            AND ($tableAgpeyaPrayers.isBiblical = 1));''');
+    } else {
+        await db.rawQuery('''
+            UPDATE $tableAgpeyaStructure 
+            SET isEnabled = 1
+            WHERE EXISTS (SELECT *
+            FROM $tableAgpeyaPrayers
+            WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
+            AND ($tableAgpeyaPrayers.isMarian = 0));''');
       }
     } else if (option == Strings.ShowMarianTexts) {
       if (showMarianTexts) {
         await db.rawQuery('''
-          UPDATE $tableAgpeyaStructure 
-          SET $columnAgpeyaStructureIsEnabled = 1
-          WHERE EXISTS (SELECT *
+            UPDATE $tableAgpeyaStructure 
+            SET isEnabled = 1
+            WHERE EXISTS (SELECT *
             FROM $tableAgpeyaPrayers
             WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
-              AND ($tableAgpeyaPrayers.isMarian = 1))''');
+            AND ($tableAgpeyaPrayers.isMarian = 1));''');
       } else {
         await db.rawQuery('''
-          UPDATE $tableAgpeyaStructure 
-          SET $columnAgpeyaStructureIsEnabled = 0
-          WHERE EXISTS (SELECT *
+            UPDATE $tableAgpeyaStructure 
+            SET isEnabled = 0
+            WHERE EXISTS (SELECT *
             FROM $tableAgpeyaPrayers
             WHERE ($tableAgpeyaStructure.name = $tableAgpeyaPrayers.name)
-              AND ($tableAgpeyaPrayers.isMarian = 1))''');
-      }
-    } else if (option == Strings.ShowAllPrayers) {
-      if (showAllPrayers) {
-        await db.rawQuery('''
-          UPDATE $tableAgpeyaStructure 
-          SET $columnAgpeyaStructureIsEnabled = 1''');
+            AND ($tableAgpeyaPrayers.isMarian = 1));''');
       }
     }
   }
 }
-
-  // ----------------------------------------------
-
-  /* Future<int> saveAgpeyaHour(AgpeyaHour agpeyaHour) async {
-    var dbClient = await database;
-    var result = await dbClient.insert(tableAgpeyaHours, agpeyaHour.toMap());
-    return result;
-  }
-
-  Future<List> getAllAgpeyaHours() async {
-    var dbClient = await database;
-    var result = await dbClient.query(tableAgpeyaHours, columns: [
-      columnHourId,
-      columnHourName,
-      columnIsNotificationSet,
-      columnNotificationTime,
-      columnNotificationInterval
-    ]);
-    return result.toList();
-  }
-
-  Future<int> getCount() async {
-    var dbClient = await database;
-    return Sqflite.firstIntValue(
-        await dbClient.rawQuery('SELECT COUNT(*) FROM $tableAgpeyaHours'));
-  }
-
-  Future<AgpeyaHour> getAgpeyaHour(int id) async {
-    var dbClient = await database;
-    List<Map> result = await dbClient.query(tableAgpeyaHours,
-        columns: [
-          columnHourId,
-          columnHourName,
-          columnIsNotificationSet,
-          columnNotificationTime,
-          columnNotificationInterval
-        ],
-        where: '$columnHourId = ?',
-        whereArgs: [id]);
-
-    if (result.length > 0) {
-      return AgpeyaHour.fromMap(result.first);
-    }
-
-    return null;
-  }
-
-  Future<AgpeyaHour> getAgpeyaHourWithName(String hourName) async {
-    var dbClient = await database;
-    List<Map> result = await dbClient.query(tableAgpeyaHours,
-        columns: [
-          columnHourId,
-          columnHourName,
-          columnIsNotificationSet,
-          columnNotificationTime,
-          columnNotificationInterval
-        ],
-        where: '$columnHourName = ?',
-        whereArgs: [hourName]);
-
-    if (result.length > 0) {
-      return AgpeyaHour.fromMap(result.first);
-    }
-
-    return null;
-  }
-
-  Future<int> deleteAgpeyaHour(int id) async {
-    var dbClient = await database;
-    return await dbClient
-        .delete(tableAgpeyaHours, where: '$columnHourId = ?', whereArgs: [id]);
-  }
-
-  Future<int> updateAgpeyaHour(Map agpeyaHour) async {
-    var dbClient = await database;
-    return await dbClient.update(tableAgpeyaHours, agpeyaHour,
-        where: "$columnHourId = ?", whereArgs: [agpeyaHour['id']]);
-  }
-
-  // CRUD for agpeyaHourPrayersTable
-
-  Future<List> getAllAgpeyaHourPrayersForSpecificHour(String hourName) async {
-    var dbClient = await database;
-    var result = await dbClient.query(tableAgpeyaHourPrayers,
-        columns: [
-          columnPrayerId,
-          columnHour,
-          columnPrayerSection,
-          columnPrayerName,
-          columnIsEnabled
-        ],
-        where: "$columnHour = ?",
-        whereArgs: [hourName]);
-
-    if (result.length > 0) {
-      return result.toList();
-    }
-
-    return null;
-  }
-
-  Future<int> updateAgpeyaHourPrayer(Map agpeyaHourPrayer) async {
-    var dbClient = await database;
-    return await dbClient.update(tableAgpeyaHourPrayers, agpeyaHourPrayer,
-        where: "$columnHourId = ?", whereArgs: [agpeyaHourPrayer['id']]);
-  }
-
-  Future close() async {
-    var dbClient = await database;
-    return dbClient.close();
-  }
-
-  String capitalize(String s) => s[0].toUpperCase() + s.substring(1); */
-

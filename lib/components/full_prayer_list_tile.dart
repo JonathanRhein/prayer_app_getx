@@ -33,8 +33,8 @@ class FullTextListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (listItem is String) ...[
-                  if (hourController
-                      .sectionContainsAnyEnabledPrayers(index)) ...[
+                  if (hourController.sectionContainsAnyEnabledPrayers(
+                      prayerListIndex: index)) ...[
                     SizedBox(
                       height: 30,
                     ),
@@ -44,8 +44,9 @@ class FullTextListTile extends StatelessWidget {
                   ]
                 ] else if (hourController.isPrayerEnabled(index)) ...[
                   SizedBox(height: 20),
-                  PrayerHeading(translationService.getTranslation(
-                      listItem.name, 'title')),
+                  PrayerHeading(
+                      translationService.getTranslation(listItem.name, 'title'),
+                      isMarian: listItem.isMarian == 1),
                   SizedBox(height: 5),
                   PrayerText(
                       translationService.getTranslation(listItem.name, 'text')),

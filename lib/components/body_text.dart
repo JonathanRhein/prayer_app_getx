@@ -6,8 +6,10 @@ class BodyText extends StatelessWidget {
   final String text;
   final bool enabled;
   final bool padding;
+  final bool isMarian;
 
-  BodyText(this.text, {this.enabled: true, this.padding: false});
+  BodyText(this.text,
+      {this.enabled: true, this.padding: false, this.isMarian: false});
 
   @override
   Widget build(context) {
@@ -18,8 +20,10 @@ class BodyText extends StatelessWidget {
           : EdgeInsets.all(0),
       child: Text(text,
           style: enabled
-              ? context.textTheme.bodyText1
-              : context.textTheme.subtitle2),
+              ? context.textTheme.bodyText1.copyWith(
+                  fontStyle: isMarian ? FontStyle.italic : FontStyle.normal)
+              : context.textTheme.subtitle2.copyWith(
+                  fontStyle: isMarian ? FontStyle.italic : FontStyle.normal)),
     );
   }
 }

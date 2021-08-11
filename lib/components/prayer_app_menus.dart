@@ -38,7 +38,7 @@ class PrayerAppMenus extends StatelessWidget {
           FloatingActionButton(
             heroTag: 'editPrayers',
             onPressed: () => Get.toNamed(Strings.EditPrayerRoute),
-            child: Icon(Icons.settings_outlined),
+            child: Icon(Icons.edit_outlined),
             backgroundColor: context.theme.scaffoldBackgroundColor,
           ),
           FloatingActionButton(

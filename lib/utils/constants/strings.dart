@@ -12,7 +12,7 @@ class Strings {
   static const String LineSpacing = 'LineSpacing';
   static const String ShowOnlyBiblicalTexts = 'ShowOnlyBiblicalTexts';
   static const String ShowMarianTexts = 'ShowMarianTexts';
-  static const String ShowAllPrayers = 'ShowAllPrayers';
+  static const String ResetTextsToDefault = 'ResetTextsToDefault';
 
   //-------------------- FONTS ----------------------
 

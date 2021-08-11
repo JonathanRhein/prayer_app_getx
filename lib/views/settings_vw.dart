@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prayer_app_getx/components/list_section_heading.dart';
 import 'package:prayer_app_getx/components/paragraph_text.dart';
-import 'package:prayer_app_getx/components/text_settings.dart';
 import 'package:prayer_app_getx/controllers/language_ctl.dart';
 import 'package:prayer_app_getx/controllers/agpeya_settings_ctl.dart';
 import 'package:prayer_app_getx/services/theme_srvc.dart';
@@ -44,7 +43,7 @@ class SettingsView extends StatelessWidget {
                     ListSectionHeading('agpeya.title'.tr, padding: true),
                     _switchShowOnlyBiblicalTexts(),
                     _switchShowMarianTexts(),
-                    _switchShowAllPrayers(),
+                    _resetTextsToDefaultButton(),
                     SizedBox(
                       height: 40,
                     ),
@@ -149,11 +148,21 @@ class SettingsView extends StatelessWidget {
         title: BodyText('agpeya.show_marian_texts'.tr));
   }
 
-  Widget _switchShowAllPrayers() {
-    return SwitchListTileCustom(
-        value: agpeyaSettingsController.showAllPrayers,
-        onChanged: (_) => agpeyaSettingsController
-            .togglePrayerEnabledSettings(Strings.ShowAllPrayers),
-        title: BodyText('agpeya.show_all_prayers'.tr));
+  Widget _resetTextsToDefaultButton() {
+    return InkWell(
+      onTap: () => agpeyaSettingsController.resetTextsToDefault(),
+      child: ListTile(
+          contentPadding: EdgeInsets.only(
+              left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
+          title: Row(
+            children: [
+              BodyText('agpeya.reset_text_settings'.tr),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(Icons.arrow_forward)
+            ],
+          )),
+    );
   }
 }

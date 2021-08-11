@@ -5,7 +5,7 @@ import 'package:prayer_app_getx/components/list_section_heading.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
 import 'package:prayer_app_getx/controllers/agpeya_prayer_ctl.dart';
 import 'package:prayer_app_getx/controllers/text_settings_ctl.dart';
-import 'package:prayer_app_getx/models/databse/agpeya_structure.dart';
+import 'package:prayer_app_getx/models/presentation/agpeya_prayer.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
@@ -25,24 +25,9 @@ class TableOfContents extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
           top: Styles.GeneralPadding, bottom: Styles.GeneralPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-                left: Styles.GeneralPadding, bottom: Styles.GeneralPadding),
-            child: Text(
-              'settings.toc'.tr,
-              textScaleFactor: 1.6,
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-                itemCount: hourController.prayerList.length,
-                itemBuilder: (context, index) => _getTOCItem(index)),
-          ),
-        ],
-      ),
+      child: ListView.builder(
+          itemCount: hourController.prayerList.length,
+          itemBuilder: (context, index) => _getTOCItem(index)),
     );
   }
 
@@ -52,8 +37,9 @@ class TableOfContents extends StatelessWidget {
     // check if there any enabled prayers for the section at all or in case of
     // AgpeyaPrayer if the respective hour is enabled
     return (listItem is String &&
-                hourController.sectionContainsAnyEnabledPrayers(index)) ||
-            (listItem is AgpeyaStructure && hourController.isPrayerEnabled(index))
+                hourController.sectionContainsAnyEnabledPrayers(
+                    prayerListIndex: index)) ||
+            (listItem is AgpeyaPrayer && hourController.isPrayerEnabled(index))
         ? InkWell(
             onTap: () => prayerController.scrollToPrayer(index),
             child: Container(
@@ -65,11 +51,15 @@ class TableOfContents extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  listItem is String
-                      ? ListSectionHeading(('agpeya.' + listItem).tr)
-                      : BodyText(TranslationService()
-                          .getTranslation(listItem.name, 'title')),
-                  Icon(Icons.navigate_next)
+                  if (listItem is String) ...[
+                    ListSectionHeading(('agpeya.' + listItem).tr)
+                  ] else ...[
+                    BodyText(
+                        TranslationService()
+                            .getTranslation(listItem.name, 'title'),
+                        isMarian: listItem.isMarian == 1),
+                    Icon(Icons.navigate_next)
+                  ],
                 ],
               ),
             ),

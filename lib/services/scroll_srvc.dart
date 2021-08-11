@@ -1,4 +1,5 @@
 import 'package:flutter/rendering.dart';
+import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
 
 // This app uses ScrollablePositionedList for its ListViews which contain the
 // prayer texts. As ScrollablePositionedList did not support the regular scroll
@@ -42,7 +43,8 @@ class ScrollService {
     // when the screen is tapped and the scroll position has not changed
     if (itemOffsetLeadingNew != itemOffsetLeading) {
       itemOffsetLeadingNew = itemOffsetLeading;
-      return itemIndex == 0 && itemOffsetLeading == 0 ? true : false;
+      return itemIndex == AgpeyaHourController.find.indexOfFirstVisibleItem() &&
+          itemOffsetLeading == 0;
     } else {
       return false;
     }

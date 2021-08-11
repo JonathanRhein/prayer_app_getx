@@ -5,7 +5,7 @@ import 'package:prayer_app_getx/components/link_text.dart';
 import 'package:prayer_app_getx/components/list_section_heading.dart';
 import 'package:prayer_app_getx/components/subtitle_text.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
-import 'package:prayer_app_getx/models/databse/agpeya_structure.dart';
+import 'package:prayer_app_getx/models/presentation/agpeya_prayer.dart';
 import 'package:prayer_app_getx/services/text_srvc.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
@@ -49,7 +49,7 @@ class ShortPrayerListTile extends StatelessWidget {
     );
   }
 
-  Widget _getPrayerTile(AgpeyaStructure prayer) {
+  Widget _getPrayerTile(AgpeyaPrayer prayer) {
     BuildContext context = Get.context;
     bool isPrayerEnabled = hourController.isPrayerEnabled(index);
     return InkWell(
@@ -72,11 +72,11 @@ class ShortPrayerListTile extends StatelessWidget {
                       BodyText(
                           translationService.getTranslation(
                               prayer.name, 'title'),
-                          enabled: isPrayerEnabled),
+                          enabled: isPrayerEnabled, isMarian: prayer.isMarian == 1,),
                       SubtitleText(
                           textService.getTextPreview(translationService
                               .getTranslation(prayer.name, 'text')),
-                          enabled: isPrayerEnabled)
+                          enabled: isPrayerEnabled, isMarian: prayer.isMarian == 1,)
                     ])),
                 Icon(
                   Icons.navigate_next,
@@ -93,7 +93,7 @@ class ShortPrayerListTile extends StatelessWidget {
     );
   }
 
-  _togglePrayerEnabledDialog(AgpeyaStructure prayer) {
+  _togglePrayerEnabledDialog(AgpeyaPrayer prayer) {
     BuildContext context = Get.context;
     Get.dialog(AlertDialog(
       content: RichText(

@@ -12,6 +12,8 @@ class AgpeyaHourView extends StatelessWidget {
   final hourController = Get.put(AgpeyaHourController(Get.arguments));
   final translationService = TranslationService();
 
+  // TODO: Shadow to ActionButton
+
   @override
   Widget build(context) {
     return Scaffold(
