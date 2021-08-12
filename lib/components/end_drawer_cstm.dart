@@ -12,8 +12,6 @@ class EndDrawerCustom extends StatelessWidget {
   final agpeyaListController = AgpeyaListController.find;
   final translationService = TranslationService();
 
-  // TODO: on back after click on agpeya hour make drawer pop!
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -57,7 +55,10 @@ class EndDrawerCustom extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.only(
           left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
-      onTap: () => Get.toNamed(Strings.AgpeyaHourRoute, arguments: hour),
+      onTap: () => {
+        navigator.pop(),
+        Get.toNamed(Strings.AgpeyaHourRoute, arguments: hour)
+      },
       leading: translationService.getTranslation(hour, 'latinNumber') == ""
           ? SizedBox()
           : LinkText(
@@ -65,7 +66,11 @@ class EndDrawerCustom extends StatelessWidget {
               fontFamily: Strings.Vidaloka,
             ),
       title: BodyText(translationService.getTranslation(hour, 'title')),
-      trailing: Icon(Icons.navigate_next),
+      trailing: Icon(
+        Icons.navigate_next,
+        color: Get.context.theme.accentColor,
+      ),
+      minLeadingWidth: 10,
     );
   }
 
@@ -89,7 +94,10 @@ class EndDrawerCustom extends StatelessWidget {
             ),
           ],
         ),
-        trailing: Icon(Icons.navigate_next),
-        onTap: () => {Get.back(), Get.toNamed(route)});
+        trailing: Icon(
+          Icons.navigate_next,
+          color: Get.context.theme.accentColor,
+        ),
+        onTap: () => {navigator.pop(), Get.toNamed(route)});
   }
 }
