@@ -149,20 +149,18 @@ class SettingsView extends StatelessWidget {
   }
 
   Widget _resetTextsToDefaultButton() {
-    return InkWell(
-      onTap: () => agpeyaSettingsController.resetTextsToDefault(),
-      child: ListTile(
-          contentPadding: EdgeInsets.only(
-              left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
-          title: Row(
-            children: [
-              BodyText('agpeya.reset_text_settings'.tr),
-              SizedBox(
-                width: 10,
-              ),
-              Icon(Icons.arrow_forward)
-            ],
-          )),
-    );
+    return ListTile(
+        onTap: () => agpeyaSettingsController.resetTextsToDefault(),
+        contentPadding: EdgeInsets.only(
+            left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),
+        title: Row(
+          children: [
+            BodyText('agpeya.reset_text_settings'.tr),
+            SizedBox(
+              width: 10,
+            ),
+            Icon(Icons.arrow_forward)
+          ],
+        ));
   }
 }

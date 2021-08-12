@@ -34,4 +34,5 @@ class Strings {
   static const String AgpeyaHourRoute = '/agpeya_hour';
   static const String AgpeyaPrayerRoute = '/agpeya_prayer';
   static const String EditPrayerRoute = '/edit_prayer';
+  static const String AgpeyaInformation = '/agpeya_information';
 }

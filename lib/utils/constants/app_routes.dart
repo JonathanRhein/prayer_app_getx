@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/utils/constants/strings.dart';
+import 'package:prayer_app_getx/views/agpeya_information.dart';
 import 'package:prayer_app_getx/views/agpeya_list_vw.dart';
 import 'package:prayer_app_getx/views/agpeya_hour_vw.dart';
 import 'package:prayer_app_getx/views/agpeya_prayer_vw.dart';
@@ -16,5 +17,6 @@ class AppRoutes {
     GetPage(name: Strings.AgpeyaPrayerRoute, page: () => AgpeyaPrayerView()),
     GetPage(name: Strings.SettingsRoute, page: () => SettingsView()),
     GetPage(name: Strings.EditPrayerRoute, page: () => EditPrayerView()),
+    GetPage(name: Strings.AgpeyaInformation, page: () => AgpeyaInformation()),
   ];
 }
