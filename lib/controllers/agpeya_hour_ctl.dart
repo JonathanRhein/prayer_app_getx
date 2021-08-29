@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/models/presentation/agpeya_prayer.dart';
 import 'package:prayer_app_getx/services/database_srvc.dart';
@@ -9,12 +11,16 @@ class AgpeyaHourController extends GetxController {
   final prayerList = <dynamic>[];
   final DatabaseService _databaseService = DatabaseService();
   final hour;
+  final scrollController = ScrollController();
+  ScrollDirection scrollDirection;
 
   AgpeyaHourController(this.hour);
 
   @override
   void onInit() async {
     await buildPrayerDBListWithHeadings();
+    scrollController.addListener(
+        () => scrollDirection = scrollController.position.userScrollDirection);
     super.onInit();
   }
 
@@ -76,8 +82,8 @@ class AgpeyaHourController extends GetxController {
 
   // returns the index of the first "visible" item in prayerList in order for
   // the scroll functionality (s. above) to work properly. E.g. if someone
-  // disables all prayers of a section, the index of the first visible item is 
-  // not "0" but some other value > 1 (e.g. 5), as the corresponding section 
+  // disables all prayers of a section, the index of the first visible item is
+  // not "0" but some other value > 1 (e.g. 5), as the corresponding section
   // heading will not be displayed either
   int indexOfFirstVisibleItem() => prayerList.foldIndexed(
       0,

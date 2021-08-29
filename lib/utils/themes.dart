@@ -161,8 +161,9 @@ ThemeData lightTheme() {
             shape: MaterialStateProperty.resolveWith((state) =>
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0))),
-            shadowColor: MaterialStateProperty.resolveWith(
-                (states) => Colors.transparent))),
+            elevation: MaterialStateProperty.resolveWith((states) => 3),
+            shadowColor:
+                MaterialStateProperty.resolveWith((states) => Colors.black))),
 
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -323,6 +324,7 @@ ThemeData darkTheme() {
               overlayColor:
                   MaterialStateProperty.resolveWith((state) => _mainAccentColorHue.withOpacity(0.2)),
               shape: MaterialStateProperty.resolveWith((state) => RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0))),
-              shadowColor: MaterialStateProperty.resolveWith((states) => Colors.transparent))),
+              elevation: MaterialStateProperty.resolveWith((states) => 3),
+              shadowColor: MaterialStateProperty.resolveWith((states) => Colors.black))),
       textButtonTheme: TextButtonThemeData(style: ButtonStyle(overlayColor: MaterialStateProperty.resolveWith((state) => Color(0xFF221C01)), foregroundColor: MaterialStateProperty.resolveWith((state) => _mainAccentColor))));
 }

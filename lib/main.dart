@@ -19,7 +19,6 @@ void main() async {
 // TODO: give visual feedback on overscrolling 
 // TODO: end drawer ordentlich fertig bauen
 // TODO: Agpeya Info page in end drawer anzeigen
-// TODO: notifications implementieren
 // TODO: make sliver for general app bar 
 
 class PrayerApp extends StatelessWidget {

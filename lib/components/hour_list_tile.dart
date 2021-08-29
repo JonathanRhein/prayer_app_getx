@@ -18,7 +18,10 @@ class HourListTile extends StatelessWidget {
   Widget build(context) {
     String hour = listController.databaseList[index].name;
     return InkWell(
-      onTap: () => Get.toNamed(Strings.AgpeyaHourRoute, arguments: hour),
+      onTap: () =>
+          // second item of the argument list indicates whether there should be
+          // a edit button or not
+          Get.toNamed(Strings.AgpeyaHourRoute, arguments: hour),
       child: Padding(
         padding: EdgeInsets.only(
             left: Styles.ScreenLeftPadding, right: Styles.ScreenRightPadding),

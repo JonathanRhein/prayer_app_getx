@@ -38,15 +38,16 @@ class Styles {
   //-------------------- SPACERS ----------------------
 
   // General padding values (left & right) for each screen
-  static const double GeneralPadding = 25.0;
-  static const double ScreenLeftPadding = 25.0;
-  static const double ScreenRightPadding = 25.0;
+  static const double GeneralPadding = 20.0;
+  static const double ScreenLeftPadding = 20.0;
+  static const double ScreenRightPadding = 20.0;
 
   // Padding for button grid layouts
   static const double ButtonSpacing = 10.0;
 
   // Top padding for all content underneath custom app bar
   static const double PaddingUnderneathGeneralAppBar = 320.0;
+  static const double AppBarHeight = 300.0;
 
   // Line spacing applied to text shown on prayer views
   static const double LineSpacing = 1.5;
