@@ -10,7 +10,7 @@ class AgpeyaHourController extends GetxController {
   List databaseList = <AgpeyaPrayer>[];
   final prayerList = <dynamic>[];
   final DatabaseService _databaseService = DatabaseService();
-  final hour;
+  String hour;
   final scrollController = ScrollController();
   ScrollDirection scrollDirection;
 

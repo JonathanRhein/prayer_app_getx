@@ -1,13 +1,16 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/navigational_icon.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
+import 'package:prayer_app_getx/controllers/sliver_header_ctl.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
-import 'package:prayer_app_getx/utils/constants/strings.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
+
+// TODO: check why screenLeftPaddingIncrease is not stored when updating theme
+// but reset to zero. Tried to solve by adding it to the controller but no luck 
+// so far. titleReachedTop preserves state through this method
 
 // The SliverPersistentHeader is constantly supplied with the most current
 // scroll offset (shrinkOffset) from the user with regard to the SliverList.
@@ -16,6 +19,10 @@ import 'package:prayer_app_getx/utils/constants/styles.dart';
 // image opacity)
 
 class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
+  // Controller is introduced to preserve the state of some of the variables
+  // necessary to build this header (e.g. titleReachedTop) as these variables
+  // are otherwise reset on an GetX update
+  final controller = Get.put(SliverHeaderController());
   final String title;
   final String icon;
   final bool hasBackButton;
@@ -24,16 +31,16 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
   final double headerMaximumHeight = 400.0;
   final double headerMinimumHeight = 50.0;
 
+  final imageOpacity = .45;
+
   final translationService = TranslationService();
 
+  double scrollRatio = 0;
+  double screenLeftPaddingIncrease = 0;
   double appBarHeightDelta = 0;
   GlobalKey _titleKey = GlobalKey();
-  double screenLeftPaddingIncrease = 0;
   double distanceLeftPaddingToTitle = 0;
   double safeAreaHeight;
-  bool titleReachedTop = false;
-
-  final imageOpacity = .5;
 
   SliverPersistentHeaderCustom(
     this.title, {
@@ -61,19 +68,19 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
     // If the title is very long the distanceLeftPddingToTitle will be negative.
     // In these cases the title should be centered from the very start
     if (distanceLeftPaddingToTitle < 0) {
-      titleReachedTop = true;
+      controller.titleReachedTop = true;
     } else {
       Offset titlePosition = renderTitle.localToGlobal(Offset.zero);
       // This check prevents jitter of the FittedBox containing the title text.
       // titleReachedTop is set to true once. Once it is true, it will never be
       // evaluated unless the scroll direction changes.
-      if (!titleReachedTop &&
+      if (!controller.titleReachedTop &&
           hourController.scrollDirection == ScrollDirection.reverse) {
-        titleReachedTop =
+        controller.titleReachedTop =
             titlePosition.dy <= (safeAreaHeight + Styles.GeneralPadding);
-      } else if (titleReachedTop &&
+      } else if (controller.titleReachedTop &&
           hourController.scrollDirection == ScrollDirection.forward) {
-        titleReachedTop =
+        controller.titleReachedTop =
             titlePosition.dy <= (safeAreaHeight + Styles.GeneralPadding);
       }
     }
@@ -84,12 +91,18 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     // Is called to calculate various measures for the transformation of
     // postion properties while scrolling.
+
     safeAreaHeight = Get.mediaQuery.padding.top;
     WidgetsBinding.instance.addPostFrameCallback(calculateMeasures);
     appBarHeightDelta = maxExtent - minExtent;
 
-    double currentImageOpacity = imageOpacity *
-        max((1 - (shrinkOffset / (appBarHeightDelta - safeAreaHeight))), 0);
+    scrollRatio = shrinkOffset / (appBarHeightDelta - safeAreaHeight);
+
+    double newImageOpacity = imageOpacity * max((1 - scrollRatio), 0);
+
+    int newBackgroundRGBValue = min(245, (245 * scrollRatio).round());
+
+    int newElementsRGBValue = max(31, (250 * (1 - scrollRatio)).round());
 
     return LayoutBuilder(builder: (context, constraints) {
       return Stack(
@@ -110,15 +123,18 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
                   ),
                 ], shape: SliverPersistenHeaderCustomShape(shrinkOffset)),
                 child: Container(
-                    color: context.theme.scaffoldBackgroundColor,
+                    color: Get.isDarkMode
+                        ? Color.fromRGBO(6, 6, 6, 1)
+                        : Color.fromRGBO(newBackgroundRGBValue,
+                            newBackgroundRGBValue, newBackgroundRGBValue, 1),
                     child: Opacity(
-                        opacity: currentImageOpacity * 2,
+                        opacity: newImageOpacity,
                         child: Image.asset(icon, fit: BoxFit.cover))),
               ),
             ),
           ),
           Align(
-              alignment: titleReachedTop
+              alignment: controller.titleReachedTop
                   ? Alignment.bottomCenter
                   : Alignment.bottomLeft,
               child: getTitle(shrinkOffset)),
@@ -135,11 +151,13 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         this.hasBackButton
-                            ? NavigationalIcon(
-                                Icons.arrow_back, () => Get.back())
+                            ? NavigationalIcon(Icons.arrow_back,
+                                () => Get.back(), newElementsRGBValue)
                             : SizedBox(),
-                        NavigationalIcon(Icons.menu,
-                            () => Scaffold.of(context).openEndDrawer()),
+                        NavigationalIcon(
+                            Icons.menu,
+                            () => Scaffold.of(context).openEndDrawer(),
+                            newElementsRGBValue),
                       ],
                     ),
                   ],
@@ -160,10 +178,13 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
   double get minExtent => headerMinimumHeight;
 
   Widget getTitle(shrinkOffset) {
+    double scrollRatio = shrinkOffset / (appBarHeightDelta - safeAreaHeight);
+
     if (shrinkOffset <= appBarHeightDelta) {
-      screenLeftPaddingIncrease = distanceLeftPaddingToTitle *
-          (shrinkOffset / (appBarHeightDelta - safeAreaHeight));
+      screenLeftPaddingIncrease = distanceLeftPaddingToTitle * scrollRatio;
     }
+
+    int newElementsRGBValue = max(31, (250 * (1 - scrollRatio)).round());
 
     return Padding(
       padding: EdgeInsets.only(
@@ -171,22 +192,17 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
           bottom: Styles.GeneralPadding / 2,
           right: Styles.ScreenRightPadding,
           left: Styles.ScreenLeftPadding +
-              (titleReachedTop ? 0 : screenLeftPaddingIncrease)),
+              (controller.titleReachedTop ? 0 : screenLeftPaddingIncrease)),
       child: FittedBox(
         fit: BoxFit.fitHeight,
-        child: Container(
-          decoration: BoxDecoration(shape: BoxShape.rectangle, boxShadow: [
-            BoxShadow(
-              color: Get.context.theme.primaryColor,
-              blurRadius: 40.0,
-            ),
-          ]),
-          child: Text(
-            title,
-            key: _titleKey,
-            style: Get.context.textTheme.headline1.copyWith(
-              color: Get.context.theme.primaryColorDark,
-            ),
+        child: Text(
+          title,
+          key: _titleKey,
+          style: Get.context.textTheme.headline1.copyWith(
+            color: Get.isDarkMode
+                ? Get.context.theme.primaryColorDark
+                : Color.fromRGBO(newElementsRGBValue, newElementsRGBValue,
+                    newElementsRGBValue, 1),
           ),
         ),
       ),

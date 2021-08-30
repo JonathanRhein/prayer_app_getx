@@ -9,8 +9,8 @@ import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class AgpeyaHourView extends StatelessWidget {
-  final hourController = Get.put(AgpeyaHourController(Get.arguments));
   final translationService = TranslationService();
+  var hourController = Get.put(AgpeyaHourController(Get.arguments));
 
   // TODO: Shadow to ActionButton
 
