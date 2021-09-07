@@ -8,8 +8,8 @@ import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class EditPrayerView extends StatelessWidget {
-  final hourController = Get.put(AgpeyaHourController(Get.arguments));
   final translationService = TranslationService();
+  final hourController = Get.put(AgpeyaHourController(), tag: Get.arguments[0].hour);
 
   @override
   Widget build(context) {

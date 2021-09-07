@@ -11,7 +11,7 @@ import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class FullTextListTile extends StatelessWidget {
   final int index;
-  final hourController = AgpeyaHourController.find;
+  final hourController = Get.arguments[0];
   final textService = TextService();
   final translationService = TranslationService();
 

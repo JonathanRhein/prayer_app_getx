@@ -12,7 +12,8 @@ class PrayerAppMenus extends StatelessWidget {
   final bool hasBackButton;
   final String title;
   final prayerController = AgpeyaPrayerController.find;
-  final hourController = AgpeyaHourController.find;
+  final hourController =
+      Get.find<AgpeyaHourController>(tag: Get.arguments[0].hour);
 
   PrayerAppMenus({Key key, this.title, this.hasBackButton: true})
       : super(key: key);
@@ -37,7 +38,8 @@ class PrayerAppMenus extends StatelessWidget {
         children: [
           FloatingActionButton(
             heroTag: 'editPrayers',
-            onPressed: () => Get.toNamed(Strings.EditPrayerRoute),
+            onPressed: () => Get.toNamed(Strings.EditPrayerRoute,
+                arguments: Get.arguments[0]),
             child: Icon(Icons.edit_outlined),
             backgroundColor: context.theme.scaffoldBackgroundColor,
           ),

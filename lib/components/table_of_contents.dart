@@ -14,7 +14,7 @@ import 'body_text.dart';
 class TableOfContents extends StatelessWidget {
   final settingsController = Get.put(TextSettingsController());
   final prayerController = AgpeyaPrayerController.find;
-  final hourController = AgpeyaHourController.find;
+  final hourController = Get.find<AgpeyaHourController>(tag: Get.arguments[0].hour);
 
   TableOfContents();
 

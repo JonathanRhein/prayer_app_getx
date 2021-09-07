@@ -5,20 +5,18 @@ import 'package:prayer_app_getx/components/end_drawer_cstm.dart';
 import 'package:prayer_app_getx/components/short_prayer_list_tile.dart';
 import 'package:prayer_app_getx/components/sliver_persistent_header_cstm.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
+import 'package:prayer_app_getx/controllers/general_scroll_controller.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class AgpeyaHourView extends StatelessWidget {
   final translationService = TranslationService();
-  var hourController = Get.put(AgpeyaHourController(Get.arguments));
-
-  // TODO: Shadow to ActionButton
-
-  // TODO: Background behind status bar when scrolling so that clock time and
-  // text from list does not overlap
 
   @override
   Widget build(context) {
+    var hourController = Get.put(AgpeyaHourController(), tag: Get.arguments);
+    var generalScrollController =
+        Get.put(GeneralScrollController(), tag: Get.arguments);
     return Scaffold(
         endDrawer: EndDrawerCustom(),
         body: SafeArea(
@@ -26,7 +24,7 @@ class AgpeyaHourView extends StatelessWidget {
           child: Stack(
             children: [
               CustomScrollView(
-                controller: hourController.scrollController,
+                controller: generalScrollController.scrollController,
                 slivers: <Widget>[
                   SliverPersistentHeader(
                     pinned: true,
@@ -38,6 +36,7 @@ class AgpeyaHourView extends StatelessWidget {
                     ),
                   ),
                   GetBuilder<AgpeyaHourController>(
+                    tag: Get.arguments,
                     builder: (_) {
                       return SliverPadding(
                         padding: EdgeInsets.only(top: 15),

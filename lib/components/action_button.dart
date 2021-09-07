@@ -16,7 +16,8 @@ class ActionButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         GestureDetector(
-          onTap: () => Get.toNamed(Strings.EditPrayerRoute),
+          onTap: () =>
+              Get.toNamed(Strings.EditPrayerRoute, arguments: Get.arguments),
           child: Container(
             child: Padding(
               padding: EdgeInsets.all(Styles.GeneralPadding / 1.5),

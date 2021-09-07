@@ -1,4 +1,5 @@
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
 
 // This app uses ScrollablePositionedList for its ListViews which contain the
@@ -43,7 +44,9 @@ class ScrollService {
     // when the screen is tapped and the scroll position has not changed
     if (itemOffsetLeadingNew != itemOffsetLeading) {
       itemOffsetLeadingNew = itemOffsetLeading;
-      return itemIndex == AgpeyaHourController.find.indexOfFirstVisibleItem() &&
+      return itemIndex ==
+              Get.find<AgpeyaHourController>(tag: Get.arguments[0].hour)
+                  .indexOfFirstVisibleItem() &&
           itemOffsetLeading == 0;
     } else {
       return false;

@@ -4,12 +4,13 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:prayer_app_getx/components/navigational_icon.dart';
 import 'package:prayer_app_getx/controllers/agpeya_hour_ctl.dart';
+import 'package:prayer_app_getx/controllers/general_scroll_controller.dart';
 import 'package:prayer_app_getx/controllers/sliver_header_ctl.dart';
 import 'package:prayer_app_getx/services/translation_srvc.dart';
 import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 // TODO: check why screenLeftPaddingIncrease is not stored when updating theme
-// but reset to zero. Tried to solve by adding it to the controller but no luck 
+// but reset to zero. Tried to solve by adding it to the controller but no luck
 // so far. titleReachedTop preserves state through this method
 
 // The SliverPersistentHeader is constantly supplied with the most current
@@ -26,7 +27,8 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
   final String title;
   final String icon;
   final bool hasBackButton;
-  final hourController = AgpeyaHourController.find;
+  final scrollController = Get.find<GeneralScrollController>(tag: Get.arguments);
+
 
   final double headerMaximumHeight = 400.0;
   final double headerMinimumHeight = 50.0;
@@ -75,11 +77,11 @@ class SliverPersistentHeaderCustom extends SliverPersistentHeaderDelegate {
       // titleReachedTop is set to true once. Once it is true, it will never be
       // evaluated unless the scroll direction changes.
       if (!controller.titleReachedTop &&
-          hourController.scrollDirection == ScrollDirection.reverse) {
+          scrollController.scrollDirection == ScrollDirection.reverse) {
         controller.titleReachedTop =
             titlePosition.dy <= (safeAreaHeight + Styles.GeneralPadding);
       } else if (controller.titleReachedTop &&
-          hourController.scrollDirection == ScrollDirection.forward) {
+          scrollController.scrollDirection == ScrollDirection.forward) {
         controller.titleReachedTop =
             titlePosition.dy <= (safeAreaHeight + Styles.GeneralPadding);
       }

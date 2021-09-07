@@ -11,7 +11,7 @@ import 'package:prayer_app_getx/utils/constants/styles.dart';
 
 class EditPrayerListTile extends StatelessWidget {
   final int index;
-  final hourController = AgpeyaHourController.find;
+  final hourController = Get.find<AgpeyaHourController>(tag: Get.arguments.hour);
   final textService = TextService();
   final translationService = TranslationService();
 

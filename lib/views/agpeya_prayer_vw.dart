@@ -13,8 +13,8 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class AgpeyaPrayerView extends StatelessWidget {
   final settingsController = Get.put(TextSettingsController());
-  final prayerController = Get.put(AgpeyaPrayerController(Get.arguments));
-  final hourController = AgpeyaHourController.find;
+  final prayerController = Get.put(AgpeyaPrayerController());
+  final hourController = Get.find<AgpeyaHourController>(tag: Get.arguments[0].hour);
   final translationService = TranslationService();
 
   @override

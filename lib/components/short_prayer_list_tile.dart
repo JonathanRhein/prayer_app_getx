@@ -55,7 +55,7 @@ class ShortPrayerListTile extends StatelessWidget {
     return InkWell(
       onLongPress: () => _togglePrayerEnabledDialog(prayer),
       onTap: () => isPrayerEnabled
-          ? Get.toNamed(Strings.AgpeyaPrayerRoute, arguments: index)
+          ? Get.toNamed(Strings.AgpeyaPrayerRoute, arguments: [hourController, index])
           : _enablePrayerSnackbar(),
       child: Padding(
         padding: EdgeInsets.only(

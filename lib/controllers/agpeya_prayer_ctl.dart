@@ -8,10 +8,8 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class AgpeyaPrayerController extends GetxController {
   static AgpeyaPrayerController get find => Get.find();
-  final initialIndex;
+  final initialIndex = Get.arguments[1];
   int currentIndex;
-
-  AgpeyaPrayerController(this.initialIndex);
 
   final showMenus = false.obs;
   final scrollController = ItemScrollController();

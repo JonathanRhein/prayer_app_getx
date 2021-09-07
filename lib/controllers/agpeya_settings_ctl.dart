@@ -32,7 +32,11 @@ class AgpeyaSettingsController extends GetxController {
     // check if the prayers have already been loaded from the database and if
     // so, load them again to display the update hour list view
     try {
-      AgpeyaHourController.find.buildPrayerDBListWithHeadings();
+      Get.find<AgpeyaHourController>(
+              tag: Get.arguments is List
+                  ? Get.arguments[0].hour
+                  : Get.arguments.hour)
+          .buildPrayerDBListWithHeadings();
     } catch (_) {}
   }
 
@@ -56,5 +60,4 @@ class AgpeyaSettingsController extends GetxController {
     await _databaseService.resetTextsToDefault();
     await setPrayerEnabledVariables();
   }
-
 }

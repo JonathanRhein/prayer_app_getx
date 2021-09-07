@@ -6,21 +6,15 @@ import 'package:prayer_app_getx/services/database_srvc.dart';
 import 'package:collection/collection.dart';
 
 class AgpeyaHourController extends GetxController {
-  static AgpeyaHourController get find => Get.find();
+  // static AgpeyaHourController get find => Get.find();
+  final String hour = Get.arguments;
   List databaseList = <AgpeyaPrayer>[];
   final prayerList = <dynamic>[];
   final DatabaseService _databaseService = DatabaseService();
-  String hour;
-  final scrollController = ScrollController();
-  ScrollDirection scrollDirection;
-
-  AgpeyaHourController(this.hour);
 
   @override
   void onInit() async {
     await buildPrayerDBListWithHeadings();
-    scrollController.addListener(
-        () => scrollDirection = scrollController.position.userScrollDirection);
     super.onInit();
   }
 
